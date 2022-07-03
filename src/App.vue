@@ -9,4 +9,6 @@ import TheFooter from "../components/TheFooter.vue";
   <TheFooter></TheFooter>
 </template>
 
-<style></style>
+<style>
+@import "./assets/styles/base.css";
+</style>
