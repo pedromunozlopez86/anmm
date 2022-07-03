@@ -8,17 +8,6 @@
   --celeste: #02c0d8;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-
-
 html {
   font-family: 'Roboto', sans-serif;
   background-color: var(--celeste);
