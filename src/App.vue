@@ -1,11 +1,14 @@
 <script setup>
 import { RouterView } from "vue-router";
-import TheFooterVue from "../components/TheFooter.vue";
-import TheFooter from "../components/TheFooter.vue";
+import TheFooterVue from "./components/TheFooter.vue";
+import TheFooter from "./components/TheFooter.vue";
 </script>
 
 <template>
   <RouterView />
+  <video
+    src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Video%20Invitacio%CC%81n.mp4?alt=media&token=647be919-fb5e-4f4b-89d6-7fb805251c1f"
+  ></video>
   <TheFooter></TheFooter>
 </template>
 
