@@ -5,8 +5,8 @@
   <h4>
     <span><i class="pi pi-envelope"></i></span>contacto@convencionanmm.cl
   </h4>
-  <h4><span>icono</span>+56 22 638 8984</h4>
-
-  <i class="pi pi-phone"></i>
+  <h4>
+    <span class="mr-3"><i class="pi pi-phone"></i></span>+56 22 638 8984
+  </h4>
 </template>
 <style scoped></style>
