@@ -5,6 +5,7 @@ import TabView from "primevue/tabview";
 import TabPanel from "primevue/tabpanel";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
+import router from "../router";
 
 const miercoles = [
   {
@@ -96,9 +97,7 @@ const dataClass = () => {
 };
 
 const download = () => {
-  const url =
-    "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAGISTRADOS%20PUERTO%20VARAS%20AO%202022.doc?alt=media&token=19057e1f-e6f5-44d2-be36-fd4a22859821";
-  window.open(url);
+  document.location.href = "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAGISTRADOS%20PUERTO%20VARAS%20AO%202022.doc?alt=media&token=19057e1f-e6f5-44d2-be36-fd4a22859821"
 };
 </script>
 
@@ -126,26 +125,17 @@ const download = () => {
                 </p>
               </div>
               <div class="text-center">
-                <img
-                  src="./../assets/img/Rectangle 45.png"
-                  alt="Miércoles-30"
-                />
+                <img src="./../assets/img/Rectangle 45.png" alt="Miércoles-30" />
               </div>
               <div class="text-center mt-3">
-                <Button class="p-button-outlined text-white" @click="download"
-                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                <Button class="p-button-outlined text-white" @click="download">Descargar programa completo <i
+                    class="pi pi-file ml-2"></i>
                 </Button>
               </div>
             </div>
             <div class="col-6">
-              <DataTable
-                responsiveLayout="scroll"
-                showGridlines="false"
-                :value="miercoles"
-                :row-class="rowClass"
-                headerStyle="color:red"
-                class="ui-corner-all"
-              >
+              <DataTable responsiveLayout="scroll" showGridlines="false" :value="miercoles" :row-class="rowClass"
+                headerStyle="color:red" class="ui-corner-all">
                 <Column field="hora">
                   <template #body="slotProps">
                     <div class="fila">
@@ -174,12 +164,7 @@ const download = () => {
               </p>
             </div>
             <div class="col-6">
-              <DataTable
-                responsiveLayout="scroll"
-                :value="jueves"
-                showGridlines="false"
-                :row-class="rowClass"
-              >
+              <DataTable responsiveLayout="scroll" :value="jueves" showGridlines="false" :row-class="rowClass">
                 <Column field="hora">
                   <template #body="slotProps">
                     <div class="fila">
@@ -204,12 +189,7 @@ const download = () => {
               <p>hola1</p>
             </div>
             <div class="col-6">
-              <DataTable
-                responsiveLayout="scroll"
-                :value="viernes"
-                showGridlines="false"
-                :row-class="rowClass"
-              >
+              <DataTable responsiveLayout="scroll" :value="viernes" showGridlines="false" :row-class="rowClass">
                 <Column field="hora">
                   <template #body="slotProps">
                     <div class="fila">
@@ -234,12 +214,7 @@ const download = () => {
               <p>hola1</p>
             </div>
             <div class="col-6">
-              <DataTable
-                responsiveLayout="scroll"
-                :value="sabado"
-                showGridlines="false"
-                :row-class="rowClass"
-              >
+              <DataTable responsiveLayout="scroll" :value="sabado" showGridlines="false" :row-class="rowClass">
                 <Column field="hora">
                   <template #body="slotProps">
                     <div class="fila">
@@ -268,19 +243,24 @@ const download = () => {
   height: auto;
   padding: 7rem 7rem;
 }
+
 .azul {
   background-color: var(--azul) !important;
 }
+
 ::v-deep(.fondo-azul) {
   background-color: #00477f !important;
   color: white;
+
   &:first-child {
     border-radius: 6px 0 0 0;
   }
+
   &:last-child {
     border-radius: 0 6px 0 0;
   }
 }
+
 .fila {
   color: white;
   font-weight: 200;
@@ -288,63 +268,23 @@ const download = () => {
 }
 </style>
 <style>
-#programa
-  > div:nth-child(2)
-  > div
-  > div.p-tabview-panels
-  > div:nth-child(1)
-  > div
-  > div:nth-child(2)
-  > div
-  > div.p-datatable-wrapper
-  > table
-  > thead {
+#programa>div:nth-child(2)>div>div.p-tabview-panels>div:nth-child(1)>div>div:nth-child(2)>div>div.p-datatable-wrapper>table>thead {
   display: none;
 }
 
-#programa
-  > div:nth-child(2)
-  > div
-  > div.p-tabview-panels
-  > div:nth-child(2)
-  > div
-  > div:nth-child(2)
-  > div
-  > div.p-datatable-wrapper
-  > table
-  > thead {
+#programa>div:nth-child(2)>div>div.p-tabview-panels>div:nth-child(2)>div>div:nth-child(2)>div>div.p-datatable-wrapper>table>thead {
   display: none;
 }
 
-#programa
-  > div:nth-child(2)
-  > div
-  > div.p-tabview-panels
-  > div:nth-child(3)
-  > div
-  > div:nth-child(2)
-  > div
-  > div.p-datatable-wrapper
-  > table
-  > thead {
+#programa>div:nth-child(2)>div>div.p-tabview-panels>div:nth-child(3)>div>div:nth-child(2)>div>div.p-datatable-wrapper>table>thead {
   display: none;
 }
 
-#programa
-  > div:nth-child(2)
-  > div
-  > div.p-tabview-panels
-  > div:nth-child(4)
-  > div
-  > div:nth-child(2)
-  > div
-  > div.p-datatable-wrapper
-  > table
-  > thead {
+#programa>div:nth-child(2)>div>div.p-tabview-panels>div:nth-child(4)>div>div:nth-child(2)>div>div.p-datatable-wrapper>table>thead {
   display: none;
 }
 
-#programa > div:nth-child(2) > div > div.p-tabview-panels {
+#programa>div:nth-child(2)>div>div.p-tabview-panels {
   background-color: var(--azul-marino) !important;
   color: white;
 }
