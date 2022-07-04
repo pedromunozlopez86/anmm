@@ -127,7 +127,7 @@ const download = () => {
               </div>
               <div class="text-center">
                 <img
-                  src="./../assets/img/Rectangle 45.png"
+                  src="./../assets/img/Rectangle-45.png"
                   alt="Miércoles-30"
                 />
               </div>
