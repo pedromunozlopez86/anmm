@@ -5,6 +5,7 @@ import TabView from "primevue/tabview";
 import TabPanel from "primevue/tabpanel";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
+import router from "../router";
 
 const miercoles = [
   {
@@ -96,9 +97,8 @@ const dataClass = () => {
 };
 
 const download = () => {
-  const url =
+  document.location.href =
     "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAGISTRADOS%20PUERTO%20VARAS%20AO%202022.doc?alt=media&token=19057e1f-e6f5-44d2-be36-fd4a22859821";
-  window.open(url);
 };
 </script>
 
@@ -266,15 +266,19 @@ const download = () => {
   height: auto;
   padding: 7rem 7rem;
 }
+
 .azul {
   background-color: var(--azul) !important;
 }
+
 ::v-deep(.fondo-azul) {
   background-color: #00477f !important;
   color: white;
+
   &:first-child {
     border-radius: 6px 0 0 0;
   }
+
   &:last-child {
     border-radius: 0 6px 0 0;
   }
