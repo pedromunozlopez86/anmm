@@ -143,8 +143,6 @@ const download = () => {
                 showGridlines="false"
                 :value="miercoles"
                 :row-class="rowClass"
-                headerStyle="color:red"
-                class="ui-corner-all"
               >
                 <Column field="hora">
                   <template #body="slotProps">
@@ -281,13 +279,14 @@ const download = () => {
     border-radius: 0 6px 0 0;
   }
 }
+
 .fila {
   color: white;
   font-weight: 200;
   font-size: small;
 }
 </style>
-<style>
+<style scooped>
 #programa
   > div:nth-child(2)
   > div
