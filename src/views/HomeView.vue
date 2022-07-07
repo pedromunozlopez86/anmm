@@ -103,18 +103,19 @@ const download = () => {
 </script>
 
 <template>
-  <main id="programa" class="grid">
+  <main id="programa" class="grid px-5 py-5">
     <div class="col-12 text-center">
       <div class="flex align-items-center justify-content-center">
         <i class="pi pi-calendar text-white mr-3"></i>
         <h2 class="text-white">Programa</h2>
       </div>
     </div>
-    <div class="col-12">
+
+    <div class="col-12 md:col-8 md:col-offset-2 col-offset-0">
       <TabView ref="tabview1" id="pestana-1">
         <TabPanel header="Miércoles 30">
           <div class="grid">
-            <div class="col-6">
+            <div class="col-6 col-md-12">
               <div class="px-5">
                 <p>
                   El primer día de trabajo contempla la acreditación, una
@@ -134,7 +135,7 @@ const download = () => {
                 </Button>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-6 col-md-12">
               <DataTable
                 responsiveLayout="scroll"
                 showGridlines="false"
@@ -161,14 +162,14 @@ const download = () => {
         </TabPanel>
         <TabPanel header="Jueves 01">
           <div class="grid">
-            <div class="col-6">
+            <div class="col-6 col-md-12">
               <p>
                 El primer día de trabajo contempla la acreditación, una primaria
                 de apertura y trabajo de comisiones, previa distribución, así
                 como un almuerzo ejecutivo.
               </p>
             </div>
-            <div class="col-6">
+            <div class="col-6 col-md-12">
               <DataTable
                 responsiveLayout="scroll"
                 :value="jueves"
@@ -195,10 +196,10 @@ const download = () => {
         </TabPanel>
         <TabPanel header="Viernes 02">
           <div class="grid">
-            <div class="col-6">
+            <div class="col-6 col-md-12">
               <p>hola1</p>
             </div>
-            <div class="col-6">
+            <div class="col-6 col-md-12">
               <DataTable
                 responsiveLayout="scroll"
                 :value="viernes"
@@ -260,8 +261,6 @@ const download = () => {
 <style lang="scss" scoped>
 #programa {
   background-color: #00679a;
-  height: auto;
-  padding: 7rem 9rem;
 }
 
 .azul {
@@ -362,7 +361,6 @@ const download = () => {
 .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
-  /* box-shadow: inset 0 0 0 0.2rem red !important; */
   background-color: var(--azul) !important;
   color: white !important;
 }
