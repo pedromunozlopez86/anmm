@@ -111,11 +111,8 @@ const download = () => {
       </div>
     </div>
     <div class="col-12">
-      <TabView ref="tabview1" class="tabview1">
-        <TabPanel>
-          <template #header>
-            <div class="">Miércoles 30</div>
-          </template>
+      <TabView ref="tabview1" id="pestana-1">
+        <TabPanel header="Miércoles 30">
           <div class="grid">
             <div class="col-6">
               <div class="px-5">
@@ -264,7 +261,7 @@ const download = () => {
 #programa {
   background-color: #00679a;
   height: auto;
-  padding: 7rem 7rem;
+  padding: 7rem 9rem;
 }
 
 .azul {
@@ -348,7 +345,42 @@ const download = () => {
 }
 
 #programa > div:nth-child(2) > div > div.p-tabview-panels {
-  background-color: var(--azul-marino) !important;
+  background-color: var(--azul) !important;
   color: white;
+}
+
+.p-tabview .p-tabview-nav {
+  background-color: var(--azul) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-width: 0 0 2px 0 !important;
+}
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  background-color: var(--azul) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  font-weight: 300 !important;
+}
+.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+  outline: 0 none;
+  outline-offset: 0;
+  /* box-shadow: inset 0 0 0 0.2rem red !important; */
+  background-color: var(--azul) !important;
+  color: white !important;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  border-color: white !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+  box-shadow: none !important;
+}
+
+#pestana-1 > div.p-tabview-nav-container > div > ul > li.p-highlight > a {
+  border-color: white !important;
+}
+
+#pestana-1 > div.p-tabview-nav-container > div > ul > li > a {
+  border-color: rgba(255, 255, 255, 0.3) !important;
 }
 </style>
