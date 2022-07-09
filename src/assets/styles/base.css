@@ -6,8 +6,9 @@
   --azul: #00679a;
   --celeste-oscuro: #0189b3;
   --celeste: #02c0d8;
+  --base-font: 'Roboto', sans-serif;
 }
 
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--base-font);
 }
