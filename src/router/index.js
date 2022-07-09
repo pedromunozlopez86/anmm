@@ -30,6 +30,11 @@ const router = createRouter({
       component: () => import('@/views/Contacto.vue'),
     },
     {
+      path: '/documentos',
+      name: 'Documentos',
+      component: () => import('@/views/Documentos.vue'),
+    },
+    {
       path: '/:catchAll(.*)*',
       component: () => import('@/views/Error404.vue'),
     },
