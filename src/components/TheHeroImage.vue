@@ -13,7 +13,7 @@ const imagenVista = computed(() => {
 
 </script>
 <template>
-    <div class="imagen" :class="imagenVista">
+    <div class="grid imagen" :class="imagenVista">
     </div>
 </template>
 
@@ -28,6 +28,6 @@ const imagenVista = computed(() => {
 }
 
 .imagen-inicio {
-    background-image: url('@/assets/img/image25.png');
+    background-image: url('@/assets/img/hero-inicio.png');
 }
 </style>
