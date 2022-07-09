@@ -272,11 +272,11 @@ const download = () => {
   height: 50rem;
 }
 .azul {
-  background-color: var(--azul) !important;
+  background-color: var(--celeste-oscuro) !important;
 }
 
 ::v-deep(.fondo-azul) {
-  background-color: #00477f !important;
+  background-color: var(--celeste-oscuro) !important;
   color: white;
 
   &:first-child {
@@ -352,24 +352,24 @@ const download = () => {
 }
 
 #programa > div:nth-child(2) > div > div.p-tabview-panels {
-  background-color: var(--azul) !important;
+  background-color: var(--celeste-oscuro) !important;
   color: white;
 }
 
 .p-tabview .p-tabview-nav {
-  background-color: var(--azul) !important;
+  background-color: var(--celeste-oscuro) !important;
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
   border-width: 0 0 2px 0 !important;
 }
 .p-tabview .p-tabview-nav li .p-tabview-nav-link {
-  background-color: var(--azul) !important;
+  background-color: var(--celeste-oscuro) !important;
   color: rgba(255, 255, 255, 0.3) !important;
   font-weight: 300 !important;
 }
 .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
-  background-color: var(--azul) !important;
+  background-color: var(--celeste-oscuro) !important;
   color: white !important;
 }
 
