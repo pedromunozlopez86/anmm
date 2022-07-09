@@ -1,28 +1,35 @@
 <script setup>
+import { reactive } from "vue";
 import emailjs from "emailjs-com";
-import { ref } from "vue";
-import Button from "primevue/button";
 import InputText from "primevue/inputtext";
+import Textarea from "primevue/textarea";
+import Button from "primevue/button";
 import TitleContent from "../components/TitleContent.vue";
 
-const contacto = ref();
+const serviceId = "service_yn5hdas";
+const templateId = "template_fgzpzj7";
+const publicKey = "5I5SnP5giie3mviTa";
 
-function sendEmail() {
-  emailjs
-    .sendForm(
-      "service_yn5hdas",
-      "template_fgzpzj7",
-      formulario,
-      "5I5SnP5giie3mviTa"
-    )
-    .then(
-      (result) => {
-        console.log("ENVIADO!", result.text);
-      },
-      (error) => {
-        console.log("ERROR EN EL ENVIO...", error.text);
-      }
-    );
+const formularioContacto = reactive({
+  nombre: "",
+  apellido: "",
+  correo: "",
+  telefono: "",
+  comentario: "",
+});
+
+async function sendEmail() {
+  console.log(formularioContacto);
+  console.log("enviando");
+
+  await emailjs.send(serviceId, templateId, formularioContacto, publicKey).then(
+    function (response) {
+      console.log("SUCCESS!", response.status, response.text);
+    },
+    function (error) {
+      console.log("FAILED...", error);
+    }
+  );
 }
 </script>
 <template>
@@ -32,56 +39,63 @@ function sendEmail() {
     title-icon="pi-envelope"
     class="-mt-8 mb-4"
   >
-    <form class="grid mt-3" ref="contacto" id="formulario">
+    <div class="grid mt-3">
       <div class="col-12 md:col-6">
         <div class="p-inputgroup">
-          <span class="p-float-label">
-            <InputText id="nombre" type="text" />
-            <label for="nombre">Nombre</label>
-          </span>
+          <InputText
+            id="nombre"
+            placeholder="Nombre"
+            type="text"
+            v-model="formularioContacto.nombre"
+          />
         </div>
       </div>
       <div class="col-12 md:col-6">
         <div class="p-inputgroup">
-          <span class="p-float-label">
-            <InputText id="apellido" type="text" />
-            <label for="apellido">Apellido</label>
-          </span>
+          <InputText
+            id="apellido"
+            placeholder="Apellido"
+            type="text"
+            v-model="formularioContacto.apellido"
+          />
         </div>
       </div>
       <div class="col-12 md:col-6">
         <div class="p-inputgroup">
-          <span class="p-float-label">
-            <InputText id="correo" type="email" />
-            <label for="correo">Correo</label>
-          </span>
+          <InputText
+            id="correo"
+            placeholder="Correo"
+            type="email"
+            v-model="formularioContacto.correo"
+          />
         </div>
       </div>
       <div class="col-12 md:col-6">
         <div class="p-inputgroup">
-          <span class="p-float-label">
-            <InputText id="telefono" type="tel" />
-            <label for="telefono">Teléfono</label>
-          </span>
+          <InputText
+            id="telefono"
+            placeholder="Teléfono"
+            type="tel"
+            v-model="formularioContacto.telefono"
+          />
         </div>
       </div>
       <div class="col-12">
         <div class="p-inputgroup">
-          <span class="p-float-label">
-            <Textarea
-              id="comentario"
-              rows="5"
-              cols="120"
-              v-model="comentario"
-            />
-            <label for="comentario">Comentario</label>
-          </span>
+          <Textarea
+            id="comentario"
+            class="p-2"
+            placeholder="Comentario"
+            rows="5"
+            cols="120"
+            v-model="formularioContacto.comentario"
+          />
         </div>
       </div>
       <div class="col-12 flex justify-content-end">
         <Button label="Enviar" class="px-3" @click="sendEmail" />
       </div>
-    </form>
+    </div>
   </TitleContent>
 </template>
 

@@ -104,6 +104,23 @@ const download = () => {
 
 <template>
   <section id="hero-section"></section>
+  <div class="grid px-5 py-5 w-9 mx-auto margen">
+    <div
+      class="col-12 flex justify-content-start align-items-center font-bold text-3xl my-0 text-white"
+    >
+      BIENVENIDO
+    </div>
+    <div class="col-12 px-3 bg-white mt-0">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, quo!
+        Dolor incidunt nihil beatae tenetur repellat, ab, alias ducimus
+        similique nesciunt corrupti dolore magnam labore. Aspernatur, expedita
+        quod et, minima sapiente laboriosam officia fuga earum totam ratione
+        porro! Architecto doloribus fugit saepe, nulla maxime sit? Quos
+        obcaecati cumque impedit! Praesentium.
+      </p>
+    </div>
+  </div>
   <section id="welcome">
     <div class="grid shadow-1" id="cubo-1">
       <div class="col-12">
@@ -138,6 +155,7 @@ const download = () => {
       </div>
     </div>
   </section>
+
   <main id="programa" class="grid px-5 py-5">
     <div class="col-12 text-center">
       <div class="flex align-items-center justify-content-center">
@@ -294,18 +312,23 @@ const download = () => {
   </main>
 </template>
 <style lang="scss" scoped>
-#cubo-1 {
-  margin: 25rem 1rem;
-  margin-top: -22rem;
+// #cubo-1 {
+//   margin: 25rem 1rem;
+//   margin-top: -22rem;
+// }
+// #welcome {
+//   margin-left: 14rem;
+//   margin-right: 14rem;
+//   color: white;
+// }
+.margen {
+  margin-top: -10rem;
 }
-#welcome {
-  margin-left: 14rem;
-  margin-right: 14rem;
-  color: white;
-}
+
 #programa {
   background-color: #00679a;
 }
+
 #hero-section {
   background-image: url("@/assets/img/hero-inicio.png");
   background-repeat: no-repeat;
@@ -314,6 +337,7 @@ const download = () => {
   margin-top: -5rem;
   height: 50rem;
 }
+
 .azul {
   background-color: var(--celeste-oscuro) !important;
 }
@@ -404,11 +428,13 @@ const download = () => {
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
   border-width: 0 0 2px 0 !important;
 }
+
 .p-tabview .p-tabview-nav li .p-tabview-nav-link {
   background-color: var(--celeste-oscuro) !important;
   color: rgba(255, 255, 255, 0.3) !important;
   font-weight: 300 !important;
 }
+
 .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
