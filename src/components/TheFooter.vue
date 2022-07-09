@@ -1,8 +1,7 @@
 <script setup></script>
 <template>
-  <div class="grid pb-3" id="the-footer">
-    <div class="col-2"></div>
-    <div class="col-12 md:col-6 mt-3">
+  <div class="grid pb-3 px-5" id="the-footer">
+    <div class="col-12 md:col-4 col-offset-0 md:col-offset-2 mt-3">
       <div class="flex-row align-items-center">
         <h3 class="mb-2">Si tienes alguna duda o consulta escríbenos !</h3>
 
@@ -20,8 +19,8 @@
         </a>
       </div>
     </div>
-    <div class="col-12 md:col-3 mt-5">
-      <div class="flex">
+    <div class="col-12 md:col-4 col-offset-2 mt-5">
+      <div class="">
         <img src="./../assets/img/logo-1.png" alt="logo-anmm" height="80rem" />
       </div>
     </div>

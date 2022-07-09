@@ -5,98 +5,105 @@ import Button from "primevue/button";
 import InputText from "primevue/inputtext";
 import TitleContent from "../components/TitleContent.vue";
 
-const contacto = ref()
+const contacto = ref();
 
 function sendEmail() {
-    console.log("enviando");
-
-    emailjs
-        .sendForm(
-            "service_yn5hdas",
-            "template_fgzpzj7",
-            contacto.value,
-            "5I5SnP5giie3mviTa"
-        )
-        .then(
-            (result) => {
-                console.log("ENVIADO!", result.text);
-            },
-            (error) => {
-                console.log("ERROR EN EL ENVIO...", error.text);
-            }
-        );
+  emailjs
+    .sendForm(
+      "service_yn5hdas",
+      "template_fgzpzj7",
+      formulario,
+      "5I5SnP5giie3mviTa"
+    )
+    .then(
+      (result) => {
+        console.log("ENVIADO!", result.text);
+      },
+      (error) => {
+        console.log("ERROR EN EL ENVIO...", error.text);
+      }
+    );
 }
 </script>
 <template>
-    <section id="hero-section"></section>
-    <TitleContent title="Formulario Contacto" title-icon="pi-envelope" class="-mt-8 mb-4">
-        <form class="grid mt-3" ref="contacto">
-            <div class="col-12 md:col-6">
-                <div class="p-inputgroup">
-                    <span class="p-float-label">
-                        <InputText id="nombre" type="text" />
-                        <label for="nombre">Nombre</label>
-                    </span>
-                </div>
-            </div>
-            <div class="col-12 md:col-6">
-                <div class="p-inputgroup">
-                    <span class="p-float-label">
-                        <InputText id="apellido" type="text" />
-                        <label for="apellido">Apellido</label>
-                    </span>
-                </div>
-            </div>
-            <div class="col-12 md:col-6">
-                <div class="p-inputgroup">
-                    <span class="p-float-label">
-                        <InputText id="correo" type="email" />
-                        <label for="correo">Correo</label>
-                    </span>
-                </div>
-            </div>
-            <div class="col-12 md:col-6">
-                <div class="p-inputgroup">
-                    <span class="p-float-label">
-                        <InputText id="telefono" type="tel" />
-                        <label for="telefono">Teléfono</label>
-                    </span>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="p-inputgroup">
-                    <span class="p-float-label">
-                        <Textarea id="comentario" rows="5" cols="120" v-model="comentario" />
-                        <label for="comentario">Comentario</label>
-                    </span>
-                </div>
-            </div>
-            <div class="col-12 flex justify-content-end">
-                <Button label="Enviar" class="px-3" @click="sendEmail" />
-            </div>
-        </form>
-    </TitleContent>
+  <section id="hero-section"></section>
+  <TitleContent
+    title="Formulario Contacto"
+    title-icon="pi-envelope"
+    class="-mt-8 mb-4"
+  >
+    <form class="grid mt-3" ref="contacto" id="formulario">
+      <div class="col-12 md:col-6">
+        <div class="p-inputgroup">
+          <span class="p-float-label">
+            <InputText id="nombre" type="text" />
+            <label for="nombre">Nombre</label>
+          </span>
+        </div>
+      </div>
+      <div class="col-12 md:col-6">
+        <div class="p-inputgroup">
+          <span class="p-float-label">
+            <InputText id="apellido" type="text" />
+            <label for="apellido">Apellido</label>
+          </span>
+        </div>
+      </div>
+      <div class="col-12 md:col-6">
+        <div class="p-inputgroup">
+          <span class="p-float-label">
+            <InputText id="correo" type="email" />
+            <label for="correo">Correo</label>
+          </span>
+        </div>
+      </div>
+      <div class="col-12 md:col-6">
+        <div class="p-inputgroup">
+          <span class="p-float-label">
+            <InputText id="telefono" type="tel" />
+            <label for="telefono">Teléfono</label>
+          </span>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="p-inputgroup">
+          <span class="p-float-label">
+            <Textarea
+              id="comentario"
+              rows="5"
+              cols="120"
+              v-model="comentario"
+            />
+            <label for="comentario">Comentario</label>
+          </span>
+        </div>
+      </div>
+      <div class="col-12 flex justify-content-end">
+        <Button label="Enviar" class="px-3" @click="sendEmail" />
+      </div>
+    </form>
+  </TitleContent>
 </template>
 
 <style lang="scss" scoped>
 #hero-section {
-    background-image: url("@/assets/img/hero-contacto.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    margin-top: -5rem;
-    height: 26.5625rem;
+  background-image: url("@/assets/img/hero-contacto.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-top: -5rem;
+  height: 26.5625rem;
 }
 
 .p-button {
-    background-color: var(--azul-marino);
+  background-color: var(--azul-marino);
 }
 
 :deep(.p-button:hover) {
-    background-color: var(--azul) !important;
+  background-color: var(--azul) !important;
 }
 
 :deep(.p-inputgroup) {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 </style>

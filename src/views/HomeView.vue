@@ -104,6 +104,40 @@ const download = () => {
 
 <template>
   <section id="hero-section"></section>
+  <section id="welcome">
+    <div class="grid shadow-1" id="cubo-1">
+      <div class="col-12">
+        <h2 class="ml-5">Bienvenidos</h2>
+      </div>
+      <div class="col-12 md:col-6">
+        <p class="font-light">
+          La Asociación Nacional de Magistradas y Magistrados (ANMM) les invita
+          a participar en la 50°. Convención Nacional a realizarse en Santiago,
+          en modalidad presencial y a distancia, para reencontrarnos y
+          reflexionar sobre el futuro de la Judicatura ante los tiempos de
+          cambio que vienen. Queremos oírte y que seas parte del cambio. Tu
+          opinión es importante, necesitamos tu aporte a la discusión de los
+          temas relevantes para la marcha de la institución, especialmente en el
+          momento histórico del que somos testigos. Frente a la situación
+          sanitaria que vive Chile y el mundo, decidimos organizar una
+          convención híbrida para cumplir con los aforos y permitir la
+          instalación de efectivos espacios de participación y discusión;
+          limitaciones que nos han impedido recibir acompañantes. Finalmente, se
+          dará efectivo cumplimiento de las medidas sanitarias dispuestas por la
+          autoridad, por lo que se exigirá el porte de vuestros pases de
+          movilidad. ¡Les esperamos!
+        </p>
+      </div>
+      <div class="col-12 md:col-6">
+        <video
+          width="100%"
+          controls
+          src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Video%20Invitacio%CC%81n.mp4?alt=media&token=647be919-fb5e-4f4b-89d6-7fb805251c1f"
+          type="video/mp4"
+        ></video>
+      </div>
+    </div>
+  </section>
   <main id="programa" class="grid px-5 py-5">
     <div class="col-12 text-center">
       <div class="flex align-items-center justify-content-center">
@@ -260,6 +294,15 @@ const download = () => {
   </main>
 </template>
 <style lang="scss" scoped>
+#cubo-1 {
+  margin: 25rem 1rem;
+  margin-top: -22rem;
+}
+#welcome {
+  margin-left: 14rem;
+  margin-right: 14rem;
+  color: white;
+}
 #programa {
   background-color: #00679a;
 }
