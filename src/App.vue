@@ -2,13 +2,13 @@
 import { RouterView } from "vue-router";
 import TheFooter from "./components/TheFooter.vue";
 import TheNavbar from "./components/TheNavbar.vue";
-import TheHeaderImage from "./components/TheHeaderImage.vue";
+import TheHeroImage from "./components/TheHeroImage.vue";
 
 </script>
 
 <template>
   <TheNavbar />
-  <TheHeaderImage/>
+  <TheHeroImage />
   <RouterView />
   <TheFooter></TheFooter>
   <!-- <video
