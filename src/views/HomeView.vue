@@ -103,6 +103,7 @@ const download = () => {
 </script>
 
 <template>
+  <section id="hero-section"></section>
   <main id="programa" class="grid px-5 py-5">
     <div class="col-12 text-center">
       <div class="flex align-items-center justify-content-center">
@@ -262,7 +263,14 @@ const download = () => {
 #programa {
   background-color: #00679a;
 }
-
+#hero-section {
+  background-image: url("@/assets/img/hero-inicio.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-top: -5rem;
+  height: 50rem;
+}
 .azul {
   background-color: var(--azul) !important;
 }
