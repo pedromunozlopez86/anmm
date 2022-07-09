@@ -104,6 +104,17 @@ const download = () => {
 
 <template>
   <section id="hero-section"></section>
+  <div class="grid px-5 py-5 w-9 mx-auto margen">
+    <div class="col-12 flex justify-content-start align-items-center font-bold text-3xl my-0 text-white">
+      BIENVENIDO
+    </div>
+    <div class="col-12 px-3 bg-white mt-0">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, quo! Dolor incidunt nihil beatae tenetur
+        repellat, ab, alias ducimus similique nesciunt corrupti dolore magnam labore. Aspernatur, expedita quod et,
+        minima sapiente laboriosam officia fuga earum totam ratione porro! Architecto doloribus fugit saepe, nulla
+        maxime sit? Quos obcaecati cumque impedit! Praesentium.</p>
+    </div>
+  </div>
   <main id="programa" class="grid px-5 py-5">
     <div class="col-12 text-center">
       <div class="flex align-items-center justify-content-center">
@@ -125,24 +136,16 @@ const download = () => {
                 </p>
               </div>
               <div class="text-center">
-                <img
-                  src="./../assets/img/Rectangle-45.png"
-                  alt="Miércoles-30"
-                />
+                <img src="./../assets/img/Rectangle-45.png" alt="Miércoles-30" />
               </div>
               <div class="text-center mt-3">
-                <Button class="p-button-outlined text-white" @click="download"
-                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                <Button class="p-button-outlined text-white" @click="download">Descargar programa completo <i
+                    class="pi pi-file ml-2"></i>
                 </Button>
               </div>
             </div>
             <div class="col-6 col-md-12">
-              <DataTable
-                responsiveLayout="scroll"
-                showGridlines="false"
-                :value="miercoles"
-                :row-class="rowClass"
-              >
+              <DataTable responsiveLayout="scroll" showGridlines="false" :value="miercoles" :row-class="rowClass">
                 <Column field="hora">
                   <template #body="slotProps">
                     <div class="fila">
@@ -171,12 +174,7 @@ const download = () => {
               </p>
             </div>
             <div class="col-6 col-md-12">
-              <DataTable
-                responsiveLayout="scroll"
-                :value="jueves"
-                showGridlines="false"
-                :row-class="rowClass"
-              >
+              <DataTable responsiveLayout="scroll" :value="jueves" showGridlines="false" :row-class="rowClass">
                 <Column field="hora">
                   <template #body="slotProps">
                     <div class="fila">
@@ -201,12 +199,7 @@ const download = () => {
               <p>hola1</p>
             </div>
             <div class="col-6 col-md-12">
-              <DataTable
-                responsiveLayout="scroll"
-                :value="viernes"
-                showGridlines="false"
-                :row-class="rowClass"
-              >
+              <DataTable responsiveLayout="scroll" :value="viernes" showGridlines="false" :row-class="rowClass">
                 <Column field="hora">
                   <template #body="slotProps">
                     <div class="fila">
@@ -231,12 +224,7 @@ const download = () => {
               <p>hola1</p>
             </div>
             <div class="col-6">
-              <DataTable
-                responsiveLayout="scroll"
-                :value="sabado"
-                showGridlines="false"
-                :row-class="rowClass"
-              >
+              <DataTable responsiveLayout="scroll" :value="sabado" showGridlines="false" :row-class="rowClass">
                 <Column field="hora">
                   <template #body="slotProps">
                     <div class="fila">
@@ -260,9 +248,14 @@ const download = () => {
   </main>
 </template>
 <style lang="scss" scoped>
+.margen {
+  margin-top: -10rem;
+}
+
 #programa {
   background-color: #00679a;
 }
+
 #hero-section {
   background-image: url("@/assets/img/hero-inicio.png");
   background-repeat: no-repeat;
@@ -271,6 +264,7 @@ const download = () => {
   margin-top: -5rem;
   height: 50rem;
 }
+
 .azul {
   background-color: var(--celeste-oscuro) !important;
 }
@@ -295,63 +289,23 @@ const download = () => {
 }
 </style>
 <style scooped>
-#programa
-  > div:nth-child(2)
-  > div
-  > div.p-tabview-panels
-  > div:nth-child(1)
-  > div
-  > div:nth-child(2)
-  > div
-  > div.p-datatable-wrapper
-  > table
-  > thead {
+#programa>div:nth-child(2)>div>div.p-tabview-panels>div:nth-child(1)>div>div:nth-child(2)>div>div.p-datatable-wrapper>table>thead {
   display: none;
 }
 
-#programa
-  > div:nth-child(2)
-  > div
-  > div.p-tabview-panels
-  > div:nth-child(2)
-  > div
-  > div:nth-child(2)
-  > div
-  > div.p-datatable-wrapper
-  > table
-  > thead {
+#programa>div:nth-child(2)>div>div.p-tabview-panels>div:nth-child(2)>div>div:nth-child(2)>div>div.p-datatable-wrapper>table>thead {
   display: none;
 }
 
-#programa
-  > div:nth-child(2)
-  > div
-  > div.p-tabview-panels
-  > div:nth-child(3)
-  > div
-  > div:nth-child(2)
-  > div
-  > div.p-datatable-wrapper
-  > table
-  > thead {
+#programa>div:nth-child(2)>div>div.p-tabview-panels>div:nth-child(3)>div>div:nth-child(2)>div>div.p-datatable-wrapper>table>thead {
   display: none;
 }
 
-#programa
-  > div:nth-child(2)
-  > div
-  > div.p-tabview-panels
-  > div:nth-child(4)
-  > div
-  > div:nth-child(2)
-  > div
-  > div.p-datatable-wrapper
-  > table
-  > thead {
+#programa>div:nth-child(2)>div>div.p-tabview-panels>div:nth-child(4)>div>div:nth-child(2)>div>div.p-datatable-wrapper>table>thead {
   display: none;
 }
 
-#programa > div:nth-child(2) > div > div.p-tabview-panels {
+#programa>div:nth-child(2)>div>div.p-tabview-panels {
   background-color: var(--celeste-oscuro) !important;
   color: white;
 }
@@ -361,11 +315,13 @@ const download = () => {
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
   border-width: 0 0 2px 0 !important;
 }
+
 .p-tabview .p-tabview-nav li .p-tabview-nav-link {
   background-color: var(--celeste-oscuro) !important;
   color: rgba(255, 255, 255, 0.3) !important;
   font-weight: 300 !important;
 }
+
 .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
   outline: 0 none;
   outline-offset: 0;
@@ -382,11 +338,11 @@ const download = () => {
   box-shadow: none !important;
 }
 
-#pestana-1 > div.p-tabview-nav-container > div > ul > li.p-highlight > a {
+#pestana-1>div.p-tabview-nav-container>div>ul>li.p-highlight>a {
   border-color: white !important;
 }
 
-#pestana-1 > div.p-tabview-nav-container > div > ul > li > a {
+#pestana-1>div.p-tabview-nav-container>div>ul>li>a {
   border-color: rgba(255, 255, 255, 0.3) !important;
 }
 </style>
