@@ -61,13 +61,13 @@ const items = ref([
     opacity: 0.7;
 }
 
-::v-deep .p-menubar-root-list {
+:deep(.p-menubar-root-list) {
     margin-left: auto;
     display: flex;
     gap: 1rem;
 }
 
-::v-deep .p-menubar-end {
+:deep(.p-menubar-end) {
     margin: 0 2.2rem;
 }
 
@@ -94,7 +94,7 @@ a:hover {
     background-color: var(--azul-marino);
 }
 
-::v-deep .p-button:hover {
+:deep(.p-button:hover) {
     background-color: var(--azul) !important;
 }
 
@@ -116,7 +116,7 @@ a:hover {
 }
 
 @media screen and (max-width: 960px) {
-    ::v-deep .p-menubar-root-list {
+    :deep(.p-menubar-root-list) {
         padding-left: 3rem !important;
         gap: 0;
     }
@@ -125,15 +125,15 @@ a:hover {
         justify-content: space-between;
     }
 
-    ::v-deep .p-menubar-end {
+    :deep(.p-menubar-end) {
         margin-right: 2rem;
     }
 
-    ::v-deep .p-menubar-start {
+    :deep(.p-menubar-start) {
         display: none;
     }
 
-    ::v-deep .p-menubar-button {
+    :deep(.p-menubar-button) {
         margin-left: 3rem;
     }
 }
