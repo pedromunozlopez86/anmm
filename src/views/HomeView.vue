@@ -104,30 +104,15 @@ const download = () => {
 
 <template>
   <section id="hero-section"></section>
-  <div class="grid px-5 py-5 w-9 mx-auto margen">
+  <div class="grid px-5 py-5 w-9 mx-auto margen shadow-1">
     <div
       class="col-12 flex justify-content-start align-items-center font-bold text-3xl my-0 text-white"
     >
-      BIENVENIDO
+      Bienvenidos
     </div>
-    <div class="col-12 px-3 bg-white mt-0">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, quo!
-        Dolor incidunt nihil beatae tenetur repellat, ab, alias ducimus
-        similique nesciunt corrupti dolore magnam labore. Aspernatur, expedita
-        quod et, minima sapiente laboriosam officia fuga earum totam ratione
-        porro! Architecto doloribus fugit saepe, nulla maxime sit? Quos
-        obcaecati cumque impedit! Praesentium.
-      </p>
-    </div>
-  </div>
-  <section id="welcome">
-    <div class="grid shadow-1" id="cubo-1">
-      <div class="col-12">
-        <h2 class="ml-5">Bienvenidos</h2>
-      </div>
-      <div class="col-12 md:col-6">
-        <p class="font-light">
+    <div class="col-12 px-3 bg-white mt-0 grid">
+      <div class="col-12 :md-col-6">
+        <p>
           La Asociación Nacional de Magistradas y Magistrados (ANMM) les invita
           a participar en la 50°. Convención Nacional a realizarse en Santiago,
           en modalidad presencial y a distancia, para reencontrarnos y
@@ -144,6 +129,14 @@ const download = () => {
           autoridad, por lo que se exigirá el porte de vuestros pases de
           movilidad. ¡Les esperamos!
         </p>
+      </div>
+      <div class="col-12 md-col-6"></div>
+    </div>
+  </div>
+  <section id="welcome">
+    <div class="grid shadow-1" id="cubo-1">
+      <div class="col-12 :md-col-6">
+        <p class="font-light"></p>
       </div>
       <div class="col-12 md:col-6">
         <video
