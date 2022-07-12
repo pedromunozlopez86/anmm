@@ -106,12 +106,12 @@ const download = () => {
   <section id="hero-section"></section>
   <div class="grid px-5 py-5 w-9 mx-auto margen shadow-1">
     <div
-      class="col-12 flex justify-content-start align-items-center font-bold text-3xl my-0 text-white"
+      class="col-12 flex justify-content-start align-items-center font-bold text-5xl my-0 text-white"
     >
       Bienvenidos
     </div>
     <div class="col-12 px-3 bg-white mt-0 grid">
-      <div class="col-12 :md-col-6">
+      <div class="col-12 md:col-6 px-5">
         <p>
           La Asociación Nacional de Magistradas y Magistrados (ANMM) les invita
           a participar en la 50°. Convención Nacional a realizarse en Santiago,
@@ -130,15 +130,7 @@ const download = () => {
           movilidad. ¡Les esperamos!
         </p>
       </div>
-      <div class="col-12 md-col-6"></div>
-    </div>
-  </div>
-  <section id="welcome">
-    <div class="grid shadow-1" id="cubo-1">
-      <div class="col-12 :md-col-6">
-        <p class="font-light"></p>
-      </div>
-      <div class="col-12 md:col-6">
+      <div class="col-12 md:col-6 mt-7">
         <video
           width="100%"
           controls
@@ -147,7 +139,7 @@ const download = () => {
         ></video>
       </div>
     </div>
-  </section>
+  </div>
 
   <main id="programa" class="grid px-5 py-5">
     <div class="col-12 text-center">
