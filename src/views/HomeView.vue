@@ -111,7 +111,7 @@ const download = () => {
       Bienvenidos
     </div>
     <div class="col-12 px-3 bg-white mt-0 grid">
-      <div class="col-12 md:col-6 px-5">
+      <div class="col-12 md:col-6 px-5 mt-6">
         <p>
           La Asociación Nacional de Magistradas y Magistrados (ANMM) les invita
           a participar en la 50°. Convención Nacional a realizarse en Santiago,
