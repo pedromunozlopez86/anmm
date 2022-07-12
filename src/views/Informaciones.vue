@@ -25,7 +25,7 @@ import AccordionTab from "primevue/accordiontab";
     <main>
       <TitleContent class="mb-4">
         <Accordion :multiple="true" :activeIndex="[0]">
-          <AccordionTab header="Ubicación" class="bg-color-red">
+          <AccordionTab header="Ubicación" class="p-accordion-header-primary">
             <div class="grid">
               <div class="col-6 mt-5">
                 <h3>Inauguración – Teatro del Lago, Frutillar</h3>
@@ -129,5 +129,32 @@ import AccordionTab from "primevue/accordiontab";
   background-position: center center;
   margin-top: -5rem;
   height: 26.5625rem;
+}
+</style>
+<style scooped>
+.p-accordion .p-accordion-tab .p-accordion-header .p-accordion-header-link {
+  background-color: var(--azul);
+  color: white;
+}
+
+.p-accordion
+  .p-accordion-header:not(.p-disabled).p-highlight
+  .p-accordion-header-link {
+  background-color: var(--azul-marino);
+  color: white;
+}
+
+.p-accordion
+  .p-accordion-header:not(.p-disabled).p-highlight
+  .p-accordion-header-link:hover {
+  background-color: var(--azul-marino);
+  color: white;
+}
+
+.p-accordion
+  .p-accordion-header:not(.p-highlight):not(.p-disabled):hover
+  .p-accordion-header-link {
+  background-color: var(--azul-marino);
+  color: white;
 }
 </style>
