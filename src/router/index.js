@@ -35,6 +35,16 @@ const router = createRouter({
       component: () => import('@/views/Documentos.vue'),
     },
     {
+      path: '/inscripciones',
+      name: 'Inscripciones',
+      component: () => import('@/views/Inscripciones.vue'),
+    },
+    {
+      path: '/inscripciones/formulario',
+      name: 'FormularioInscripcion',
+      component: () => import('@/views/FormularioInscripcion.vue'),
+    },
+    {
       path: '/:catchAll(.*)*',
       component: () => import('@/views/Error404.vue'),
     },

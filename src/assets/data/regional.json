@@ -1,0 +1,20 @@
+[
+  { "nombre": "Arica" },
+  { "nombre": "Antofagasta" },
+  { "nombre": "Copiapó" },
+  { "nombre": "Iquique" },
+  { "nombre": "La Serena" },
+  { "nombre": "Santiago" },
+  { "nombre": "San Miguel" },
+  { "nombre": "Valparaíso" },
+  { "nombre": "Rancagua" },
+  { "nombre": "Talca" },
+  { "nombre": "Chillán" },
+  { "nombre": "Concepción" },
+  { "nombre": "Temuco" },
+  { "nombre": "Valdivia" },
+  { "nombre": "Puerto Montt" },
+  { "nombre": "Coyhaique" },
+  { "nombre": "Punta Arenas" },
+  { "nombre": "Corte Suprema" }
+]
