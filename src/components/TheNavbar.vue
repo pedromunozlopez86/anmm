@@ -29,7 +29,11 @@ const items = ref([
     {
         label: 'Documentos',
         to: { name: 'Documentos' },
-    }
+    },
+    {
+        label: 'Inscripciones',
+        to: { name: 'Inscripciones' },
+    },
 ])
 
 </script>
