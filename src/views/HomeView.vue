@@ -106,37 +106,55 @@ const download = () => {
   <section id="hero-section"></section>
   <div class="grid px-5 py-5 w-9 mx-auto margen shadow-1">
     <div
-      class="col-12 flex justify-content-start align-items-center font-bold text-5xl my-0 text-white"
+      class="col-12 flex justify-content-start align-items-center font-bold text-6xl text-white -mb-3"
     >
       Bienvenidos
     </div>
     <div class="col-12 px-3 bg-white mt-0 grid">
-      <div class="col-12 md:col-6 px-5 mt-6">
+      <div class="col-12 md:col-6 mt-6 text-justify" id="text-header-left">
         <p>
-          La Asociación Nacional de Magistradas y Magistrados (ANMM) les invita
-          a participar en la 50°. Convención Nacional a realizarse en Santiago,
-          en modalidad presencial y a distancia, para reencontrarnos y
+          La
+          <strong>
+            Asociación Nacional de Magistradas y Magistrados (ANMM)</strong
+          >
+          les invita a participar en la 50°. Convención Nacional a realizarse en
+          Santiago, en modalidad presencial y a distancia, para reencontrarnos y
           reflexionar sobre el futuro de la Judicatura ante los tiempos de
-          cambio que vienen. Queremos oírte y que seas parte del cambio. Tu
-          opinión es importante, necesitamos tu aporte a la discusión de los
-          temas relevantes para la marcha de la institución, especialmente en el
-          momento histórico del que somos testigos. Frente a la situación
-          sanitaria que vive Chile y el mundo, decidimos organizar una
-          convención híbrida para cumplir con los aforos y permitir la
-          instalación de efectivos espacios de participación y discusión;
-          limitaciones que nos han impedido recibir acompañantes. Finalmente, se
-          dará efectivo cumplimiento de las medidas sanitarias dispuestas por la
-          autoridad, por lo que se exigirá el porte de vuestros pases de
-          movilidad. ¡Les esperamos!
+          cambio que vienen.
+        </p>
+        <p>
+          Queremos oírte y que seas parte del cambio. Tu opinión es importante,
+          necesitamos tu aporte a la discusión de los temas relevantes para la
+          marcha de la institución, especialmente en el momento histórico del
+          que somos testigos.
+        </p>
+        <p>
+          Frente a la situación sanitaria que vive Chile y el mundo, decidimos
+          organizar una convención híbrida para cumplir con los aforos y
+          permitir la instalación de efectivos espacios de participación y
+          discusión; limitaciones que nos han impedido recibir acompañantes.
+        </p>
+
+        <p>
+          Finalmente, se dará efectivo cumplimiento de las medidas sanitarias
+          dispuestas por la autoridad, por lo que se exigirá el porte de
+          vuestros pases de movilidad. ¡Les esperamos!
         </p>
       </div>
-      <div class="col-12 md:col-6 mt-7">
+      <div class="col-12 md:col-5 mt-7 ml-5">
         <video
           width="100%"
           controls
           src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Video%20Invitacio%CC%81n.mp4?alt=media&token=647be919-fb5e-4f4b-89d6-7fb805251c1f"
           type="video/mp4"
+          poster="@/assets/img/fondo-video.png"
         ></video>
+        <div class="ml-2 mt-3" id="borde-azul">
+          <p class="pl-2">
+            Invitación para la Convención Nacional Magistradas y Magistrados
+            número 50
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -155,11 +173,7 @@ const download = () => {
           <div class="grid">
             <div class="col-6 col-md-12">
               <div class="px-5">
-                <p>
-                  El primer día de trabajo contempla la acreditación, una
-                  primaria de apertura y trabajo de comisiones, previa
-                  distribución, así como un almuerzo ejecutivo.
-                </p>
+                <p>Inaguración del evento</p>
               </div>
               <div class="text-center">
                 <img
@@ -206,7 +220,14 @@ const download = () => {
                 de apertura y trabajo de comisiones, previa distribución, así
                 como un almuerzo ejecutivo.
               </p>
+              <div class="text-center">
+                <img
+                  src="./../assets/img/Rectangle-45.png"
+                  alt="Miércoles-30"
+                />
+              </div>
             </div>
+
             <div class="col-6 col-md-12">
               <DataTable
                 responsiveLayout="scroll"
@@ -235,7 +256,13 @@ const download = () => {
         <TabPanel header="Viernes 02">
           <div class="grid">
             <div class="col-6 col-md-12">
-              <p>hola1</p>
+              <p>Segundo día de trabajo</p>
+              <div class="text-center">
+                <img
+                  src="./../assets/img/Rectangle-45.png"
+                  alt="Miércoles-30"
+                />
+              </div>
             </div>
             <div class="col-6 col-md-12">
               <DataTable
@@ -265,7 +292,7 @@ const download = () => {
         <TabPanel header="Sábado 03">
           <div class="grid">
             <div class="col-6">
-              <p>hola1</p>
+              <p>Paseo Final</p>
             </div>
             <div class="col-6">
               <DataTable
@@ -297,15 +324,6 @@ const download = () => {
   </main>
 </template>
 <style lang="scss" scoped>
-// #cubo-1 {
-//   margin: 25rem 1rem;
-//   margin-top: -22rem;
-// }
-// #welcome {
-//   margin-left: 14rem;
-//   margin-right: 14rem;
-//   color: white;
-// }
 .margen {
   margin-top: -10rem;
 }
@@ -344,6 +362,11 @@ const download = () => {
   color: white;
   font-weight: 200;
   font-size: small;
+}
+
+#borde-azul {
+  border-left: 8px solid var(--azul-marino);
+  border-radius: 5px 5px;
 }
 </style>
 <style scooped>
