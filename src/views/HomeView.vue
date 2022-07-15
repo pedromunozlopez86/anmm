@@ -1,12 +1,10 @@
 <script setup>
-import { ref } from "@vue/reactivity";
 import Button from "primevue/button";
 import TabView from "primevue/tabview";
 import TabPanel from "primevue/tabpanel";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import router from "../router";
-import axios from "axios";
 
 const miercoles = [
   {
@@ -96,30 +94,11 @@ const rowClass = () => {
 const dataClass = () => {
   return "fila";
 };
-
 const download = () => {
-  axios({
-    url: "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAG%20ISTRADOS%20PUERTO%20VARAS%20AN%CC%83O%202022.pdf?alt=media&token=a8f488ed-fb82-450f-85c2-4d4c907f4e89",
-    method: "GET",
-    responseType: "blob",
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "*",
-      "Access-Control-Allow-Credentials": "true",
-    },
-  }).then((response) => {
-    let fileURL = window.URL.createObjectURL(new Blob([response.data]));
-    let fileLink = document.createElement("a");
-    fileLink.href = fileURL;
-    fileLink.setAttribute("download", "Programa_ANMM_2022.pdf");
-    document.body.appendChild(fileLink);
-    fileLink.click();
-  });
+  window.open(
+    "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAG%20ISTRADOS%20PUERTO%20VARAS%20AN%CC%83O%202022.pdf?alt=media&token=a8f488ed-fb82-450f-85c2-4d4c907f4e89"
+  );
 };
-
-//   document.location.href =
-//     "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAG%20ISTRADOS%20PUERTO%20VARAS%20AN%CC%83O%202022.pdf?alt=media&token=a8f488ed-fb82-450f-85c2-4d4c907f4e89";
-// };
 </script>
 
 <template>
