@@ -368,7 +368,7 @@ async function pagarPorPlanilla() {
             <h2 class="my-0">$ {{ inscripcion.total }}.-</h2>
             <p class="mt-1 mb-3 text-sm">{{ inscripcion.detalle }}</p>
           </div>
-          <div class="flex justify-content-space-around align-items-end">
+          <div class="grid">
             <Dropdown
               id="cuotas"
               v-model="form.cuotas"
@@ -376,6 +376,7 @@ async function pagarPorPlanilla() {
               optionLabel="nombre"
               optionValue="value"
               placeholder="N° de Cuotas"
+              class="col-offset-8 col-2"
             />
           </div>
         </div>

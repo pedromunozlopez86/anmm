@@ -1,35 +1,35 @@
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import emailjs from 'emailjs-com'
-import Button from 'primevue/button'
-import DataTable from 'primevue/datatable'
-import Column from 'primevue/column'
-import TitleContent from '../components/TitleContent.vue'
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import emailjs from "emailjs-com";
+import Button from "primevue/button";
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+import TitleContent from "../components/TitleContent.vue";
 
-const router = useRouter()
+const router = useRouter();
 
 const precioInscripciónes = ref([
   {
-    item: 'Inscripción Convención',
-    valor: '$170.000',
+    item: "Inscripción Convención",
+    valor: "$170.000",
   },
   {
-    item: 'Inscripción Convención + Paseo',
-    valor: '$250.000',
+    item: "Inscripción Convención + Paseo",
+    valor: "$250.000",
   },
   {
-    item: 'Inscripción Convención + Paseo c/1 Acompañante',
-    valor: '$330.000',
+    item: "Inscripción Convención + Paseo c/1 Acompañante",
+    valor: "$330.000",
   },
   {
-    item: 'Inscripción Convención + Gala/Paseo c/1 Acompañante',
-    valor: '$350.000',
+    item: "Inscripción Convención + Gala/Paseo c/1 Acompañante",
+    valor: "$350.000",
   },
-])
+]);
 
 function enviarAInscripción() {
-  router.push({ name: 'FormularioInscripción' })
+  router.push({ name: "FormularioInscripción" });
 }
 </script>
 <template>
@@ -136,7 +136,7 @@ function enviarAInscripción() {
 
 <style lang="scss" scoped>
 #hero-section {
-  background-image: url('@/assets/img/hero-contacto.png');
+  background-image: url("@/assets/img/hero-contacto.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
