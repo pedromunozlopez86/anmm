@@ -1,104 +1,108 @@
 <script setup>
-import { computed, reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import ToggleButton from 'primevue/togglebutton'
-import InputText from 'primevue/inputtext'
-import Dropdown from 'primevue/dropdown'
-import Button from 'primevue/button'
-import Fieldset from 'primevue/fieldset'
-import TitleContent from '../components/TitleContent.vue'
-import regionalOptions from '@/assets/data/regional.json'
+import { computed, reactive, ref } from "vue";
+import { useRouter } from "vue-router";
+import emailjs from "emailjs-com";
+import ToggleButton from "primevue/togglebutton";
+import InputText from "primevue/inputtext";
+import Dropdown from "primevue/dropdown";
+import Button from "primevue/button";
+import Fieldset from "primevue/fieldset";
+import TitleContent from "../components/TitleContent.vue";
+import regionalOptions from "@/assets/data/regional.json";
+
+const serviceId = "service_k0lhu1i";
+const templateId = "template_j26a27k";
+const publicKey = "5I5SnP5giie3mviTa";
 
 const form = reactive({
-  nombreCompleto: '',
-  rut: '',
-  telefono: '',
-  correo: '',
-  regional: '',
+  nombreCompleto: "",
+  rut: "",
+  telefono: "",
+  correo: "",
+  regional: "",
   vieneAcompanante: false,
   acompanante: {
-    nombre: '',
-    rut: '',
-    telefono: '',
-    correo: '',
+    nombre: "",
+    rut: "",
+    telefono: "",
+    correo: "",
   },
   contactoEmergencia: {
-    nombre: '',
-    telefono: '',
+    nombre: "",
+    telefono: "",
   },
   restriccionAlimentaria: false,
-  comentarioRestriccionAlimentaria: '',
-  trasladoPuertoVaras: '',
+  comentarioRestriccionAlimentaria: "",
+  trasladoPuertoVaras: "",
   requiereTransporteHotel: false,
   requiereTrasladoCeremonia: false,
   incluyePaseo: false,
   paseoIncluyeAcompanante: false,
   incluyeFiesta: false,
   fiestaIncluyeAcompanante: false,
-})
+});
 
 const inscripcion = computed(() => {
   if (form.incluyePaseo) {
     return {
-      total: '250.000',
-      detalle: 'Inscripción General Asociado + Paseo',
-    }
+      total: "250.000",
+      detalle: "Inscripción General Asociado + Paseo",
+    };
   }
   if (form.vieneAcompanante) {
     return {
-      total: '300.000',
-      detalle: 'Inscripción General Asociado + Acompañante',
-    }
+      total: "300.000",
+      detalle: "Inscripción General Asociado + Acompañante",
+    };
   }
   if (form.vieneAcompanante && form.incluyePaseo) {
     return {
-      total: '460.000',
-      detalle: 'Inscripción General Asociado + Acompañante + Paseo',
-    }
+      total: "460.000",
+      detalle: "Inscripción General Asociado + Acompañante + Paseo",
+    };
   }
   return {
-    total: '170.000',
-    detalle: 'Inscripción General Asociado',
-  }
-})
+    total: "170.000",
+    detalle: "Inscripción General Asociado",
+  };
+});
 
-const router = useRouter()
+const router = useRouter();
 
 const acompananteOptions = ref([
   {
-    label: 'Sin acompañante',
+    label: "Sin acompañante",
     value: false,
   },
   {
-    label: 'Con un acompañante',
+    label: "Con un acompañante",
     value: true,
   },
-])
+]);
 
 const trasladoPVOptions = ref([
-  { nombre: 'Aéreo', value: 'aereo' },
-  { nombre: 'Terrestre', value: 'terrestre' },
-])
+  { nombre: "Aéreo", value: "aereo" },
+  { nombre: "Terrestre", value: "terrestre" },
+]);
 
 function sendPagoML() {
   if (form.incluyePaseo) {
-    window.location.href = 'https://mpago.la/21LS4hs' // 250
-    return
+    window.location.href = "https://mpago.la/21LS4hs"; // 250
+    return;
   }
   if (form.vieneAcompanante) {
-    window.location.href = 'https://mpago.la/2Yf6TvB' // 300
-    return
+    window.location.href = "https://mpago.la/2Yf6TvB"; // 300
+    return;
   }
   if (form.vieneAcompanante && form.incluyePaseo) {
-    window.location.href = 'https://mpago.la/2zvo2ex' // 460
-    return
+    window.location.href = "https://mpago.la/2zvo2ex"; // 460
+    return;
   }
-  window.location.href = 'https://mpago.la/33ujzpJ' // 170
+  window.location.href = "https://mpago.la/33ujzpJ"; // 170
 }
 
 function sendPagoPlanilla() {
   // TODO
-  
 }
 </script>
 <template>
@@ -347,7 +351,7 @@ function sendPagoPlanilla() {
 
 <style lang="scss" scoped>
 #hero-section {
-  background-image: url('@/assets/img/hero-contacto.png');
+  background-image: url("@/assets/img/hero-contacto.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
