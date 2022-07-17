@@ -23,6 +23,23 @@ const router = createRouter({
       path: '/comisiones',
       name: 'Comisiones',
       component: () => import('@/views/Comisiones.vue'),
+      children: [
+        {
+          path: 'gobierno-judicial',
+          name: 'GobiernoJudicial',
+          component: () => import('@/views/comisiones/GobiernoJudicial.vue'),
+        },
+        {
+          path: 'infancia-familia',
+          name: 'InfanciaFamilia',
+          component: () => import('@/views/comisiones/InfanciaFamilia.vue'),
+        },
+        {
+          path: 'jubilacion-digna',
+          name: 'JubilacionDigna',
+          component: () => import('@/views/comisiones/JubilacionDigna.vue'),
+        },
+      ],
     },
     {
       path: '/contacto',

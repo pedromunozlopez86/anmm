@@ -1,12 +1,6 @@
 <script setup>
-
+import { RouterView } from 'vue-router'
 </script>
 <template>
-    <div>
-        COMISIONES
-    </div>
+  <RouterView />
 </template>
-
-
-<style lang="scss" scoped>
-</style>
