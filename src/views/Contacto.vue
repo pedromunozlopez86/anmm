@@ -1,35 +1,32 @@
 <script setup>
-import { reactive } from "vue";
-import emailjs from "emailjs-com";
-import InputText from "primevue/inputtext";
-import Textarea from "primevue/textarea";
-import Button from "primevue/button";
-import TitleContent from "../components/TitleContent.vue";
+import { reactive, ref } from 'vue'
+import emailjs from 'emailjs-com'
+import InputText from 'primevue/inputtext'
+import Textarea from 'primevue/textarea'
+import Button from 'primevue/button'
+import TitleContent from '../components/TitleContent.vue'
+import { useEmailJs } from '../composables'
 
-const serviceId = "service_k0lhu1i";
-const templateId = "template_j26a27k";
-const publicKey = "5I5SnP5giie3mviTa";
+const { template, sendEmail } = useEmailJs()
+
+const isLoading = ref(false)
 
 const formularioContacto = reactive({
-  nombre: "",
-  apellido: "",
-  correo: "",
-  telefono: "",
-  comentario: "",
-});
+  nombre: '',
+  apellido: '',
+  correo: '',
+  telefono: '',
+  comentario: '',
+})
 
-async function sendEmail() {
-  console.log(formularioContacto);
-  console.log("enviando");
-
-  await emailjs.send(serviceId, templateId, formularioContacto, publicKey).then(
-    function (response) {
-      console.log("SUCCESS!", response.status, response.text);
-    },
-    function (error) {
-      console.log("FAILED...", error);
+async function enviarEmail() {
+  isLoading.value = true
+  await sendEmail(template.CONTACTO, formularioContacto).then((res) => {
+    if (res.status === 200) {
+      console.log('exito')
+      isLoading.value = false
     }
-  );
+  })
 }
 </script>
 <template>
@@ -93,7 +90,12 @@ async function sendEmail() {
         </div>
       </div>
       <div class="col-12 flex justify-content-end">
-        <Button label="Enviar" class="px-3" @click="sendEmail" />
+        <Button
+          label="Enviar"
+          class="px-3"
+          @click="enviarEmail"
+          :loading="isLoading"
+        />
       </div>
     </div>
   </TitleContent>
@@ -101,7 +103,7 @@ async function sendEmail() {
 
 <style lang="scss" scoped>
 #hero-section {
-  background-image: url("@/assets/img/hero-contacto.png");
+  background-image: url('@/assets/img/hero-contacto.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
