@@ -361,12 +361,25 @@ async function pagarPorPlanilla() {
     </Fieldset>
     <Fieldset legend="Pago">
       <div class="grid">
-        <div
-          class="p-2 col-12 flex flex-column justify-content-center align-items-center"
-        >
-          <h2 class="my-0">$ {{ inscripcion.total }}.-</h2>
-          <p class="mt-1 mb-3 text-sm">{{ inscripcion.detalle }}</p>
+        <div class="p-2 col-12">
+          <div
+            class="flex flex-column justify-content-center align-items-center"
+          >
+            <h2 class="my-0">$ {{ inscripcion.total }}.-</h2>
+            <p class="mt-1 mb-3 text-sm">{{ inscripcion.detalle }}</p>
+          </div>
+          <div class="flex justify-content-space-around align-items-end">
+            <Dropdown
+              id="cuotas"
+              v-model="form.cuotas"
+              :options="cuotasOptions"
+              optionLabel="nombre"
+              optionValue="value"
+              placeholder="N° de Cuotas"
+            />
+          </div>
         </div>
+
         <div
           class="col-12 md:col-6 flex justify-content-center align-items-center"
         >
@@ -380,14 +393,6 @@ async function pagarPorPlanilla() {
         <div
           class="col-12 md:col-6 flex justify-content-center align-items-center"
         >
-          <Dropdown
-            id="cuotas"
-            v-model="form.cuotas"
-            :options="cuotasOptions"
-            optionLabel="nombre"
-            optionValue="value"
-            placeholder="N° de Cuotas"
-          />
           <Button
             label="Descuento por Planilla"
             class="px-3"
