@@ -1,6 +1,5 @@
 <script setup>
 import { computed, reactive, ref } from "vue";
-import { useRouter } from "vue-router";
 import emailjs from "emailjs-com";
 import ToggleButton from "primevue/togglebutton";
 import InputText from "primevue/inputtext";
@@ -37,19 +36,17 @@ const form = reactive({
   requiereTransporteHotel: false,
   requiereTrasladoCeremonia: false,
   incluyePaseo: false,
-  paseoIncluyeAcompanante: false,
   incluyeFiesta: false,
-  fiestaIncluyeAcompanante: false,
 });
 
 const inscripcion = computed(() => {
-  if (form.incluyePaseo) {
+  if (form.incluyePaseo && !form.vieneAcompanante) {
     return {
       total: "250.000",
       detalle: "Inscripción General Asociado + Paseo",
     };
   }
-  if (form.vieneAcompanante) {
+  if (form.vieneAcompanante && !form.incluyePaseo) {
     return {
       total: "300.000",
       detalle: "Inscripción General Asociado + Acompañante",
@@ -67,30 +64,17 @@ const inscripcion = computed(() => {
   };
 });
 
-const router = useRouter();
-
-const acompananteOptions = ref([
-  {
-    label: "Sin acompañante",
-    value: false,
-  },
-  {
-    label: "Con un acompañante",
-    value: true,
-  },
-]);
-
 const trasladoPVOptions = ref([
   { nombre: "Aéreo", value: "aereo" },
   { nombre: "Terrestre", value: "terrestre" },
 ]);
 
 function sendPagoML() {
-  if (form.incluyePaseo) {
+  if (form.incluyePaseo && !form.vieneAcompanante) {
     window.location.href = "https://mpago.la/21LS4hs"; // 250
     return;
   }
-  if (form.vieneAcompanante) {
+  if (form.vieneAcompanante && !form.incluyePaseo) {
     window.location.href = "https://mpago.la/2Yf6TvB"; // 300
     return;
   }
@@ -98,7 +82,7 @@ function sendPagoML() {
     window.location.href = "https://mpago.la/2zvo2ex"; // 460
     return;
   }
-  window.location.href = "https://mpago.la/33ujzpJ"; // 170
+  window.location.href = "https://mpago.la/1a8EEiF"; // 170
 }
 
 function sendPagoPlanilla() {
@@ -311,6 +295,34 @@ function sendPagoPlanilla() {
               v-model="form.requiereTrasladoCeremonia"
               onLabel="Con Traslado a Ceremonia Inauguración"
               offLabel="Sin Traslado a Ceremonia Inauguración"
+              onIcon="pi pi-check"
+              offIcon="pi pi-times"
+            />
+          </div>
+        </div>
+      </div>
+    </Fieldset>
+    <Fieldset legend="Extras" class="mb-3">
+      <div class="grid">
+        <div class="col-12 md:col-6">
+          <div class="p-inputgroup flex justify-content-center">
+            <ToggleButton
+              id="paseo-final"
+              v-model="form.incluyePaseo"
+              onLabel="Quiero ir al Paseo Final"
+              offLabel="No Quiero ir al Paseo Final"
+              onIcon="pi pi-check"
+              offIcon="pi pi-times"
+            />
+          </div>
+        </div>
+        <div class="col-12 md:col-6">
+          <div class="p-inputgroup flex justify-content-center">
+            <ToggleButton
+              id="fiesta-final"
+              v-model="form.incluyeFiesta"
+              onLabel="Quiero ir a la Fiesta Final"
+              offLabel="No Quiero ir a la Fiesta Final"
               onIcon="pi pi-check"
               offIcon="pi pi-times"
             />
