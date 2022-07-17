@@ -9,7 +9,7 @@ import TitleContent from '../components/TitleContent.vue'
 
 const router = useRouter()
 
-const precioInscripciones = ref([
+const precioInscripciónes = ref([
   {
     item: 'Inscripción Convención',
     valor: '$170.000',
@@ -28,14 +28,14 @@ const precioInscripciones = ref([
   },
 ])
 
-function enviarAInscripcion() {
-  router.push({ name: 'FormularioInscripcion' })
+function enviarAInscripción() {
+  router.push({ name: 'FormularioInscripción' })
 }
 </script>
 <template>
   <section id="hero-section"></section>
   <TitleContent
-    title="Inscripciones"
+    title="Inscripciónes"
     title-icon="pi-user-edit"
     class="-mt-8 mb-4"
   >
@@ -69,9 +69,53 @@ function enviarAInscripcion() {
       El ingreso a fiesta de gala tendrá previa inscripción ya que la capacidad
       del lugar se limita a 150 personas.
     </p>
-    <h3 class="my-4">Valores Generales:</h3>
+    <h3 class="mt-4 mb-3">Inscripción Asociado Incluye</h3>
+    <ul>
+      <li>
+        Traslados Ida y Vuelta Aeropuerto Puerto Montt - Puerto Varas -
+        Aeropuerto Puerto Montt.
+      </li>
+      <li>Inauguración en Teatro del Lago (Ceremonia y Cóctel)</li>
+      <li>
+        Traslados Inauguración Puerto Varas - Teatro del Lago - Puerto Varas
+      </li>
+      <li>Fiesta de los 80's</li>
+      <li>
+        Participación Convención 1 y 2 de Diciembre de 2022, almuerzos y coffees
+      </li>
+      <li>
+        Fiesta y Cena de Gala Clausura<span class="vertical-align-super text-xs"
+          >1</span
+        >
+      </li>
+      <li>Paseo Final (Opcional, se paga como un Adicional)</li>
+    </ul>
+    <h3 class="mt-3 mb-3">Inscripción Asociado Incluye</h3>
+    <ul>
+      <li>
+        Traslados Ida y Vuelta Aeropuerto Puerto Montt - Puerto Varas -
+        Aeropuerto Puerto Montt.
+      </li>
+      <li>Inauguración en Teatro del Lago (Ceremonia y Cóctel)</li>
+      <li>
+        Traslados Inauguración Puerto Varas - Teatro del Lago - Puerto Varas
+      </li>
+      <li>Fiesta de los 80's</li>
+      <li>
+        Fiesta y Cena de Gala Clausura<span class="vertical-align-super text-xs"
+          >1</span
+        >
+      </li>
+      <li>Paseo Final (Opcional, se paga como un Adicional)</li>
+    </ul>
+    <p class="text-sm">
+      <span class="vertical-align-super text-xs">1</span> El ingreso a la fiesta
+      de gala será con capacidad limitada y se respetará el orden de inscripción
+      de los asociados, ya que la capacidad del lugar se limita a 150 personas.
+    </p>
+    <h3 class="mt-5 mb-4">Valores Generales:</h3>
     <DataTable
-      :value="precioInscripciones"
+      :value="precioInscripciónes"
       stripedRows
       responsiveLayout="scroll"
       breakpoint="960px"
@@ -84,7 +128,7 @@ function enviarAInscripcion() {
         label="Inscribete Aquí"
         icon="pi pi-user-edit"
         class="px-3"
-        @click="enviarAInscripcion"
+        @click="enviarAInscripción;"
       />
     </div>
   </TitleContent>
