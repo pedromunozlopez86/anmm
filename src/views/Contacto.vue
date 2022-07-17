@@ -6,8 +6,8 @@ import Textarea from "primevue/textarea";
 import Button from "primevue/button";
 import TitleContent from "../components/TitleContent.vue";
 
-const serviceId = "service_yn5hdas";
-const templateId = "template_fgzpzj7";
+const serviceId = "service_k0lhu1i";
+const templateId = "template_j26a27k";
 const publicKey = "5I5SnP5giie3mviTa";
 
 const formularioContacto = reactive({

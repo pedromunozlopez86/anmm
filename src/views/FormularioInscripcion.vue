@@ -98,6 +98,7 @@ function sendPagoML() {
 
 function sendPagoPlanilla() {
   // TODO
+  
 }
 </script>
 <template>
