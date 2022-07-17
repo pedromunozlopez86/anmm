@@ -5,6 +5,7 @@ import TabPanel from "primevue/tabpanel";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import router from "../router";
+import Image from "primevue/image";
 
 const miercoles = [
   {
@@ -110,35 +111,18 @@ const download = () => {
       Bienvenidos
     </div>
     <div class="col-12 px-3 bg-white mt-0 grid">
-      <div class="col-12 md:col-6 mt-6 text-justify" id="text-header-left">
+      <div class="col-12 md:col-6 mt-6 text-justify px-3" id="text-header-left">
         <p>
-          La
-          <strong>
-            Asociación Nacional de Magistradas y Magistrados (ANMM)</strong
-          >
-          les invita a participar en la 50°. Convención Nacional a realizarse en
-          Santiago, en modalidad presencial y a distancia, para reencontrarnos y
-          reflexionar sobre el futuro de la Judicatura ante los tiempos de
-          cambio que vienen.
+          Queridas Asociadas y Asociados, la Comisión Organizadora de la
+          Convención Anual de Magistradas y Magistrados de la Región de Los
+          Lagos, está feliz de invitarlos a reencontrarnos después de dos años
+          de Pandemia en la ciudad de las rosas, Puerto Varas, desde el 30 de
+          noviembre al 3 de diciembre del presente año. Con mucho cariño hemos
+          preparado actividades en los más hermosos parajes de nuestras zonas y
+          prometemos, además, momentos inolvidables de fraterno trabajo gremial
+          y por supuesto la mejor entretención
         </p>
-        <p>
-          Queremos oírte y que seas parte del cambio. Tu opinión es importante,
-          necesitamos tu aporte a la discusión de los temas relevantes para la
-          marcha de la institución, especialmente en el momento histórico del
-          que somos testigos.
-        </p>
-        <p>
-          Frente a la situación sanitaria que vive Chile y el mundo, decidimos
-          organizar una convención híbrida para cumplir con los aforos y
-          permitir la instalación de efectivos espacios de participación y
-          discusión; limitaciones que nos han impedido recibir acompañantes.
-        </p>
-
-        <p>
-          Finalmente, se dará efectivo cumplimiento de las medidas sanitarias
-          dispuestas por la autoridad, por lo que se exigirá el porte de
-          vuestros pases de movilidad. ¡Les esperamos!
-        </p>
+        <p>Bienvenidas y Bienvenidos a la Magia del Sur, los esperamos !!</p>
       </div>
       <div class="col-12 md:col-5 mt-7 ml-5">
         <video
@@ -164,6 +148,13 @@ const download = () => {
         <i class="pi pi-calendar text-white mr-3"></i>
         <h2 class="text-white">Programa</h2>
       </div>
+      <div class="text-center mb-5">
+        <p class="text-white px-8 mx-2 md:mx-8">
+          A continuación podrán encontrar el detalle de todas las actividades
+          programadas para nuestra Convención, con los horarios definidos para
+          cada jornada de principio a fin.
+        </p>
+      </div>
     </div>
 
     <div class="col-12 md:col-8 md:col-offset-2 col-offset-0">
@@ -171,17 +162,25 @@ const download = () => {
         <TabPanel header="Miércoles 30">
           <div class="grid">
             <div class="col-6 col-md-12">
-              <div class="px-5">
-                <p>Inaguración del evento</p>
+              <div class="px-5 fila text-justify">
+                <p>
+                  Damos comienzo a nuestra 50ᵃ Convención Nacional con la
+                  Inauguración Oficial, que tendrá lugar en el Teatro del Lago
+                  de Frutillar
+                </p>
               </div>
               <div class="text-center">
-                <img
-                  src="./../assets/img/Rectangle-45.png"
-                  alt="Miércoles-30"
+                <Image
+                  src="src/assets/img/Mie30.png"
+                  alt="Mie-30"
+                  preview
+                  width="330"
                 />
               </div>
               <div class="text-center mt-3">
-                <Button class="p-button-outlined text-white" @click="download"
+                <Button
+                  class="p-button-sm p-button-outlined text-white"
+                  @click="download"
                   >Descargar programa completo <i class="pi pi-file ml-2"></i>
                 </Button>
               </div>
@@ -213,17 +212,27 @@ const download = () => {
         </TabPanel>
         <TabPanel header="Jueves 01">
           <div class="grid">
-            <div class="col-6 col-md-12">
-              <p>
-                El primer día de trabajo contempla la acreditación, una primaria
-                de apertura y trabajo de comisiones, previa distribución, así
-                como un almuerzo ejecutivo.
+            <div class="col-6 col-md-12 pt-5-">
+              <p class="px-5 fila text-justify">
+                El primer día de convención contempla la acreditación, primaria
+                de apertura y posterior trabajo de comisiones. Finalizamos la
+                jornada con una entretenida fiesta de los 80´s!
               </p>
+              <br />
               <div class="text-center">
-                <img
-                  src="./../assets/img/Rectangle-45.png"
-                  alt="Miércoles-30"
+                <Image
+                  src="src/assets/img/Jueves01.png"
+                  alt="Mie-30"
+                  preview
+                  width="330"
                 />
+              </div>
+              <div class="text-center mt-3">
+                <Button
+                  class="p-button-sm p-button-outlined text-white"
+                  @click="download"
+                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                </Button>
               </div>
             </div>
 
@@ -255,12 +264,28 @@ const download = () => {
         <TabPanel header="Viernes 02">
           <div class="grid">
             <div class="col-6 col-md-12">
-              <p>Segundo día de trabajo</p>
+              <p class="px-4 fila text-justify">
+                En el segundo y último día de trabajo se llevará a cabo una
+                plenaria de clausura dividida en módulos con diversos temas a
+                definir y votar, además de recibir los informes de comisiones y
+                demás órganos gremiales. Finalizamos la tarde con un almuerzo de
+                camaradería. Posteriormente, en la noche, cerramos nuestra
+                Convención con una Fiesta de Gala “Fiesta de las Máscaras”.
+              </p>
               <div class="text-center">
-                <img
-                  src="./../assets/img/Rectangle-45.png"
-                  alt="Miércoles-30"
+                <Image
+                  src="src/assets/img/Viernes02.png"
+                  alt="Viernes02"
+                  preview
+                  width="330"
                 />
+              </div>
+              <div class="text-center mt-3">
+                <Button
+                  class="p-button-sm p-button-outlined text-white"
+                  @click="download"
+                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                </Button>
               </div>
             </div>
             <div class="col-6 col-md-12">
@@ -290,8 +315,27 @@ const download = () => {
         </TabPanel>
         <TabPanel header="Sábado 03">
           <div class="grid">
-            <div class="col-6">
-              <p>Paseo Final</p>
+            <div class="col-6 col-md-12">
+              <p class="px-5 fila text-justify">
+                El último día de la Convención será para realizar una actividad
+                de esparcimiento y camaradería, recorriendo hermosos destinos de
+                la zona.
+              </p>
+              <div class="text-center mt-5">
+                <Image
+                  src="src/assets/img/Sabado03.png"
+                  alt="Viernes02"
+                  preview
+                  width="330"
+                />
+              </div>
+              <div class="text-center mt-3">
+                <Button
+                  class="p-button-sm p-button-outlined text-white"
+                  @click="download"
+                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                </Button>
+              </div>
             </div>
             <div class="col-6">
               <DataTable
