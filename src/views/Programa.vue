@@ -8,6 +8,7 @@ import TabPanel from "primevue/tabpanel";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import router from "../router";
+import Image from "primevue/image";
 
 const miercoles = [
   {
@@ -107,38 +108,47 @@ const download = () => {
   <section id="hero-section"></section>
 
   <TitleContent title="Programa" title-icon="pi-calendar" class="-mt-8 mb-4">
-    <div><p>Descripción de las actividades de la 50° convención</p></div>
+    <div>
+      <p>
+        A continuación podrán encontrar el detalle de todas las actividades
+        programadas para nuestra Convención, con los horarios definidos para
+        cada jornada de principio a fin.
+      </p>
+    </div>
   </TitleContent>
 
-  <main id="programa" class="grid px-5 py-5 pb8-">
-    <div class="col-12 text-center">
-      <div class="flex align-items-center justify-content-center">
-        <i class="pi pi-calendar text-white mr-3"></i>
-        <h2 class="text-white">Programa</h2>
-      </div>
-    </div>
+  <main id="programa" class="grid px-5 py-5">
+    <div class="col-12 text-center"></div>
 
-    <div class="col-12 md:col-8 md:col-offset-2 col-offset-0 mb-5">
+    <div class="col-12 md:col-10 md:col-offset-1 col-offset-0">
       <TabView ref="tabview1" id="pestana-1">
         <TabPanel header="Miércoles 30">
           <div class="grid">
-            <div class="col-6 col-md-12">
-              <div class="px-5">
-                <p>Inaguración del evento</p>
+            <div class="col-12 md:col-6">
+              <div class="px-5 fila text-justify">
+                <p>
+                  Damos comienzo a nuestra 50ᵃ Convención Nacional con la
+                  Inauguración Oficial, que tendrá lugar en el Teatro del Lago
+                  de Frutillar
+                </p>
               </div>
               <div class="text-center">
-                <img
-                  src="./../assets/img/Rectangle-45.png"
-                  alt="Miércoles-30"
+                <Image
+                  src="src/assets/img/Mie30.png"
+                  alt="Mie-30"
+                  preview
+                  width="330"
                 />
               </div>
               <div class="text-center mt-3">
-                <Button class="p-button-outlined text-white" @click="download"
+                <Button
+                  class="p-button-sm p-button-outlined text-white"
+                  @click="download"
                   >Descargar programa completo <i class="pi pi-file ml-2"></i>
                 </Button>
               </div>
             </div>
-            <div class="col-6 col-md-12">
+            <div class="col-12 md:col-6">
               <DataTable
                 responsiveLayout="scroll"
                 showGridlines="false"
@@ -165,21 +175,31 @@ const download = () => {
         </TabPanel>
         <TabPanel header="Jueves 01">
           <div class="grid">
-            <div class="col-6 col-md-12">
-              <p>
-                El primer día de trabajo contempla la acreditación, una primaria
-                de apertura y trabajo de comisiones, previa distribución, así
-                como un almuerzo ejecutivo.
+            <div class="col-12 md:col-6 pt-5-">
+              <p class="px-5 fila text-justify">
+                El primer día de convención contempla la acreditación, primaria
+                de apertura y posterior trabajo de comisiones. Finalizamos la
+                jornada con una entretenida fiesta de los 80´s!
               </p>
+              <br />
               <div class="text-center">
-                <img
-                  src="./../assets/img/Rectangle-45.png"
-                  alt="Miércoles-30"
+                <Image
+                  src="src/assets/img/Jueves01.png"
+                  alt="Mie-30"
+                  preview
+                  width="330"
                 />
+              </div>
+              <div class="text-center mt-3">
+                <Button
+                  class="p-button-sm p-button-outlined text-white"
+                  @click="download"
+                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                </Button>
               </div>
             </div>
 
-            <div class="col-6 col-md-12">
+            <div class="col-12 md:col-6">
               <DataTable
                 responsiveLayout="scroll"
                 :value="jueves"
@@ -206,16 +226,32 @@ const download = () => {
         </TabPanel>
         <TabPanel header="Viernes 02">
           <div class="grid">
-            <div class="col-6 col-md-12">
-              <p>Segundo día de trabajo</p>
+            <div class="col-12 md:col-6">
+              <p class="px-4 fila text-justify">
+                En el segundo y último día de trabajo se llevará a cabo una
+                plenaria de clausura dividida en módulos con diversos temas a
+                definir y votar, además de recibir los informes de comisiones y
+                demás órganos gremiales. Finalizamos la tarde con un almuerzo de
+                camaradería. Posteriormente, en la noche, cerramos nuestra
+                Convención con una Fiesta de Gala “Fiesta de las Máscaras”.
+              </p>
               <div class="text-center">
-                <img
-                  src="./../assets/img/Rectangle-45.png"
-                  alt="Miércoles-30"
+                <Image
+                  src="src/assets/img/Viernes02.png"
+                  alt="Viernes02"
+                  preview
+                  width="330"
                 />
               </div>
+              <div class="text-center mt-3">
+                <Button
+                  class="p-button-sm p-button-outlined text-white"
+                  @click="download"
+                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                </Button>
+              </div>
             </div>
-            <div class="col-6 col-md-12">
+            <div class="col-12 md:col-6">
               <DataTable
                 responsiveLayout="scroll"
                 :value="viernes"
@@ -242,10 +278,29 @@ const download = () => {
         </TabPanel>
         <TabPanel header="Sábado 03">
           <div class="grid">
-            <div class="col-6">
-              <p>Paseo Final</p>
+            <div class="col-12 md:col-6">
+              <p class="px-5 fila text-justify">
+                El último día de la Convención será para realizar una actividad
+                de esparcimiento y camaradería, recorriendo hermosos destinos de
+                la zona.
+              </p>
+              <div class="text-center mt-5">
+                <Image
+                  src="src/assets/img/Sabado03.png"
+                  alt="Viernes02"
+                  preview
+                  width="330"
+                />
+              </div>
+              <div class="text-center mt-3">
+                <Button
+                  class="p-button-sm p-button-outlined text-white"
+                  @click="download"
+                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                </Button>
+              </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 md:col-6">
               <DataTable
                 responsiveLayout="scroll"
                 :value="sabado"

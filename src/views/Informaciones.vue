@@ -3,6 +3,48 @@ import TitleContentVue from "../components/TitleContent.vue";
 import TitleContent from "../components/TitleContent.vue";
 import Accordion from "primevue/accordion";
 import AccordionTab from "primevue/accordiontab";
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+
+const bellavista = [
+  { habitacion: "Single o Doble Standard", tarifa: "$  68.500 + IVA" },
+  { habitacion: "Single o Doble Superior", tarifa: "$  90.000 + IVA" },
+  { habitacion: "Suite", tarifa: "$  127.500 + IVA" },
+];
+const cabanaDelLago = [
+  { habitacion: "Standard", domJue: "$59.000 + IVA", vieSab: "$75.000 + IVA" },
+  { habitacion: "Superior", domJue: "$79.000 + IVA", vieSab: "$95.000 + IVA" },
+];
+
+const radisson = [
+  { habitacion: "Standard", single: "$110.000 + IVA", doble: "$115.000 + IVA" },
+  { habitacion: "Superior", single: "$125.000 + IVA", doble: "$145.000 + IVA" },
+  {
+    habitacion: "Junior Suite",
+    single: "$145.000 + IVA",
+    doble: "$155.000 + IVA",
+  },
+  {
+    habitacion: "Master Suite",
+    single: "$160.000 + IVA",
+    doble: "$165.000 + IVA",
+  },
+];
+
+const parkInn = [
+  {
+    habitacion: "Standard",
+    single: "$77.500 + IVA",
+    doble: "$84.500 + IVA",
+    triple: "$89.900 + IVA",
+  },
+  {
+    habitacion: "Superior",
+    single: "$84.500 + IVA",
+    doble: "$89.500 + IVA",
+    triple: "$96.300 + IVA",
+  },
+];
 </script>
 <template>
   <div>
@@ -26,7 +68,7 @@ import AccordionTab from "primevue/accordiontab";
       <TitleContent class="mb-4">
         <Accordion :multiple="true" :activeIndex="[0]">
           <AccordionTab header="Ubicación" class="p-accordion-header-primary">
-            <div class="grid">
+            <div class="grid border-2 mb-3 surface-border">
               <div class="col-6 mt-5">
                 <h3>Inauguración – Teatro del Lago, Frutillar</h3>
                 <p>
@@ -49,12 +91,13 @@ import AccordionTab from "primevue/accordiontab";
                 ></iframe>
               </div>
             </div>
-            <div class="grid">
+
+            <div class="grid border-2 mb-3 surface-border">
               <div class="col-6">
-                <h3>
+                <h4>
                   Jornadas de Trabajo Convención – Hotel Bellavista, Puerto
                   Varas
-                </h3>
+                </h4>
                 <p>
                   El desarrollo de las jornadas de trabajo de nuestra Convención
                   se llevarán a cabo en los salones de eventos del Hotel
@@ -74,7 +117,7 @@ import AccordionTab from "primevue/accordiontab";
                 ></iframe>
               </div>
             </div>
-            <div class="grid">
+            <div class="grid border-2 mb-3 surface-border">
               <div class="col-6">
                 <h3>Fiesta de Gala – Hotel Cabaña del Lago, Puerto Varas</h3>
                 <p>
@@ -113,7 +156,194 @@ import AccordionTab from "primevue/accordiontab";
             </p>
           </AccordionTab>
           <AccordionTab header="Hoteleria">
-            <p>Convenios en desarrollo…</p>
+            <div>
+              <p>
+                En esta sección podrán encontrar diversos convenios que se han
+                realizado con el rubro hotelero de la ciudad de Puerto Varas,
+                dando para ustedes distintas opciones en precio, ubicación y
+                calidad.
+              </p>
+            </div>
+            <div class="mt-5">
+              <h3>Hotel Bellavista</h3>
+              <div class="ml-3">
+                <p>
+                  <strong> <i class="pi pi-map-marker"></i> Dirección: </strong>
+                  <a
+                    href="https://goo.gl/maps/YEpu4F8KiN2nEr6W7"
+                    class="text-color hover:text-primary"
+                    target="_blank"
+                    >Vicente Pérez Rosales 060, Puerto Varas</a
+                  >
+                </p>
+                <p>
+                  <strong> <i class="pi pi-phone"></i> Teléfono: </strong>
+                  <a
+                    href="tel:+56652232021"
+                    class="text-color hover:text-primary"
+                    >65 223 2011</a
+                  >
+                </p>
+                <p>
+                  <strong> <i class="pi pi-envelope"></i> E-Mail: </strong>
+                  <a
+                    href="mailto:reservas@hotelbellavista.cl"
+                    class="text-color hover:text-primary"
+                    >reservas@hotelbellavista.cl
+                  </a>
+                </p>
+              </div>
+
+              <div class="px-5 mt-5">
+                <DataTable :value="bellavista">
+                  <Column field="habitacion" header="Tipo de Habitación">
+                  </Column>
+                  <Column field="tarifa" header="Tarifa"> </Column>
+                </DataTable>
+              </div>
+            </div>
+            <hr class="mt-4" />
+
+            <div class="mt-5">
+              <h3>Hotel Cabaña del Lago</h3>
+              <div class="ml-3">
+                <p>
+                  <strong> <i class="pi pi-map-marker"></i> Dirección: </strong>
+                  <a
+                    href="https://g.page/hotel_cdl?share"
+                    class="text-color hover:text-primary"
+                    target="_blank"
+                    >Klenner 195, Puerto Varas</a
+                  >
+                </p>
+                <p>
+                  <strong> <i class="pi pi-user"></i> Contacto: </strong>
+                  Niscerelle Barrientos
+                </p>
+                <p>
+                  <strong> <i class="pi pi-phone"></i> Teléfono: </strong>
+                  <a
+                    href="tel:+56652200100"
+                    class="text-color hover:text-primary"
+                    >65 220 0100</a
+                  >
+                </p>
+                <p>
+                  <strong> <i class="pi pi-envelope"></i> E-Mail: </strong>
+                  <a
+                    href="mailto:reservasgrupos@hcdl.cl"
+                    class="text-color hover:text-primary"
+                    >reservasgrupos@hcdl.cl
+                  </a>
+                </p>
+              </div>
+
+              <div class="px-5 mt-5">
+                <DataTable :value="cabanaDelLago">
+                  <Column field="habitacion" header="Tipo de Habitación">
+                  </Column>
+                  <Column field="domJue" header="Tarifa Domingo a Jueves">
+                  </Column>
+                  <Column field="vieSab" header="Tarifa Viernes y Sábado">
+                  </Column>
+                </DataTable>
+              </div>
+            </div>
+            <hr class="mt-4" />
+
+            <div class="mt-5">
+              <h3>Hotel Radisson</h3>
+              <div class="ml-3">
+                <p>
+                  <strong> <i class="pi pi-map-marker"></i> Dirección: </strong>
+                  <a
+                    href="https://goo.gl/maps/a7yy85CY29tu3npW7"
+                    class="text-color hover:text-primary"
+                    target="_blank"
+                    >Del Salvador 024, Puerto Varas</a
+                  >
+                </p>
+                <p>
+                  <strong> <i class="pi pi-user"></i> Contacto: </strong>
+                  Pamela Binder
+                </p>
+                <p>
+                  <strong> <i class="pi pi-phone"></i> Teléfono: </strong>
+                  <a
+                    href="tel:+56652239620"
+                    class="text-color hover:text-primary"
+                    >65 223 9620</a
+                  >
+                </p>
+                <p>
+                  <strong> <i class="pi pi-envelope"></i> E-Mail: </strong>
+                  <a
+                    href="mailto:reservas1@bookingradisson.cl"
+                    class="text-color hover:text-primary"
+                    >reservas1@bookingradisson.cl
+                  </a>
+                </p>
+              </div>
+              <div class="px-5 mt-5">
+                <DataTable :value="radisson">
+                  <Column field="habitacion" header="Tipo de Habitación">
+                  </Column>
+                  <Column field="single" header="Single"> </Column>
+                  <Column field="doble" header="Doble"> </Column>
+                </DataTable>
+              </div>
+            </div>
+            <hr class="mt-4" />
+            <div class="mt-5">
+              <h3>Hotel Park Inn</h3>
+              <div class="ml-3">
+                <p>
+                  <strong> <i class="pi pi-map-marker"></i> Dirección: </strong>
+                  <a
+                    href="https://goo.gl/maps/vHJc2JupmHMRddiN6"
+                    class="text-color hover:text-primary"
+                    target="_blank"
+                    >La Paz 471, Puerto Varas</a
+                  >
+                </p>
+                <p>
+                  <strong> <i class="pi pi-user"></i> Contacto: </strong>
+                  Pamela Binder
+                </p>
+                <p>
+                  <strong> <i class="pi pi-phone"></i> Teléfono: </strong>
+                  <a
+                    href="tel:+56652239620"
+                    class="text-color hover:text-primary"
+                    >65 223 9620</a
+                  >
+                </p>
+                <p>
+                  <strong> <i class="pi pi-envelope"></i> E-Mail: </strong>
+                  <a
+                    href="mailto:reservas1@bookingradisson.cl"
+                    class="text-color hover:text-primary"
+                    >reservas1@bookingradisson.cl
+                  </a>
+                </p>
+                <p>
+                  <strong>
+                    <i class="pi pi-info-circle"></i> Código de Convenio:
+                  </strong>
+                  <span class="text-primary"> ConvenciónMagistrados2022 </span
+                  >(Deben proporcionar este código junto a su reserva)
+                </p>
+              </div>
+              <div class="px-5 mt-5">
+                <DataTable :value="parkInn">
+                  <Column field="habitacion" header="Tipo de Habitación">
+                  </Column>
+                  <Column field="single" header="Single"> </Column>
+                  <Column field="doble" header="Doble"> </Column>
+                  <Column field="triple" header="Triple"> </Column>
+                </DataTable>
+              </div>
+            </div>
           </AccordionTab>
         </Accordion>
       </TitleContent>

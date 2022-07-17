@@ -130,7 +130,7 @@ const download = () => {
           controls
           src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Video%20Invitacio%CC%81n.mp4?alt=media&token=647be919-fb5e-4f4b-89d6-7fb805251c1f"
           type="video/mp4"
-          poster="@/assets/img/fondo-video.png"
+          poster="@/assets/img/logo-final.png"
         ></video>
         <div class="ml-2 mt-3" id="borde-azul">
           <p class="pl-2">
@@ -157,11 +157,11 @@ const download = () => {
       </div>
     </div>
 
-    <div class="col-12 md:col-8 md:col-offset-2 col-offset-0">
+    <div class="col-12 md:col-10 md:col-offset-1 col-offset-0">
       <TabView ref="tabview1" id="pestana-1">
         <TabPanel header="Miércoles 30">
           <div class="grid">
-            <div class="col-6 col-md-12">
+            <div class="col-12 md:col-6">
               <div class="px-5 fila text-justify">
                 <p>
                   Damos comienzo a nuestra 50ᵃ Convención Nacional con la
@@ -185,7 +185,7 @@ const download = () => {
                 </Button>
               </div>
             </div>
-            <div class="col-6 col-md-12">
+            <div class="col-12 md:col-6">
               <DataTable
                 responsiveLayout="scroll"
                 showGridlines="false"
@@ -212,7 +212,7 @@ const download = () => {
         </TabPanel>
         <TabPanel header="Jueves 01">
           <div class="grid">
-            <div class="col-6 col-md-12 pt-5-">
+            <div class="col-12 md:col-6 pt-5-">
               <p class="px-5 fila text-justify">
                 El primer día de convención contempla la acreditación, primaria
                 de apertura y posterior trabajo de comisiones. Finalizamos la
@@ -236,7 +236,7 @@ const download = () => {
               </div>
             </div>
 
-            <div class="col-6 col-md-12">
+            <div class="col-12 md:col-6">
               <DataTable
                 responsiveLayout="scroll"
                 :value="jueves"
@@ -263,7 +263,7 @@ const download = () => {
         </TabPanel>
         <TabPanel header="Viernes 02">
           <div class="grid">
-            <div class="col-6 col-md-12">
+            <div class="col-12 md:col-6">
               <p class="px-4 fila text-justify">
                 En el segundo y último día de trabajo se llevará a cabo una
                 plenaria de clausura dividida en módulos con diversos temas a
@@ -288,7 +288,7 @@ const download = () => {
                 </Button>
               </div>
             </div>
-            <div class="col-6 col-md-12">
+            <div class="col-12 md:col-6">
               <DataTable
                 responsiveLayout="scroll"
                 :value="viernes"
@@ -315,7 +315,7 @@ const download = () => {
         </TabPanel>
         <TabPanel header="Sábado 03">
           <div class="grid">
-            <div class="col-6 col-md-12">
+            <div class="col-12 md:col-6">
               <p class="px-5 fila text-justify">
                 El último día de la Convención será para realizar una actividad
                 de esparcimiento y camaradería, recorriendo hermosos destinos de
@@ -337,7 +337,7 @@ const download = () => {
                 </Button>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 md:col-6">
               <DataTable
                 responsiveLayout="scroll"
                 :value="sabado"
