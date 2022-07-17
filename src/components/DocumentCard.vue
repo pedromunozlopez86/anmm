@@ -3,6 +3,11 @@ import Button from 'primevue/button'
 defineProps({
   documento: Object,
 })
+const emit = defineEmits(['descargar-documento'])
+
+function descargar(doc) {
+  emit('descargar-documento', doc)
+}
 </script>
 <template>
   <div
@@ -21,6 +26,7 @@ defineProps({
       <Button
         label="Descargar"
         class="w-full p-button-outlined p-button-info"
+        @click="descargar(documento)"
       />
     </div>
   </div>
