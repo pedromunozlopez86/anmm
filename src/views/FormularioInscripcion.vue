@@ -10,7 +10,7 @@ import TitleContent from "../components/TitleContent.vue";
 import regionalOptions from "@/assets/data/regional.json";
 
 const serviceId = "service_k0lhu1i";
-const templateId = "template_j26a27k";
+const templateId = "template_nnsj3kv";
 const publicKey = "5I5SnP5giie3mviTa";
 
 const form = reactive({
@@ -37,6 +37,7 @@ const form = reactive({
   requiereTrasladoCeremonia: false,
   incluyePaseo: false,
   incluyeFiesta: false,
+  formaPago: "",
 });
 
 const inscripcion = computed(() => {
