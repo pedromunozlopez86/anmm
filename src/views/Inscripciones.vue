@@ -9,7 +9,7 @@ import TitleContent from "../components/TitleContent.vue";
 
 const router = useRouter();
 
-const precioInscripciónes = ref([
+const precioInscripciones = ref([
   {
     item: "Inscripción Convención",
     valor: "$170.000",
@@ -28,14 +28,14 @@ const precioInscripciónes = ref([
   },
 ]);
 
-function enviarAInscripción() {
-  router.push({ name: "FormularioInscripción" });
+function enviarAInscripcion() {
+  router.push({ name: "FormularioInscripcion" });
 }
 </script>
 <template>
   <section id="hero-section"></section>
   <TitleContent
-    title="Inscripciónes"
+    title="Inscripciones"
     title-icon="pi-user-edit"
     class="-mt-8 mb-4"
   >
@@ -115,7 +115,7 @@ function enviarAInscripción() {
     </p>
     <h3 class="mt-5 mb-4">Valores Generales:</h3>
     <DataTable
-      :value="precioInscripciónes"
+      :value="precioInscripciones"
       stripedRows
       responsiveLayout="scroll"
       breakpoint="960px"
@@ -128,7 +128,7 @@ function enviarAInscripción() {
         label="Inscribete Aquí"
         icon="pi pi-user-edit"
         class="px-3"
-        @click="enviarAInscripción;"
+        @click="enviarAInscripcion"
       />
     </div>
   </TitleContent>

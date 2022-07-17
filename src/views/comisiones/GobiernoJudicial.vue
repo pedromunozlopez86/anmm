@@ -23,6 +23,10 @@ const documentos = [
     urlDocumento: '#',
   },
 ]
+
+function descargarDoc(value) {
+  console.log('descargar: ', value)
+}
 </script>
 <template>
   <section id="hero-section"></section>
@@ -37,8 +41,12 @@ const documentos = [
     </p>
   </TitleContent>
   <main class="grid py-5 w-9 m-auto">
-    <div class="col-12 md:col-4 mb-4" v-for="doc in documentos" :key="doc.titulo">
-      <DocumentCard :documento="doc" />
+    <div
+      class="col-12 md:col-4 mb-4"
+      v-for="doc in documentos"
+      :key="doc.titulo"
+    >
+      <DocumentCard :documento="doc" @descargar-documento="descargarDoc" />
     </div>
   </main>
 </template>
