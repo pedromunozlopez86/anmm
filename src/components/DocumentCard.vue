@@ -6,7 +6,7 @@ defineProps({
 </script>
 <template>
   <div
-    class="bg-white shadow-3 flex flex-column align-items-center justify-content-around card"
+    class="bg-white shadow-3 flex flex-column align-items-center justify-content-around h-15rem"
   >
     <div
       class="-mt-4 border-circle w-3rem h-3rem flex justify-content-center align-items-center celeste-oscuro"
@@ -26,10 +26,6 @@ defineProps({
   </div>
 </template>
 <style lang="scss" scoped>
-.card {
-  height: 15rem;
-}
-
 .celeste-oscuro {
   background-color: var(--celeste-oscuro);
 }
