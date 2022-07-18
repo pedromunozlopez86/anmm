@@ -171,7 +171,7 @@ const download = () => {
               </div>
               <div class="text-center">
                 <Image
-                  src="src/assets/img/Mie30.png"
+                  src="@/assets/img/Mie30.png"
                   alt="Mie-30"
                   preview
                   width="330"
