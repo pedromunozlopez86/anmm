@@ -8,6 +8,7 @@ import Button from "primevue/button";
 import Fieldset from "primevue/fieldset";
 import TitleContent from "../components/TitleContent.vue";
 import regionalOptions from "@/assets/data/regional.json";
+import SelectButton from "primevue/selectbutton";
 import { useEmailJs } from "../composables";
 
 const { template, sendEmail } = useEmailJs();
@@ -40,7 +41,13 @@ const form = reactive({
   cuotas: "",
   valorFinal: "",
 });
-
+const options = [
+  {
+    name: "SI",
+    value: true,
+  },
+  { name: "NO", value: false },
+];
 const isLoading = ref(false);
 
 const inscripcion = computed(() => {
@@ -92,8 +99,10 @@ function redirectToML() {
     window.location.href = "https://mpago.la/2zvo2ex"; // 460
     return;
   }
-  window.location.href = "https://mpago.la/1a8EEiF"; // 170
+  window.location.href = "https://mpago.la/1cs1JcP"; // 170
 }
+
+// window.location.href = "https://mpago.la/1a8EEiF";
 
 async function pagarPorML() {
   isLoading.value = true;
@@ -121,7 +130,7 @@ async function pagarPorPlanilla() {
 <template>
   <section id="hero-section"></section>
   <TitleContent
-    title="Formulario Inscripcion"
+    title="Formulario Inscripción"
     title-icon="pi-user-edit"
     class="-mt-8 mb-4"
   >
@@ -182,10 +191,17 @@ async function pagarPorPlanilla() {
         </div>
         <div class="col-12 md:col-6">
           <div class="p-inputgroup flex justify-content-center">
+            <!-- <SelectButton
+              v-model="form.vieneAcompanante"
+              :options="options"
+              optionLabel="name"
+            /> -->
+            <p class="mr-3">Va con acompañante?</p>
+
             <ToggleButton
               id="tiene-acompanante"
               v-model="form.vieneAcompanante"
-              onLabel="Con Acopañante"
+              onLabel="Con Acompañante"
               offLabel="Sin Acompañante"
               onIcon="pi pi-check"
               offIcon="pi pi-times"
@@ -331,9 +347,10 @@ async function pagarPorPlanilla() {
         </div>
       </div>
     </Fieldset>
-    <Fieldset legend="Extras" class="mb-3">
+    <Fieldset legend="Actividades" class="mb-3">
       <div class="grid">
         <div class="col-12 md:col-6">
+          <p class="text-center pb-2">Asistirá al paseo?</p>
           <div class="p-inputgroup flex justify-content-center">
             <ToggleButton
               id="paseo-final"
@@ -344,8 +361,12 @@ async function pagarPorPlanilla() {
               offIcon="pi pi-times"
             />
           </div>
+          <p class="text-sm pt-3 px-5 text-center">
+            Esta actividad tiene un valor adicional de $80.000 por persona.
+          </p>
         </div>
         <div class="col-12 md:col-6">
+          <p class="text-center pb-2">Asistirá a la fiesta de gala?</p>
           <div class="p-inputgroup flex justify-content-center">
             <ToggleButton
               id="fiesta-final"
@@ -356,6 +377,10 @@ async function pagarPorPlanilla() {
               offIcon="pi pi-times"
             />
           </div>
+          <p class="text-sm pt-3 px-5 text-center">
+            Esta fiesta está incluída en la inscripción base, pero posee cupos
+            limitados.
+          </p>
         </div>
       </div>
     </Fieldset>
@@ -375,7 +400,7 @@ async function pagarPorPlanilla() {
               :options="cuotasOptions"
               optionLabel="nombre"
               optionValue="value"
-              placeholder="N° de Cuotas"
+              placeholder="Cuotas"
               class="col-offset-8 col-2"
             />
           </div>

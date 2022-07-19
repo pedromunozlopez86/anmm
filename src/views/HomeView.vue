@@ -113,14 +113,14 @@ const download = () => {
     <div class="col-12 px-3 bg-white mt-0 grid">
       <div class="col-12 md:col-6 mt-6 text-justify px-3" id="text-header-left">
         <p>
-          Queridas Asociadas y Asociados, la Comisión Organizadora de la
-          Convención Anual de Magistradas y Magistrados de la Región de Los
-          Lagos, está feliz de invitarlos a reencontrarnos después de dos años
-          de Pandemia en la ciudad de las rosas, Puerto Varas, desde el 30 de
-          noviembre al 3 de diciembre del presente año. Con mucho cariño hemos
-          preparado actividades en los más hermosos parajes de nuestras zonas y
-          prometemos, además, momentos inolvidables de fraterno trabajo gremial
-          y por supuesto la mejor entretención
+          <span class="pl-5">Queridas</span> Asociadas y Asociados, la Comisión
+          Organizadora de la Convención Anual de Magistradas y Magistrados de la
+          Región de Los Lagos, está feliz de invitarlos a reencontrarnos después
+          de dos años de Pandemia en la ciudad de las rosas, Puerto Varas, desde
+          el 30 de noviembre al 3 de diciembre del presente año. Con mucho
+          cariño hemos preparado actividades en los más hermosos parajes de
+          nuestras zonas y prometemos, además, momentos inolvidables de fraterno
+          trabajo gremial y por supuesto la mejor entretención.
         </p>
         <p>Bienvenidas y Bienvenidos a la Magia del Sur, los esperamos !!</p>
       </div>
