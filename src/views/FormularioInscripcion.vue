@@ -1,121 +1,133 @@
 <script setup>
-import { computed, reactive, ref } from "vue";
-import emailjs from "emailjs-com";
-import ToggleButton from "primevue/togglebutton";
-import InputText from "primevue/inputtext";
-import Dropdown from "primevue/dropdown";
-import Button from "primevue/button";
-import Fieldset from "primevue/fieldset";
-import TitleContent from "../components/TitleContent.vue";
-import regionalOptions from "@/assets/data/regional.json";
-import { useEmailJs } from "../composables";
+import { computed, reactive, ref } from 'vue'
+import ToggleButton from 'primevue/togglebutton'
+import SelectButton from 'primevue/selectbutton'
+import InputText from 'primevue/inputtext'
+import Dropdown from 'primevue/dropdown'
+import Button from 'primevue/button'
+import Fieldset from 'primevue/fieldset'
+import Dialog from 'primevue/dialog'
+import TitleContent from '@/components/TitleContent.vue'
+import regionalOptions from '@/assets/data/regional.json'
+import { useEmailJs } from '@/composables'
 
-const { template, sendEmail } = useEmailJs();
+const { template, sendEmail } = useEmailJs()
 
 const form = reactive({
-  nombreCompleto: "",
-  rut: "",
-  telefono: "",
-  correo: "",
-  regional: "",
+  nombreCompleto: '',
+  rut: '',
+  telefono: '',
+  correo: '',
+  regional: '',
   vieneAcompanante: false,
   acompanante: {
-    nombre: "",
-    rut: "",
-    telefono: "",
-    correo: "",
+    nombre: '',
+    rut: '',
+    telefono: '',
+    correo: '',
   },
   contactoEmergencia: {
-    nombre: "",
-    telefono: "",
+    nombre: '',
+    telefono: '',
   },
   restriccionAlimentaria: false,
-  comentarioRestriccionAlimentaria: "",
-  trasladoPuertoVaras: "",
+  comentarioRestriccionAlimentaria: '',
+  trasladoPuertoVaras: '',
   requiereTransporteHotel: false,
   requiereTrasladoCeremonia: false,
   incluyePaseo: false,
   incluyeFiesta: false,
-  formaPago: "",
-  cuotas: "",
-  valorFinal: "",
-});
+  formaPago: '',
+  cuotas: null,
+  valorFinal: '',
+})
 
-const isLoading = ref(false);
+const isLoading = ref(false)
+const isModalOpen = ref(false)
 
 const inscripcion = computed(() => {
   if (form.incluyePaseo && !form.vieneAcompanante) {
     return {
-      total: "250.000",
-      detalle: "Inscripción General Asociado + Paseo",
-    };
+      total: '250.000',
+      detalle: 'Inscripción General Asociado + Paseo',
+    }
   }
   if (form.vieneAcompanante && !form.incluyePaseo) {
     return {
-      total: "300.000",
-      detalle: "Inscripción General Asociado + Acompañante",
-    };
+      total: '300.000',
+      detalle: 'Inscripción General Asociado + Acompañante',
+    }
   }
   if (form.vieneAcompanante && form.incluyePaseo) {
     return {
-      total: "460.000",
-      detalle: "Inscripción General Asociado + Acompañante + Paseo",
-    };
+      total: '460.000',
+      detalle: 'Inscripción General Asociado + Acompañante + Paseo',
+    }
   }
   return {
-    total: "170.000",
-    detalle: "Inscripción General Asociado",
-  };
-});
+    total: '170.000',
+    detalle: 'Inscripción General Asociado',
+  }
+})
 
 const trasladoPVOptions = ref([
-  { nombre: "Aéreo", value: "aereo" },
-  { nombre: "Terrestre", value: "terrestre" },
-]);
+  { nombre: 'Aéreo', value: 'aereo' },
+  { nombre: 'Terrestre', value: 'terrestre' },
+])
 
 const cuotasOptions = ref([
-  { nombre: "1", value: 1 },
-  { nombre: "2", value: 2 },
-  { nombre: "3", value: 3 },
-]);
+  { descripcion: '1 Cuota', value: 1 },
+  { descripcion: '2 Cuotas', value: 2 },
+  { descripcion: '3 Cuotas', value: 3 },
+])
 
 function redirectToML() {
   if (form.incluyePaseo && !form.vieneAcompanante) {
-    window.location.href = "https://mpago.la/21LS4hs"; // 250
-    return;
+    window.location.href = 'https://mpago.la/21LS4hs' // 250
+    return
   }
   if (form.vieneAcompanante && !form.incluyePaseo) {
-    window.location.href = "https://mpago.la/2Yf6TvB"; // 300
-    return;
+    window.location.href = 'https://mpago.la/2Yf6TvB' // 300
+    return
   }
   if (form.vieneAcompanante && form.incluyePaseo) {
-    window.location.href = "https://mpago.la/2zvo2ex"; // 460
-    return;
+    window.location.href = 'https://mpago.la/2zvo2ex' // 460
+    return
   }
-  window.location.href = "https://mpago.la/1a8EEiF"; // 170
+  window.location.href = 'https://mpago.la/1a8EEiF' // 170
 }
 
 async function pagarPorML() {
-  isLoading.value = true;
-  form.formaPago = "Mercado Libre";
-  form.valorFinal = inscripcion.value;
+  isLoading.value = true
+  form.formaPago = 'Mercado Libre'
+  form.valorFinal = inscripcion.value
   await sendEmail(template.INSCRIPCION, form).then((res) => {
     if (res.status === 200) {
-      redirectToML();
+      redirectToML()
     }
-  });
+  })
 }
 
 async function pagarPorPlanilla() {
-  isLoading.value = true;
-  form.formaPago = "Descuento por Planilla";
-  form.valorFinal = inscripcion.value;
+  isLoading.value = true
+  form.formaPago = 'Descuento por Planilla'
+  form.valorFinal = inscripcion.value
   await sendEmail(template.INSCRIPCION, form).then((res) => {
     if (res.status === 200) {
-      isLoading.value = false;
-      console.log("exito");
+      isLoading.value = false
+      console.log('exito')
     }
-  });
+  })
+}
+
+function openModalCuotas() {
+  form.cuotas = 1
+  isModalOpen.value = true
+}
+
+function closeModalCuotas() {
+  form.cuotas = null
+  isModalOpen.value = false
 }
 </script>
 <template>
@@ -368,17 +380,6 @@ async function pagarPorPlanilla() {
             <h2 class="my-0">$ {{ inscripcion.total }}.-</h2>
             <p class="mt-1 mb-3 text-sm">{{ inscripcion.detalle }}</p>
           </div>
-          <div class="grid">
-            <Dropdown
-              id="cuotas"
-              v-model="form.cuotas"
-              :options="cuotasOptions"
-              optionLabel="nombre"
-              optionValue="value"
-              placeholder="N° de Cuotas"
-              class="col-offset-8 col-2"
-            />
-          </div>
         </div>
 
         <div
@@ -397,18 +398,50 @@ async function pagarPorPlanilla() {
           <Button
             label="Descuento por Planilla"
             class="px-3"
-            @click="pagarPorPlanilla"
+            @click="openModalCuotas"
             :loading="isLoading"
           />
         </div>
       </div>
     </Fieldset>
   </TitleContent>
+  <Dialog v-model:visible="isModalOpen" :modal="true">
+    <template #header>
+      <h3>Seleccione Número de Cuotas</h3>
+    </template>
+
+    <div class="flex justify-content-center align-items-center p-3">
+      <SelectButton
+        v-model="form.cuotas"
+        :options="cuotasOptions"
+        optionLabel="descripcion"
+        optionValue="value"
+      />
+    </div>
+
+    <template #footer>
+      <Button
+        label="Cancelar"
+        icon="pi pi-times"
+        class="p-button-text mx-3"
+        @click="closeModalCuotas"
+        :loading="isLoading"
+      />
+      <Button
+        label="Enviar Inscripción"
+        icon="pi pi-check"
+        class="mx-3"
+        autofocus
+        @click="pagarPorPlanilla"
+        :loading="isLoading"
+      />
+    </template>
+  </Dialog>
 </template>
 
 <style lang="scss" scoped>
 #hero-section {
-  background-image: url("@/assets/img/hero-contacto.png");
+  background-image: url('@/assets/img/hero-contacto.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
