@@ -99,10 +99,8 @@ function redirectToML() {
     window.location.href = "https://mpago.la/2zvo2ex"; // 460
     return;
   }
-  window.location.href = "https://mpago.la/1cs1JcP"; // 170
+  window.location.href = "https://mpago.la/1a8EEiF"; // 170
 }
-
-// window.location.href = "https://mpago.la/1a8EEiF";
 
 async function pagarPorML() {
   isLoading.value = true;

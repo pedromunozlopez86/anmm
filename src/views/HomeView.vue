@@ -134,8 +134,8 @@ const download = () => {
         ></video>
         <div class="ml-2 mt-3" id="borde-azul">
           <p class="pl-2">
-            Invitación para la Convención Nacional Magistradas y Magistrados
-            número 50
+            Invitación para la 50ª Convención Nacional Magistradas y
+            Magistrados.
           </p>
         </div>
       </div>
