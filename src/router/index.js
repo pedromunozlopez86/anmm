@@ -62,6 +62,12 @@ const router = createRouter({
       component: () => import('@/views/FormularioInscripcion.vue'),
     },
     {
+      path: '/inscripciones/estado-pago/:estadoPago',
+      props: true,
+      name: 'EstadoPago',
+      component: () => import('@/views/EstadoPago.vue'),
+    },
+    {
       path: '/:catchAll(.*)*',
       component: () => import('@/views/Error404.vue'),
     },

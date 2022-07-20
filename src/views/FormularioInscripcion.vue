@@ -10,37 +10,44 @@ import Dialog from 'primevue/dialog'
 import TitleContent from '@/components/TitleContent.vue'
 import regionalOptions from '@/assets/data/regional.json'
 import { useEmailJs } from '@/composables'
+import { useFormularioStore } from '../stores/formulario'
 
 const { template, sendEmail } = useEmailJs()
 
-const form = reactive({
-  nombreCompleto: '',
-  rut: '',
-  telefono: '',
-  correo: '',
-  regional: '',
-  vieneAcompanante: false,
-  acompanante: {
-    nombre: '',
+const store = useFormularioStore()
+
+function initialData() {
+  return {
+    nombreCompleto: '',
     rut: '',
     telefono: '',
     correo: '',
-  },
-  contactoEmergencia: {
-    nombre: '',
-    telefono: '',
-  },
-  restriccionAlimentaria: false,
-  comentarioRestriccionAlimentaria: '',
-  trasladoPuertoVaras: '',
-  requiereTransporteHotel: false,
-  requiereTrasladoCeremonia: false,
-  incluyePaseo: false,
-  incluyeFiesta: false,
-  formaPago: '',
-  cuotas: null,
-  valorFinal: '',
-})
+    regional: '',
+    vieneAcompanante: false,
+    acompanante: {
+      nombre: '',
+      rut: '',
+      telefono: '',
+      correo: '',
+    },
+    contactoEmergencia: {
+      nombre: '',
+      telefono: '',
+    },
+    restriccionAlimentaria: false,
+    comentarioRestriccionAlimentaria: '',
+    trasladoPuertoVaras: '',
+    requiereTransporteHotel: false,
+    requiereTrasladoCeremonia: false,
+    incluyePaseo: false,
+    incluyeFiesta: false,
+    formaPago: '',
+    cuotas: null,
+    valorFinal: '',
+  }
+}
+
+const form = reactive(initialData())
 
 const isLoading = ref(false)
 const isModalOpen = ref(false)
@@ -103,6 +110,7 @@ async function pagarPorML() {
   form.valorFinal = inscripcion.value
   await sendEmail(template.INSCRIPCION, form).then((res) => {
     if (res.status === 200) {
+      store.formularioInscripcion = form
       redirectToML()
     }
   })
@@ -112,12 +120,15 @@ async function pagarPorPlanilla() {
   isLoading.value = true
   form.formaPago = 'Descuento por Planilla'
   form.valorFinal = inscripcion.value
-  await sendEmail(template.INSCRIPCION, form).then((res) => {
-    if (res.status === 200) {
-      isLoading.value = false
-      console.log('exito')
-    }
-  })
+  const { status } = await sendEmail(template.INSCRIPCION, form)
+
+  if (status === 200) {
+    isLoading.value = false
+
+    const document = await store.addToDb(form)
+
+    console.log(document.id)
+  }
 }
 
 function openModalCuotas() {
