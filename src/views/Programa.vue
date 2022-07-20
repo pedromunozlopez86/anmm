@@ -134,7 +134,7 @@ const download = () => {
               </div>
               <div class="text-center">
                 <Image
-                  src="src/assets/img/Mie30.png"
+                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Mie30.png?alt=media&token=6a76672b-e326-4252-a9b5-dd7a2b0d9fd6"
                   alt="Mie-30"
                   preview
                   width="330"
@@ -183,7 +183,7 @@ const download = () => {
               <br />
               <div class="text-center">
                 <Image
-                  src="src/assets/img/Jueves01.png"
+                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Jueves01.png?alt=media&token=d4ef8682-4487-44bb-b0d0-72b62c3b395b"
                   alt="Mie-30"
                   preview
                   width="330"
@@ -235,7 +235,7 @@ const download = () => {
               </p>
               <div class="text-center">
                 <Image
-                  src="src/assets/img/Viernes02.png"
+                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Viernes02.png?alt=media&token=412cb5b5-9ecf-4683-9d3c-36df8a52aafb"
                   alt="Viernes02"
                   preview
                   width="330"
@@ -283,7 +283,7 @@ const download = () => {
               </p>
               <div class="text-center mt-5">
                 <Image
-                  src="src/assets/img/Sabado03.png"
+                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Sabado03.png?alt=media&token=4845a488-0132-4f19-91b1-575912a2a6a8"
                   alt="Viernes02"
                   preview
                   width="330"

@@ -1,46 +1,42 @@
 <script setup>
-import TitleContent from '@/components/TitleContent.vue'
-import DocumentCard from '@/components/DocumentCard.vue'
+import TitleContent from "@/components/TitleContent.vue";
+import DocumentCard from "@/components/DocumentCard.vue";
 const documentos = [
   {
-    antetitulo: 'Corte Suprema y gobierno judicial:',
-    titulo: 'Un programa de reformas',
-    urlDocumento: '#',
+    antetitulo: "Corte Suprema y gobierno judicial:",
+    titulo: "Un programa de reformas",
+    urlDocumento: "#",
   },
   {
-    antetitulo: 'Cuenta anual:',
-    titulo: 'Comisión de Gobierno Judicial 2020',
-    urlDocumento: '#',
+    antetitulo: "Cuenta anual:",
+    titulo: "Comisión de Gobierno Judicial 2020",
+    urlDocumento: "#",
   },
   {
-    antetitulo: 'PJUD:',
-    titulo: 'Propuesta de Reforma Constitucional',
-    urlDocumento: '#',
+    antetitulo: "PJUD:",
+    titulo: "Propuesta de Reforma Constitucional",
+    urlDocumento: "#",
   },
   {
-    antetitulo: 'Informe Relator Especial:',
-    titulo: 'Independencia Judicial sobre Consejos Magistratura',
-    urlDocumento: '#',
+    antetitulo: "Informe Relator Especial:",
+    titulo: "Independencia Judicial sobre Consejos Magistratura",
+    urlDocumento: "#",
   },
-]
+];
 
 function descargarDoc(value) {
-  console.log('descargar: ', value)
+  console.log("descargar: ", value);
 }
 </script>
 <template>
   <section id="hero-section"></section>
-  <TitleContent
-    title="Gobierno Judicial"
-    title-icon="pi-bookmark"
-    class="-mt-8 mb-4"
-  >
+  <TitleContent title="Comisiones" title-icon="pi-bookmark" class="-mt-8 mb-4">
     <p>
-      En esta sección podrán descargar todo el material asociado al trabajo que
-      tendremos en esta nueva convención.
+      La definición de Comisiones de trabajo tendrá lugar en asamblea a realizar
+      en Agosto próximo, por lo que serán informadas posterior a esta fecha.
     </p>
   </TitleContent>
-  <main class="grid py-5 w-9 m-auto">
+  <!-- <main class="grid py-5 w-9 m-auto">
     <div
       class="col-12 md:col-4 mb-4"
       v-for="doc in documentos"
@@ -48,11 +44,11 @@ function descargarDoc(value) {
     >
       <DocumentCard :documento="doc" @descargar-documento="descargarDoc" />
     </div>
-  </main>
+  </main> -->
 </template>
 <style lang="scss" scoped>
 #hero-section {
-  background-image: url('@/assets/img/hero-contacto.png');
+  background-image: url("@/assets/img/hero-contacto.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

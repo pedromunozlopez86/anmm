@@ -1,15 +1,15 @@
 <script setup>
-import { computed, reactive, ref } from 'vue'
-import ToggleButton from 'primevue/togglebutton'
-import SelectButton from 'primevue/selectbutton'
-import InputText from 'primevue/inputtext'
-import Dropdown from 'primevue/dropdown'
-import Button from 'primevue/button'
-import Fieldset from 'primevue/fieldset'
-import Dialog from 'primevue/dialog'
-import TitleContent from '@/components/TitleContent.vue'
-import regionalOptions from '@/assets/data/regional.json'
-import { useEmailJs } from '@/composables'
+import { computed, reactive, ref } from "vue";
+import emailjs from "emailjs-com";
+import ToggleButton from "primevue/togglebutton";
+import InputText from "primevue/inputtext";
+import Dropdown from "primevue/dropdown";
+import Button from "primevue/button";
+import Fieldset from "primevue/fieldset";
+import TitleContent from "../components/TitleContent.vue";
+import regionalOptions from "@/assets/data/regional.json";
+import SelectButton from "primevue/selectbutton";
+import { useEmailJs } from "../composables";
 
 const { template, sendEmail } = useEmailJs()
 
@@ -37,13 +37,18 @@ const form = reactive({
   requiereTrasladoCeremonia: false,
   incluyePaseo: false,
   incluyeFiesta: false,
-  formaPago: '',
-  cuotas: null,
-  valorFinal: '',
-})
-
-const isLoading = ref(false)
-const isModalOpen = ref(false)
+  formaPago: "",
+  cuotas: "",
+  valorFinal: "",
+});
+const options = [
+  {
+    name: "SI",
+    value: true,
+  },
+  { name: "NO", value: false },
+];
+const isLoading = ref(false);
 
 const inscripcion = computed(() => {
   if (form.incluyePaseo && !form.vieneAcompanante) {
@@ -133,7 +138,7 @@ function closeModalCuotas() {
 <template>
   <section id="hero-section"></section>
   <TitleContent
-    title="Formulario Inscripcion"
+    title="Formulario Inscripción"
     title-icon="pi-user-edit"
     class="-mt-8 mb-4"
   >
@@ -194,10 +199,17 @@ function closeModalCuotas() {
         </div>
         <div class="col-12 md:col-6">
           <div class="p-inputgroup flex justify-content-center">
+            <!-- <SelectButton
+              v-model="form.vieneAcompanante"
+              :options="options"
+              optionLabel="name"
+            /> -->
+            <p class="mr-3">Va con acompañante?</p>
+
             <ToggleButton
               id="tiene-acompanante"
               v-model="form.vieneAcompanante"
-              onLabel="Con Acopañante"
+              onLabel="Con Acompañante"
               offLabel="Sin Acompañante"
               onIcon="pi pi-check"
               offIcon="pi pi-times"
@@ -343,9 +355,10 @@ function closeModalCuotas() {
         </div>
       </div>
     </Fieldset>
-    <Fieldset legend="Extras" class="mb-3">
+    <Fieldset legend="Actividades" class="mb-3">
       <div class="grid">
         <div class="col-12 md:col-6">
+          <p class="text-center pb-2">Asistirá al paseo?</p>
           <div class="p-inputgroup flex justify-content-center">
             <ToggleButton
               id="paseo-final"
@@ -356,8 +369,12 @@ function closeModalCuotas() {
               offIcon="pi pi-times"
             />
           </div>
+          <p class="text-sm pt-3 px-5 text-center">
+            Esta actividad tiene un valor adicional de $80.000 por persona.
+          </p>
         </div>
         <div class="col-12 md:col-6">
+          <p class="text-center pb-2">Asistirá a la fiesta de gala?</p>
           <div class="p-inputgroup flex justify-content-center">
             <ToggleButton
               id="fiesta-final"
@@ -368,6 +385,10 @@ function closeModalCuotas() {
               offIcon="pi pi-times"
             />
           </div>
+          <p class="text-sm pt-3 px-5 text-center">
+            Esta fiesta está incluída en la inscripción base, pero posee cupos
+            limitados.
+          </p>
         </div>
       </div>
     </Fieldset>
@@ -379,6 +400,17 @@ function closeModalCuotas() {
           >
             <h2 class="my-0">$ {{ inscripcion.total }}.-</h2>
             <p class="mt-1 mb-3 text-sm">{{ inscripcion.detalle }}</p>
+          </div>
+          <div class="grid">
+            <Dropdown
+              id="cuotas"
+              v-model="form.cuotas"
+              :options="cuotasOptions"
+              optionLabel="nombre"
+              optionValue="value"
+              placeholder="Cuotas"
+              class="col-offset-8 col-2"
+            />
           </div>
         </div>
 

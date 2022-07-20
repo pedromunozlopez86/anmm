@@ -55,12 +55,13 @@ const parkInn = [
       class="-mt-8 mb-4"
     >
       <div>
-        <p>
-          A continuación les presentamos información relevante para todos los
-          asistentes a nuestra Convención. En esta sección podrán informarse de
-          la ubicación del evento, convenios con diversos hoteles con tarifas
-          exclusivas para nuestros asociados, puntos de recogida para traslados
-          al evento, información general del paseo final, entre otros.
+        <p class="text-justify">
+          <span class="pl-5">A continuación</span>
+          les presentamos información relevante para todos los asistentes a
+          nuestra Convención. En esta sección podrán informarse de la ubicación
+          del evento, convenios con diversos hoteles con tarifas exclusivas para
+          nuestros asociados, puntos de recogida para traslados al evento,
+          información general del paseo final, entre otros.
         </p>
       </div>
     </TitleContent>
@@ -69,12 +70,13 @@ const parkInn = [
         <Accordion :multiple="true" :activeIndex="[0]">
           <AccordionTab header="Ubicación" class="p-accordion-header-primary">
             <div class="grid border-2 mb-3 surface-border">
-              <div class="col-6 mt-5">
-                <h3>Inauguración – Teatro del Lago, Frutillar</h3>
-                <p>
-                  La inauguración de la 50ᵃ Convención Nacional de Magistradas y
-                  Magistrados se llevará a cabo en el Anfiteatro del Teatro del
-                  Lago, Frutillar, a las 19:00 horas del día miércoles 30 de
+              <div class="col-6 mt-5 pl-3">
+                <h4>Inauguración – Teatro del Lago, Frutillar</h4>
+                <p class="text-justify">
+                  <span class="pl-3">La inauguración</span>
+                  de la 50ᵃ Convención Nacional de Magistradas y Magistrados se
+                  llevará a cabo en el Anfiteatro del Teatro del Lago,
+                  Frutillar, a las 19:00 horas del día miércoles 30 de
                   Noviembre.
                 </p>
               </div>
@@ -93,15 +95,16 @@ const parkInn = [
             </div>
 
             <div class="grid border-2 mb-3 surface-border">
-              <div class="col-6">
+              <div class="col-6 pl-3">
                 <h4>
                   Jornadas de Trabajo Convención – Hotel Bellavista, Puerto
                   Varas
                 </h4>
-                <p>
-                  El desarrollo de las jornadas de trabajo de nuestra Convención
-                  se llevarán a cabo en los salones de eventos del Hotel
-                  Bellavista, ubicado a orillas del Lago Llanquihue.
+                <p class="text-justify">
+                  <span class="pl-3">El desarrollo</span>
+                  de las jornadas de trabajo de nuestra Convención se llevarán a
+                  cabo en los salones de eventos del Hotel Bellavista, ubicado a
+                  orillas del Lago Llanquihue.
                 </p>
               </div>
               <div class="col-6">
@@ -118,11 +121,12 @@ const parkInn = [
               </div>
             </div>
             <div class="grid border-2 mb-3 surface-border">
-              <div class="col-6">
-                <h3>Fiesta de Gala – Hotel Cabaña del Lago, Puerto Varas</h3>
-                <p>
-                  La “Fiesta de las Máscaras” de la Convención tendrá lugar en
-                  el salón Club House del Hotel Cabaña del Lago a partir de las
+              <div class="col-6 pl-3">
+                <h4>Fiesta de Gala – Hotel Cabaña del Lago, Puerto Varas</h4>
+                <p class="text-justify">
+                  <span class="pl-3">La</span> “Fiesta de las Máscaras” de la
+                  Convención tendrá lugar en el salón Club House del Hotel
+                  Cabaña del Lago el día Viernes 02 de Diciembre a partir de las
                   20:00 hrs.
                 </p>
               </div>
@@ -158,10 +162,10 @@ const parkInn = [
           <AccordionTab header="Hoteleria">
             <div>
               <p>
-                En esta sección podrán encontrar diversos convenios que se han
-                realizado con el rubro hotelero de la ciudad de Puerto Varas,
-                dando para ustedes distintas opciones en precio, ubicación y
-                calidad.
+                <span class="pl-3">En esta</span> sección podrán encontrar
+                diversos convenios que se han realizado con el rubro hotelero de
+                la ciudad de Puerto Varas, dando para ustedes distintas opciones
+                en precio, ubicación y calidad.
               </p>
             </div>
             <div class="mt-5">
@@ -282,6 +286,13 @@ const parkInn = [
                     class="text-color hover:text-primary"
                     >reservas1@bookingradisson.cl
                   </a>
+                </p>
+                <p>
+                  <strong>
+                    <i class="pi pi-info-circle"></i> Código de Convenio:
+                  </strong>
+                  <span class="text-primary"> ConvenciónMagistrados2022 </span
+                  >(Deben proporcionar este código junto a su reserva)
                 </p>
               </div>
               <div class="px-5 mt-5">

@@ -113,14 +113,14 @@ const download = () => {
     <div class="col-12 px-3 bg-white mt-0 grid">
       <div class="col-12 md:col-6 mt-6 text-justify px-3" id="text-header-left">
         <p>
-          Queridas Asociadas y Asociados, la Comisión Organizadora de la
-          Convención Anual de Magistradas y Magistrados de la Región de Los
-          Lagos, está feliz de invitarlos a reencontrarnos después de dos años
-          de Pandemia en la ciudad de las rosas, Puerto Varas, desde el 30 de
-          noviembre al 3 de diciembre del presente año. Con mucho cariño hemos
-          preparado actividades en los más hermosos parajes de nuestras zonas y
-          prometemos, además, momentos inolvidables de fraterno trabajo gremial
-          y por supuesto la mejor entretención
+          <span class="pl-5">Queridas</span> Asociadas y Asociados, la Comisión
+          Organizadora de la Convención Anual de Magistradas y Magistrados de la
+          Región de Los Lagos, está feliz de invitarlos a reencontrarnos después
+          de dos años de Pandemia en la ciudad de las rosas, Puerto Varas, desde
+          el 30 de noviembre al 3 de diciembre del presente año. Con mucho
+          cariño hemos preparado actividades en los más hermosos parajes de
+          nuestras zonas y prometemos, además, momentos inolvidables de fraterno
+          trabajo gremial y por supuesto la mejor entretención.
         </p>
         <p>Bienvenidas y Bienvenidos a la Magia del Sur, los esperamos !!</p>
       </div>
@@ -134,8 +134,8 @@ const download = () => {
         ></video>
         <div class="ml-2 mt-3" id="borde-azul">
           <p class="pl-2">
-            Invitación para la Convención Nacional Magistradas y Magistrados
-            número 50
+            Invitación para la 50ª Convención Nacional Magistradas y
+            Magistrados.
           </p>
         </div>
       </div>
@@ -171,7 +171,7 @@ const download = () => {
               </div>
               <div class="text-center">
                 <Image
-                  src="src/assets/img/Mie30.png"
+                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Mie30.png?alt=media&token=6a76672b-e326-4252-a9b5-dd7a2b0d9fd6"
                   alt="Mie-30"
                   preview
                   width="330"
@@ -220,7 +220,7 @@ const download = () => {
               <br />
               <div class="text-center">
                 <Image
-                  src="src/assets/img/Jueves01.png"
+                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Jueves01.png?alt=media&token=d4ef8682-4487-44bb-b0d0-72b62c3b395b"
                   alt="Mie-30"
                   preview
                   width="330"
@@ -272,7 +272,7 @@ const download = () => {
               </p>
               <div class="text-center">
                 <Image
-                  src="src/assets/img/Viernes02.png"
+                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Viernes02.png?alt=media&token=412cb5b5-9ecf-4683-9d3c-36df8a52aafb"
                   alt="Viernes02"
                   preview
                   width="330"
@@ -320,7 +320,7 @@ const download = () => {
               </p>
               <div class="text-center mt-5">
                 <Image
-                  src="src/assets/img/Sabado03.png"
+                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Sabado03.png?alt=media&token=4845a488-0132-4f19-91b1-575912a2a6a8"
                   alt="Viernes02"
                   preview
                   width="330"
