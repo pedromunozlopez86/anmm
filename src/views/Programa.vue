@@ -1,108 +1,108 @@
 <script setup>
-import { ref } from '@vue/reactivity'
-import TitleContentVue from '../components/TitleContent.vue'
-import TitleContent from '../components/TitleContent.vue'
-import Button from 'primevue/button'
-import TabView from 'primevue/tabview'
-import TabPanel from 'primevue/tabpanel'
-import DataTable from 'primevue/datatable'
-import Column from 'primevue/column'
-import router from '../router'
-import Image from 'primevue/image'
+import { ref } from "@vue/reactivity";
+import TitleContentVue from "../components/TitleContent.vue";
+import TitleContent from "../components/TitleContent.vue";
+import Button from "primevue/button";
+import TabView from "primevue/tabview";
+import TabPanel from "primevue/tabpanel";
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+import router from "../router";
+import Image from "primevue/image";
 
 const miercoles = [
   {
-    hora: '19:00 - 21:00 hrs.',
-    detalle: 'Inauguración - Teatro del Lago Frutillar ',
+    hora: "19:00 - 21:00 hrs.",
+    detalle: "Inauguración - Teatro del Lago Frutillar ",
   },
-]
+];
 
 const jueves = [
   {
-    hora: '08:30 - 09:30 hrs.',
-    detalle: 'Inicio Convención sala plenaria',
+    hora: "08:30 - 09:30 hrs.",
+    detalle: "Inicio Convención sala plenaria",
   },
   {
-    hora: '09:30 - 11:30 hrs.',
-    detalle: 'Derivación de Asociados a Mesas de Trabajo.',
+    hora: "09:30 - 11:30 hrs.",
+    detalle: "Derivación de Asociados a Mesas de Trabajo.",
   },
   {
-    hora: '11:30 - 11:45 hrs.',
-    detalle: 'Coffee Break',
+    hora: "11:30 - 11:45 hrs.",
+    detalle: "Coffee Break",
   },
   {
-    hora: '11:45 - 13:30 hrs.',
-    detalle: 'Mesa de Trabajo.',
+    hora: "11:45 - 13:30 hrs.",
+    detalle: "Mesa de Trabajo.",
   },
   {
-    hora: '13:30 - 15:00 hrs.',
-    detalle: 'Almuerzo',
+    hora: "13:30 - 15:00 hrs.",
+    detalle: "Almuerzo",
   },
   {
-    hora: '15:00 - 17:00 hrs.',
-    detalle: 'Mesa de Trabajo',
+    hora: "15:00 - 17:00 hrs.",
+    detalle: "Mesa de Trabajo",
   },
   {
-    hora: '17:00 - 18:30 hrs.',
-    detalle: 'Coffee Break',
+    hora: "17:00 - 18:30 hrs.",
+    detalle: "Coffee Break",
   },
   {
-    hora: '18:30 hrs.',
-    detalle: 'Término Jornada de Trabajo',
+    hora: "18:30 hrs.",
+    detalle: "Término Jornada de Trabajo",
   },
   {
-    hora: '21:00 hrs.',
-    detalle: 'Fiesta de los 80´s.',
+    hora: "21:00 hrs.",
+    detalle: "Fiesta de los 80´s.",
   },
-]
+];
 
 const viernes = [
   {
-    hora: '08:30 - 11:00 hrs.',
-    detalle: 'Conclusión Trabajo de Cada Mesa',
+    hora: "08:30 - 11:00 hrs.",
+    detalle: "Conclusión Trabajo de Cada Mesa",
   },
   {
-    hora: '11:00 - 11:30 hrs.',
-    detalle: 'Coffee Break',
+    hora: "11:00 - 11:30 hrs.",
+    detalle: "Coffee Break",
   },
   {
-    hora: '11:30 - 14:00 hrs.',
-    detalle: 'Plenaria de Votación y Clausura de Trabajo Gremial',
+    hora: "11:30 - 14:00 hrs.",
+    detalle: "Plenaria de Votación y Clausura de Trabajo Gremial",
   },
   {
-    hora: '14:00 - 15:00 hrs.',
-    detalle: 'Almuerzo y termino Jornada de Trabajo.',
+    hora: "14:00 - 15:00 hrs.",
+    detalle: "Almuerzo y termino Jornada de Trabajo.",
   },
   {
-    hora: '20:00 hrs.',
+    hora: "20:00 hrs.",
     detalle:
       "Cena de Clausura – Hotel Cabaña del Lago Fiesta de Gala 'Fiesta de las Máscaras'",
   },
   {
-    hora: '03:00 hrs.',
-    detalle: 'Término Fiesta.',
+    hora: "03:00 hrs.",
+    detalle: "Término Fiesta.",
   },
-]
+];
 
 const sabado = [
   {
-    hora: '09:00 - 17:00 hrs.',
+    hora: "09:00 - 17:00 hrs.",
     detalle:
-      'Paseo Final para Asociados Previamente Inscritos. Contempla salida por los hermosos parajes del entorno natural de Puerto Varas. Incluye almuerzo.',
+      "Paseo Final para Asociados Previamente Inscritos. Contempla salida por los hermosos parajes del entorno natural de Puerto Varas. Incluye almuerzo.",
   },
-]
+];
 
 const rowClass = () => {
-  return 'fondo-azul'
-}
+  return "fondo-azul";
+};
 const dataClass = () => {
-  return 'fila'
-}
+  return "fila";
+};
 
 const download = () => {
   document.location.href =
-    'https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAGISTRADOS%20PUERTO%20VARAS%20AO%202022.doc?alt=media&token=19057e1f-e6f5-44d2-be36-fd4a22859821'
-}
+    "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAGISTRADOS%20PUERTO%20VARAS%20AO%202022.doc?alt=media&token=19057e1f-e6f5-44d2-be36-fd4a22859821";
+};
 </script>
 <template>
   <section id="hero-section"></section>
@@ -117,8 +117,20 @@ const download = () => {
     </div>
   </TitleContent>
 
-  <main id="programa" class="grid px-5 py-5">
-    <div class="col-12 text-center"></div>
+  <main id="programa" class="px-8 py-5">
+    <div class="col-12 text-center">
+      <div class="flex align-items-center justify-content-center mb-3">
+        <i class="pi pi-calendar text-white mr-3"></i>
+        <h2 class="text-white">Programa</h2>
+      </div>
+      <div class="text-center mb-5">
+        <p class="text-white md:px-8 mx-0 md:mx-8">
+          A continuación podrán encontrar el detalle de todas las actividades
+          programadas para nuestra Convención, con los horarios definidos para
+          cada jornada de principio a fin.
+        </p>
+      </div>
+    </div>
 
     <div class="col-12 md:col-10 md:col-offset-1 col-offset-0">
       <TabView ref="tabview1" id="pestana-1">
@@ -132,7 +144,7 @@ const download = () => {
                   de Frutillar
                 </p>
               </div>
-              <div class="text-center">
+              <div class="text-center ">
                 <Image
                   src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Mie30.png?alt=media&token=6a76672b-e326-4252-a9b5-dd7a2b0d9fd6"
                   alt="Mie-30"
@@ -361,7 +373,7 @@ const download = () => {
   border-radius: 5px 5px;
 }
 #hero-section {
-  background-image: url('@/assets/img/image-3.png');
+  background-image: url("@/assets/img/image-3.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;

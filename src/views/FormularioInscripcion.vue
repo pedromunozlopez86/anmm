@@ -11,6 +11,9 @@ import TitleContent from "@/components/TitleContent.vue";
 import regionalOptions from "@/assets/data/regional.json";
 import { useEmailJs } from "@/composables";
 import { useFormularioStore } from "../stores/formulario";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const { template, sendEmail } = useEmailJs();
 
@@ -128,6 +131,7 @@ async function pagarPorPlanilla() {
     const document = await store.addToDb(form);
 
     console.log(document.id);
+    router.push("/inscripciones/estado-pago/:estadoPago");
   }
 }
 

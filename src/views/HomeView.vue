@@ -142,7 +142,7 @@ const download = () => {
     </div>
   </div>
 
-  <main id="programa" class="grid px-5 py-5">
+  <main id="programa" class="px-8 py-5">
     <div class="col-12 text-center">
       <div class="flex align-items-center justify-content-center">
         <i class="pi pi-calendar text-white mr-3"></i>

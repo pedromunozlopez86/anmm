@@ -60,8 +60,8 @@ function enviarAInscripcion() {
       <span class="pl-3">Se deja</span>
       adjunto en este sitio en sección “Documentos”, el
       <strong
-        >permiso de asistencia emitido por la Corte Suprema de Justicia de
-        Chile</strong
+        >permiso de asistencia emitido por la excelentísima Corte Suprema de
+        Justicia de Chile</strong
       >, para que lo puedan descargar y ser presentado en donde corresponda para
       así garantizar su asistencia.
     </p>

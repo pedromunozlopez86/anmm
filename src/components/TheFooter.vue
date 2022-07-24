@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <div class="grid pb-3 px-5" id="the-footer">
-    <div class="col-12 md:col-4 col-offset-0 md:col-offset-2 mt-3">
+    <div class="col-12 md:col-4 col-offset-0 md:col-offset-2 mt-3 mr-5">
       <div class="flex-row align-items-center">
         <h3 class="mb-2">Si tienes alguna duda o consulta escríbenos !</h3>
 
@@ -19,14 +19,14 @@
         </a>
       </div>
     </div>
-    <div class="col-12 md:col-4 col-offset-2 mt-5">
-      <div class="">
+    <div class="col-12 md:col-4 md:col-offset-1 mt-5">
+      <div class="text-center">
         <img src="./../assets/img/logo-1.png" alt="logo-anmm" height="80rem" />
       </div>
     </div>
   </div>
-  <div class="grid" id="derechos">
-    <div class="col-12 my-2 flex align-items-center justify-content-center">
+  <div class="my-0" id="derechos">
+    <div class="col-12 my-0 flex align-items-center justify-content-center">
       <div>2022 © todos los derechos reservados</div>
     </div>
   </div>
@@ -35,7 +35,8 @@
 <style>
 #the-footer {
   background-color: var(--azul-marino);
-
+  margin: 0;
+  padding: 0;
   color: white;
 }
 .text-sub {

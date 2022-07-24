@@ -57,11 +57,15 @@ const items = ref([
     label: "Inscripciones",
     to: { name: "Inscripciones" },
   },
+  {
+    label: "Contacto",
+    to: { name: "Contacto" },
+  },
 ]);
 </script>
 <template>
   <div class="grid">
-    <Menubar class="col-12" :model="items">
+    <Menubar class="w-full" :model="items">
       <template #start>
         <div class="ml-6 w-full">
           <div class="logo">
@@ -92,8 +96,16 @@ const items = ref([
           <RouterLink v-else :to="item?.to">{{ item.label }}</RouterLink>
         </div>
       </template>
-      <template #end>
-        <Button label="Contacto" @click="$router.push({ name: 'Contacto' })" />
+      <template>
+        <div class="pr-8">
+          <Button
+            label="Contacto"
+            @click="$router.push({ name: 'Contacto' })"
+          />
+          <div class="bg-primary">
+            <img src="@/assets/img/logo-navbar.png" alt="" class="logo-img" />
+          </div>
+        </div>
       </template>
     </Menubar>
   </div>
@@ -113,6 +125,7 @@ const items = ref([
   margin-left: auto;
   display: flex;
   gap: 1rem;
+  padding: 0;
 }
 
 :deep(.p-menubar-end) {
