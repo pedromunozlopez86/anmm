@@ -119,32 +119,31 @@ const download = () => {
 
   <main id="programa" class="px-8 py-5">
     <div class="col-12 text-center">
-      <div class="flex align-items-center justify-content-center mb-3">
+      <div class="flex align-items-center justify-content-center">
         <i class="pi pi-calendar text-white mr-3"></i>
         <h2 class="text-white">Programa</h2>
       </div>
-      <div class="text-center mb-5">
-        <p class="text-white md:px-8 mx-0 md:mx-8">
+      <div class="text-center my-5">
+        <p class="text-white px-8 mx-2 md:mx-8">
           A continuación podrán encontrar el detalle de todas las actividades
           programadas para nuestra Convención, con los horarios definidos para
           cada jornada de principio a fin.
         </p>
       </div>
     </div>
-
     <div class="col-12 md:col-10 md:col-offset-1 col-offset-0">
       <TabView ref="tabview1" id="pestana-1">
         <TabPanel header="Miércoles 30">
           <div class="grid">
             <div class="col-12 md:col-6">
-              <div class="px-5 fila text-justify">
+              <div class="px-5 fila text-justify mb-3">
                 <p>
                   Damos comienzo a nuestra 50ᵃ Convención Nacional con la
                   Inauguración Oficial, que tendrá lugar en el Teatro del Lago
                   de Frutillar
                 </p>
               </div>
-              <div class="text-center ">
+              <div class="text-center">
                 <Image
                   src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Mie30.png?alt=media&token=6a76672b-e326-4252-a9b5-dd7a2b0d9fd6"
                   alt="Mie-30"
@@ -156,7 +155,8 @@ const download = () => {
                 <Button
                   class="p-button-sm p-button-outlined text-white"
                   @click="download"
-                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                  >Descargar programa completo
+                  <i class="pi pi-file ml-2"></i>
                 </Button>
               </div>
             </div>
@@ -187,7 +187,7 @@ const download = () => {
         <TabPanel header="Jueves 01">
           <div class="grid">
             <div class="col-12 md:col-6 pt-5-">
-              <p class="px-5 fila text-justify">
+              <p class="px-5 fila text-justify mb-3">
                 El primer día de convención contempla la acreditación, primaria
                 de apertura y posterior trabajo de comisiones. Finalizamos la
                 jornada con una entretenida fiesta de los 80´s!
@@ -205,7 +205,8 @@ const download = () => {
                 <Button
                   class="p-button-sm p-button-outlined text-white"
                   @click="download"
-                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                  >Descargar programa completo
+                  <i class="pi pi-file ml-2"></i>
                 </Button>
               </div>
             </div>
@@ -237,7 +238,7 @@ const download = () => {
         <TabPanel header="Viernes 02">
           <div class="grid">
             <div class="col-12 md:col-6">
-              <p class="px-4 fila text-justify">
+              <p class="px-4 fila text-justify mb-3">
                 En el segundo y último día de trabajo se llevará a cabo una
                 plenaria de clausura dividida en módulos con diversos temas a
                 definir y votar, además de recibir los informes de comisiones y
@@ -257,7 +258,8 @@ const download = () => {
                 <Button
                   class="p-button-sm p-button-outlined text-white"
                   @click="download"
-                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                  >Descargar programa completo
+                  <i class="pi pi-file ml-2"></i>
                 </Button>
               </div>
             </div>
@@ -305,7 +307,8 @@ const download = () => {
                 <Button
                   class="p-button-sm p-button-outlined text-white"
                   @click="download"
-                  >Descargar programa completo <i class="pi pi-file ml-2"></i>
+                  >Descargar programa completo
+                  <i class="pi pi-file ml-2"></i>
                 </Button>
               </div>
             </div>
