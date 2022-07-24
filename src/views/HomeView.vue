@@ -1,105 +1,105 @@
 <script setup>
-import Button from 'primevue/button'
-import TabView from 'primevue/tabview'
-import TabPanel from 'primevue/tabpanel'
-import DataTable from 'primevue/datatable'
-import Column from 'primevue/column'
-import router from '../router'
-import Image from 'primevue/image'
+import Button from "primevue/button";
+import TabView from "primevue/tabview";
+import TabPanel from "primevue/tabpanel";
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+import router from "../router";
+import Image from "primevue/image";
 
 const miercoles = [
   {
-    hora: '19:00 - 21:00 hrs.',
-    detalle: 'Inauguración - Teatro del Lago Frutillar ',
+    hora: "19:00 - 21:00 hrs.",
+    detalle: "Inauguración - Teatro del Lago Frutillar ",
   },
-]
+];
 
 const jueves = [
   {
-    hora: '08:30 - 09:30 hrs.',
-    detalle: 'Inicio Convención sala plenaria',
+    hora: "08:30 - 09:30 hrs.",
+    detalle: "Inicio Convención sala plenaria",
   },
   {
-    hora: '09:30 - 11:30 hrs.',
-    detalle: 'Derivación de Asociados a Mesas de Trabajo.',
+    hora: "09:30 - 11:30 hrs.",
+    detalle: "Derivación de Asociados a Mesas de Trabajo.",
   },
   {
-    hora: '11:30 - 11:45 hrs.',
-    detalle: 'Coffee Break',
+    hora: "11:30 - 11:45 hrs.",
+    detalle: "Coffee Break",
   },
   {
-    hora: '11:45 - 13:30 hrs.',
-    detalle: 'Mesa de Trabajo.',
+    hora: "11:45 - 13:30 hrs.",
+    detalle: "Mesa de Trabajo.",
   },
   {
-    hora: '13:30 - 15:00 hrs.',
-    detalle: 'Almuerzo',
+    hora: "13:30 - 15:00 hrs.",
+    detalle: "Almuerzo",
   },
   {
-    hora: '15:00 - 17:00 hrs.',
-    detalle: 'Mesa de Trabajo',
+    hora: "15:00 - 17:00 hrs.",
+    detalle: "Mesa de Trabajo",
   },
   {
-    hora: '17:00 - 18:30 hrs.',
-    detalle: 'Coffee Break',
+    hora: "17:00 - 18:30 hrs.",
+    detalle: "Coffee Break",
   },
   {
-    hora: '18:30 hrs.',
-    detalle: 'Término Jornada de Trabajo',
+    hora: "18:30 hrs.",
+    detalle: "Término Jornada de Trabajo",
   },
   {
-    hora: '21:00 hrs.',
-    detalle: 'Fiesta de los 80´s.',
+    hora: "21:00 hrs.",
+    detalle: "Fiesta de los 80´s.",
   },
-]
+];
 
 const viernes = [
   {
-    hora: '08:30 - 11:00 hrs.',
-    detalle: 'Conclusión Trabajo de Cada Mesa',
+    hora: "08:30 - 11:00 hrs.",
+    detalle: "Conclusión Trabajo de Cada Mesa",
   },
   {
-    hora: '11:00 - 11:30 hrs.',
-    detalle: 'Coffee Break',
+    hora: "11:00 - 11:30 hrs.",
+    detalle: "Coffee Break",
   },
   {
-    hora: '11:30 - 14:00 hrs.',
-    detalle: 'Plenaria de Votación y Clausura de Trabajo Gremial',
+    hora: "11:30 - 14:00 hrs.",
+    detalle: "Plenaria de Votación y Clausura de Trabajo Gremial",
   },
   {
-    hora: '14:00 - 15:00 hrs.',
-    detalle: 'Almuerzo y termino Jornada de Trabajo.',
+    hora: "14:00 - 15:00 hrs.",
+    detalle: "Almuerzo y termino Jornada de Trabajo.",
   },
   {
-    hora: '20:00 hrs.',
+    hora: "20:00 hrs.",
     detalle:
       "Cena de Clausura – Hotel Cabaña del Lago Fiesta de Gala 'Fiesta de las Máscaras'",
   },
   {
-    hora: '03:00 hrs.',
-    detalle: 'Término Fiesta.',
+    hora: "03:00 hrs.",
+    detalle: "Término Fiesta.",
   },
-]
+];
 
 const sabado = [
   {
-    hora: '09:00 - 17:00 hrs.',
+    hora: "09:00 - 17:00 hrs.",
     detalle:
-      'Paseo Final para Asociados Previamente Inscritos. Contempla salida por los hermosos parajes del entorno natural de Puerto Varas. Incluye almuerzo.',
+      "Paseo Final para Asociados Previamente Inscritos. Contempla salida por los hermosos parajes del entorno natural de Puerto Varas. Incluye almuerzo.",
   },
-]
+];
 
 const rowClass = () => {
-  return 'fondo-azul'
-}
+  return "fondo-azul";
+};
 const dataClass = () => {
-  return 'fila'
-}
+  return "fila";
+};
 const download = () => {
   window.open(
-    'https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAG%20ISTRADOS%20PUERTO%20VARAS%20AN%CC%83O%202022.pdf?alt=media&token=a8f488ed-fb82-450f-85c2-4d4c907f4e89'
-  )
-}
+    "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAG%20ISTRADOS%20PUERTO%20VARAS%20AN%CC%83O%202022.pdf?alt=media&token=a8f488ed-fb82-450f-85c2-4d4c907f4e89"
+  );
+};
 </script>
 
 <template>
@@ -134,8 +134,8 @@ const download = () => {
         ></video>
         <div class="ml-2 mt-3" id="borde-azul">
           <p class="pl-2">
-            Invitación para la 50ª Convención Nacional Magistradas y
-            Magistrados.
+            Video Invitación para la 50ª Convención Nacional Magistradas y
+            Magistrados de Chile, Regional Los Lagos.
           </p>
         </div>
       </div>
@@ -372,7 +372,7 @@ const download = () => {
 }
 
 #hero-section {
-  background-image: url('@/assets/img/hero-inicio.png');
+  background-image: url("@/assets/img/hero-inicio.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

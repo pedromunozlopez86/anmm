@@ -1,138 +1,144 @@
 <script setup>
 import { computed, reactive, ref } from "vue";
-import emailjs from "emailjs-com";
 import ToggleButton from "primevue/togglebutton";
+import SelectButton from "primevue/selectbutton";
 import InputText from "primevue/inputtext";
 import Dropdown from "primevue/dropdown";
 import Button from "primevue/button";
 import Fieldset from "primevue/fieldset";
-import TitleContent from "../components/TitleContent.vue";
+import Dialog from "primevue/dialog";
+import TitleContent from "@/components/TitleContent.vue";
 import regionalOptions from "@/assets/data/regional.json";
-import SelectButton from "primevue/selectbutton";
-import { useEmailJs } from "../composables";
+import { useEmailJs } from "@/composables";
+import { useFormularioStore } from "../stores/formulario";
 
-const { template, sendEmail } = useEmailJs()
+const { template, sendEmail } = useEmailJs();
 
-const form = reactive({
-  nombreCompleto: '',
-  rut: '',
-  telefono: '',
-  correo: '',
-  regional: '',
-  vieneAcompanante: false,
-  acompanante: {
-    nombre: '',
-    rut: '',
-    telefono: '',
-    correo: '',
-  },
-  contactoEmergencia: {
-    nombre: '',
-    telefono: '',
-  },
-  restriccionAlimentaria: false,
-  comentarioRestriccionAlimentaria: '',
-  trasladoPuertoVaras: '',
-  requiereTransporteHotel: false,
-  requiereTrasladoCeremonia: false,
-  incluyePaseo: false,
-  incluyeFiesta: false,
-  formaPago: "",
-  cuotas: "",
-  valorFinal: "",
-});
-const options = [
-  {
-    name: "SI",
-    value: true,
-  },
-  { name: "NO", value: false },
-];
+const store = useFormularioStore();
+
+function initialData() {
+  return {
+    nombreCompleto: "",
+    rut: "",
+    telefono: "",
+    correo: "",
+    regional: "",
+    vieneAcompanante: false,
+    acompanante: {
+      nombre: "",
+      rut: "",
+      telefono: "",
+      correo: "",
+    },
+    contactoEmergencia: {
+      nombre: "",
+      telefono: "",
+    },
+    restriccionAlimentaria: false,
+    comentarioRestriccionAlimentaria: "",
+    trasladoPuertoVaras: "",
+    requiereTransporteHotel: false,
+    requiereTrasladoCeremonia: false,
+    incluyePaseo: false,
+    incluyeFiesta: false,
+    formaPago: "",
+    cuotas: null,
+    valorFinal: "",
+  };
+}
+
+const form = reactive(initialData());
+
 const isLoading = ref(false);
+const isModalOpen = ref(false);
 
 const inscripcion = computed(() => {
   if (form.incluyePaseo && !form.vieneAcompanante) {
     return {
-      total: '250.000',
-      detalle: 'Inscripción General Asociado + Paseo',
-    }
+      total: "250.000",
+      detalle: "Inscripción General Asociado + Paseo",
+    };
   }
   if (form.vieneAcompanante && !form.incluyePaseo) {
     return {
-      total: '300.000',
-      detalle: 'Inscripción General Asociado + Acompañante',
-    }
+      total: "300.000",
+      detalle: "Inscripción General Asociado + Acompañante",
+    };
   }
   if (form.vieneAcompanante && form.incluyePaseo) {
     return {
-      total: '460.000',
-      detalle: 'Inscripción General Asociado + Acompañante + Paseo',
-    }
+      total: "460.000",
+      detalle: "Inscripción General Asociado + Acompañante + Paseo",
+    };
   }
   return {
-    total: '170.000',
-    detalle: 'Inscripción General Asociado',
-  }
-})
+    total: "170.000",
+    detalle: "Inscripción General Asociado",
+  };
+});
 
 const trasladoPVOptions = ref([
-  { nombre: 'Aéreo', value: 'aereo' },
-  { nombre: 'Terrestre', value: 'terrestre' },
-])
+  { nombre: "Aéreo", value: "aereo" },
+  { nombre: "Terrestre", value: "terrestre" },
+]);
 
 const cuotasOptions = ref([
-  { descripcion: '1 Cuota', value: 1 },
-  { descripcion: '2 Cuotas', value: 2 },
-  { descripcion: '3 Cuotas', value: 3 },
-])
+  { descripcion: "1 Cuota", value: 1 },
+  { descripcion: "2 Cuotas", value: 2 },
+  { descripcion: "3 Cuotas", value: 3 },
+]);
 
 function redirectToML() {
   if (form.incluyePaseo && !form.vieneAcompanante) {
-    window.location.href = 'https://mpago.la/21LS4hs' // 250
-    return
+    window.location.href = "https://mpago.la/21LS4hs"; // 250
+    return;
   }
   if (form.vieneAcompanante && !form.incluyePaseo) {
-    window.location.href = 'https://mpago.la/2Yf6TvB' // 300
-    return
+    window.location.href = "https://mpago.la/2Yf6TvB"; // 300
+    return;
   }
   if (form.vieneAcompanante && form.incluyePaseo) {
-    window.location.href = 'https://mpago.la/2zvo2ex' // 460
-    return
+    window.location.href = "https://mpago.la/2zvo2ex"; // 460
+    return;
   }
-  window.location.href = 'https://mpago.la/1a8EEiF' // 170
+  window.location.href = "https://mpago.la/1a8EEiF"; // 170
 }
 
 async function pagarPorML() {
-  isLoading.value = true
-  form.formaPago = 'Mercado Libre'
-  form.valorFinal = inscripcion.value
+  isLoading.value = true;
+  form.formaPago = "Mercado Libre";
+  form.valorFinal = inscripcion.value;
   await sendEmail(template.INSCRIPCION, form).then((res) => {
     if (res.status === 200) {
-      redirectToML()
+      store.formularioInscripcion = form;
+      redirectToML();
     }
-  })
+  });
 }
 
 async function pagarPorPlanilla() {
-  isLoading.value = true
-  form.formaPago = 'Descuento por Planilla'
-  form.valorFinal = inscripcion.value
-  await sendEmail(template.INSCRIPCION, form).then((res) => {
-    if (res.status === 200) {
-      isLoading.value = false
-      console.log('exito')
-    }
-  })
+  isLoading.value = true;
+  form.formaPago = "Descuento por Planilla";
+  form.valorFinal = inscripcion.value;
+  const { status } = await sendEmail(template.INSCRIPCION, form);
+
+  if (status === 200) {
+    isLoading.value = false;
+
+    const document = await store.addToDb(form);
+
+    console.log(document.id);
+  }
 }
 
 function openModalCuotas() {
-  form.cuotas = 1
-  isModalOpen.value = true
+  form.cuotas = 1;
+  isModalOpen.value = true;
 }
 
 function closeModalCuotas() {
-  form.cuotas = null
-  isModalOpen.value = false
+  form.cuotas = null;
+  isModalOpen.value = false;
 }
 </script>
 <template>
@@ -199,13 +205,7 @@ function closeModalCuotas() {
         </div>
         <div class="col-12 md:col-6">
           <div class="p-inputgroup flex justify-content-center">
-            <!-- <SelectButton
-              v-model="form.vieneAcompanante"
-              :options="options"
-              optionLabel="name"
-            /> -->
             <p class="mr-3">Va con acompañante?</p>
-
             <ToggleButton
               id="tiene-acompanante"
               v-model="form.vieneAcompanante"
@@ -401,17 +401,6 @@ function closeModalCuotas() {
             <h2 class="my-0">$ {{ inscripcion.total }}.-</h2>
             <p class="mt-1 mb-3 text-sm">{{ inscripcion.detalle }}</p>
           </div>
-          <div class="grid">
-            <Dropdown
-              id="cuotas"
-              v-model="form.cuotas"
-              :options="cuotasOptions"
-              optionLabel="nombre"
-              optionValue="value"
-              placeholder="Cuotas"
-              class="col-offset-8 col-2"
-            />
-          </div>
         </div>
 
         <div
@@ -473,7 +462,7 @@ function closeModalCuotas() {
 
 <style lang="scss" scoped>
 #hero-section {
-  background-image: url('@/assets/img/hero-contacto.png');
+  background-image: url("@/assets/img/hero-contacto.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
