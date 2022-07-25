@@ -6,14 +6,10 @@
     class="-mt-8 mb-4"
   >
     <div class="flex flex-column align-items-center">
-      <h2 class="my-4">Tu pago está siendo procesado</h2>
+      <h2 class="my-4">Tu Inscripción ha sido recibida y confirmada</h2>
       <p>
-        En pocos los próximos días recibiras un correo indicando los pasos a
-        seguir
-      </p>
-      <p>
-        Ahora puedes salir de la página o continuar revisando el itinerario del
-        evento
+        Puedes seguir navegando en nuestra página e informarte de todas las
+        novedades de esta Convención. Nos vemos en Puerto Varas !
       </p>
     </div>
   </TitleContent>
