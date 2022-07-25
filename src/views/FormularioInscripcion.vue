@@ -93,18 +93,18 @@ const cuotasOptions = ref([
 
 function redirectToML() {
   if (form.incluyePaseo && !form.vieneAcompanante) {
-    window.location.href = "https://mpago.la/21LS4hs"; // 250
+    window.location.href = "https://mpago.la/1znUdti"; // 250
     return;
   }
   if (form.vieneAcompanante && !form.incluyePaseo) {
-    window.location.href = "https://mpago.la/2Yf6TvB"; // 300
+    window.location.href = "https://mpago.la/2gdEXJ9"; // 300
     return;
   }
   if (form.vieneAcompanante && form.incluyePaseo) {
-    window.location.href = "https://mpago.la/2zvo2ex"; // 460
+    window.location.href = "https://mpago.la/2TmDyPX"; // 460
     return;
   }
-  window.location.href = "https://mpago.la/1a8EEiF"; // 170
+  window.location.href = "https://mpago.la/2TiWEuX"; // 170
 }
 
 async function pagarPorML() {
