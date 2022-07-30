@@ -1,32 +1,87 @@
 <script setup>
-import { reactive, ref } from 'vue'
-import emailjs from 'emailjs-com'
+import { computed, reactive, ref } from 'vue'
 import InputText from 'primevue/inputtext'
 import Textarea from 'primevue/textarea'
 import Button from 'primevue/button'
 import TitleContent from '../components/TitleContent.vue'
 import { useEmailJs } from '../composables'
+import { required, email, helpers } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
+import { useToast } from 'primevue/usetoast'
 
 const { template, sendEmail } = useEmailJs()
+const toast = useToast()
 
 const isLoading = ref(false)
 
-const formularioContacto = reactive({
+const form = reactive({
   nombre: '',
   apellido: '',
   correo: '',
   telefono: '',
   comentario: '',
+  submitted: false,
 })
 
-async function enviarEmail() {
-  isLoading.value = true
-  await sendEmail(template.CONTACTO, formularioContacto).then((res) => {
-    if (res.status === 200) {
-      console.log('exito')
-      isLoading.value = false
-    }
+function resetForm() {
+  Object.assign(form, {
+    nombre: '',
+    apellido: '',
+    correo: '',
+    telefono: '',
+    comentario: '',
+    submitted: false,
   })
+}
+
+const validations = {
+  required: helpers.withMessage('El campo es requerido', required),
+  email: helpers.withMessage('No es un email válido', email),
+}
+
+const rules = computed(() => {
+  return {
+    nombre: { required: validations.required },
+    apellido: { required: validations.required },
+    correo: { required: validations.required, email: validations.email },
+    telefono: { required: validations.required },
+    comentario: { required: validations.required },
+  }
+})
+
+const v$ = useVuelidate(rules, form)
+
+function isInvalid(value) {
+  return value.$invalid && form.submitted
+}
+
+function invalidMessage(value) {
+  return value.$message
+}
+
+function showToast() {
+  toast.add({
+    severity: 'success',
+    summary: 'Enviado!',
+    detail: 'Tu comentario se ha enviado exitosamente',
+    life: 3000,
+  })
+}
+
+async function enviarEmail(isFormValid) {
+  form.submitted = true
+
+  if (isFormValid) {
+    isLoading.value = true
+    await sendEmail(template.CONTACTO, form).then((res) => {
+      if (res.status === 200) {
+        console.log('exito')
+        isLoading.value = false
+        resetForm()
+        showToast()
+      }
+    })
+  }
 }
 </script>
 <template>
@@ -38,62 +93,101 @@ async function enviarEmail() {
   >
     <div class="grid mt-3">
       <div class="col-12 md:col-6">
-        <div class="p-inputgroup">
+        <div class="p-inputgroup p-float-label flex flex-column">
           <InputText
             id="nombre"
-            placeholder="Nombre"
-            type="text"
-            v-model="formularioContacto.nombre"
+            v-model="form.nombre"
+            class="w-full"
+            :class="{ 'p-invalid': isInvalid(v$.nombre) }"
           />
+          <label for="nombre" :class="{ 'p-error': isInvalid(v$.nombre) }">
+            Nombre
+          </label>
         </div>
+        <small v-if="isInvalid(v$.nombre)" class="p-error">
+          {{ invalidMessage(v$.nombre.required) }}
+        </small>
       </div>
       <div class="col-12 md:col-6">
-        <div class="p-inputgroup">
+        <div class="p-inputgroup p-float-label flex flex-column">
           <InputText
             id="apellido"
-            placeholder="Apellido"
             type="text"
-            v-model="formularioContacto.apellido"
+            v-model="form.apellido"
+            class="w-full"
+            :class="{ 'p-invalid': isInvalid(v$.apellido) }"
           />
+          <label for="apellido" :class="{ 'p-error': isInvalid(v$.apellido) }">
+            Apellido
+          </label>
         </div>
+        <small v-if="isInvalid(v$.apellido)" class="p-error">
+          {{ invalidMessage(v$.apellido.required) }}
+        </small>
       </div>
       <div class="col-12 md:col-6">
-        <div class="p-inputgroup">
+        <div class="p-inputgroup p-float-label flex flex-column">
           <InputText
             id="correo"
-            placeholder="Correo"
             type="email"
-            v-model="formularioContacto.correo"
+            v-model="form.correo"
+            class="w-full"
+            :class="{ 'p-invalid': isInvalid(v$.correo) }"
           />
+          <label for="correo" :class="{ 'p-error': isInvalid(v$.correo) }">
+            Correo
+          </label>
         </div>
+        <small v-if="isInvalid(v$.correo) && !form.correo" class="p-error">
+          {{ invalidMessage(v$.correo.required) }}
+        </small>
+        <small v-if="isInvalid(v$.correo) && form.correo" class="p-error">
+          {{ invalidMessage(v$.correo.email) }}
+        </small>
       </div>
       <div class="col-12 md:col-6">
-        <div class="p-inputgroup">
+        <div class="p-inputgroup p-float-label flex flex-column">
           <InputText
             id="telefono"
-            placeholder="Teléfono"
             type="tel"
-            v-model="formularioContacto.telefono"
+            v-model="form.telefono"
+            class="w-full"
+            :class="{ 'p-invalid': isInvalid(v$.telefono) }"
           />
+          <label for="telefono" :class="{ 'p-error': isInvalid(v$.telefono) }">
+            Teléfono
+          </label>
         </div>
+        <small v-if="isInvalid(v$.telefono)" class="p-error">
+          {{ invalidMessage(v$.telefono.required) }}
+        </small>
       </div>
       <div class="col-12">
-        <div class="p-inputgroup">
+        <div class="p-inputgroup p-float-label flex flex-column">
           <Textarea
             id="comentario"
-            class="p-2"
-            placeholder="Comentario"
+            class="p-2 w-full"
             rows="5"
             cols="120"
-            v-model="formularioContacto.comentario"
+            v-model="form.comentario"
+            :class="{ 'p-invalid': isInvalid(v$.comentario) }"
           />
+          <label
+            for="comentario"
+            :class="{ 'p-error': isInvalid(v$.comentario) }"
+          >
+            Comentario
+          </label>
         </div>
+        <small v-if="isInvalid(v$.comentario)" class="p-error">
+          {{ invalidMessage(v$.comentario.required) }}
+        </small>
       </div>
       <div class="col-12 flex justify-content-end">
         <Button
           label="Enviar"
           class="px-3"
-          @click="enviarEmail"
+          @click="enviarEmail(!v$.$invalid)"
           :loading="isLoading"
         />
       </div>
