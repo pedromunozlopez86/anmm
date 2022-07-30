@@ -76,49 +76,59 @@ function enviarAInscripcion() {
       del lugar se limita a 150 personas.
     </p> -->
     <h3 class="mt-4 mb-3">Inscripción Asociado Incluye</h3>
-    <ul>
-      <li>
-        Traslados Ida y Vuelta Aeropuerto Puerto Montt - Puerto Varas -
-        Aeropuerto Puerto Montt.
-      </li>
-      <li>Inauguración en Teatro del Lago (Ceremonia y Cóctel)</li>
-      <li>
-        Traslados Inauguración Puerto Varas - Teatro del Lago - Puerto Varas
-      </li>
-      <li>Fiesta de los 80's (sólo incluye un apertivo de bienvenida)</li>
-      <li>
-        Participación Convención 1 y 2 de Diciembre de 2022, almuerzos y coffees
-      </li>
-      <li>
-        Fiesta y Cena de Gala Clausura<span class="vertical-align-super text-xs"
-          >1</span
-        >
-      </li>
-      <em>(Paseo Final Opcional, se paga como un Adicional)</em>
-    </ul>
+    <div class="md:ml-5">
+      <ul>
+        <li>
+          Traslados Ida y Vuelta Aeropuerto Puerto Montt - Puerto Varas -
+          Aeropuerto Puerto Montt.
+        </li>
+        <li>Inauguración en Teatro del Lago (Ceremonia y Cóctel)</li>
+        <li>
+          Traslados Inauguración Puerto Varas - Teatro del Lago - Puerto Varas
+        </li>
+        <li>Fiesta de los 80's (sólo incluye un apertivo de bienvenida)</li>
+        <li>
+          Participación Convención 1 y 2 de Diciembre de 2022, almuerzos y
+          coffees
+        </li>
+        <li>
+          Fiesta y Cena de Gala Clausura<span
+            class="vertical-align-super text-xs"
+            >1</span
+          >
+        </li>
+        <em>(Paseo Final Opcional, se paga como un Adicional)</em>
+      </ul>
+    </div>
+
     <h3 class="mt-3 mb-3">Inscripción Acompañante Incluye</h3>
-    <ul>
-      <li>
-        Traslados Ida y Vuelta Aeropuerto Puerto Montt - Puerto Varas -
-        Aeropuerto Puerto Montt.
-      </li>
-      <li>Inauguración en Teatro del Lago (Ceremonia y Cóctel)</li>
-      <li>
-        Traslados Inauguración Puerto Varas - Teatro del Lago - Puerto Varas
-      </li>
-      <li>Fiesta de los 80's (sólo incluye un apertivo de bienvenida)</li>
-      <li>
-        Fiesta y Cena de Gala Clausura<span class="vertical-align-super text-xs"
-          >1</span
-        >
-      </li>
-      <em>(Paseo Final Opcional, se paga como un Adicional)</em>
-    </ul>
-    <p class="text-sm">
-      <span class="vertical-align-super text-xs">1</span> El ingreso a la fiesta
-      de gala será con capacidad limitada y se respetará el orden de inscripción
-      de los asociados, ya que la capacidad del lugar se limita a 150 personas.
-    </p>
+    <div class="md:ml-5">
+      <ul>
+        <li>
+          Traslados Ida y Vuelta Aeropuerto Puerto Montt - Puerto Varas -
+          Aeropuerto Puerto Montt.
+        </li>
+        <li>Inauguración en Teatro del Lago (Ceremonia y Cóctel)</li>
+        <li>
+          Traslados Inauguración Puerto Varas - Teatro del Lago - Puerto Varas
+        </li>
+        <li>Fiesta de los 80's (sólo incluye un apertivo de bienvenida)</li>
+        <li>
+          Fiesta y Cena de Gala Clausura<span
+            class="vertical-align-super text-xs"
+            >1</span
+          >
+        </li>
+        <em>(Paseo Final Opcional, se paga como un Adicional)</em>
+      </ul>
+      <p class="text-sm">
+        <span class="vertical-align-super text-xs">1</span> El ingreso a la
+        fiesta de gala será con capacidad limitada y se respetará el orden de
+        inscripción de los asociados, ya que la capacidad del lugar se limita a
+        150 personas.
+      </p>
+    </div>
+
     <h3 class="mt-5 mb-4">Valores Generales:</h3>
     <DataTable
       :value="precioInscripciones"
