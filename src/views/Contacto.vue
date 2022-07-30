@@ -36,7 +36,7 @@ function resetForm() {
 
 const validations = {
   required: helpers.withMessage('El campo es requerido', required),
-  email: helpers.withMessage('No es un email válido', email),
+  email: helpers.withMessage('El email no es válido', email),
 }
 
 const rules = computed(() => {
@@ -59,11 +59,11 @@ function invalidMessage(value) {
   return value.$message
 }
 
-function showToast() {
+function showToast({ severity, title, message }) {
   toast.add({
-    severity: 'success',
-    summary: 'Enviado!',
-    detail: 'Tu comentario se ha enviado exitosamente',
+    severity: severity,
+    summary: title,
+    detail: message,
     life: 3000,
   })
 }
@@ -71,17 +71,28 @@ function showToast() {
 async function enviarEmail(isFormValid) {
   form.submitted = true
 
-  if (isFormValid) {
-    isLoading.value = true
-    await sendEmail(template.CONTACTO, form).then((res) => {
-      if (res.status === 200) {
-        console.log('exito')
-        isLoading.value = false
-        resetForm()
-        showToast()
-      }
+  if (!isFormValid) {
+    showToast({
+      severity: 'error',
+      title: 'Espera!',
+      message: 'Aun faltan campos por completar',
     })
+    return
   }
+
+  isLoading.value = true
+  await sendEmail(template.CONTACTO, form).then((res) => {
+    if (res.status === 200) {
+      console.log('exito')
+      isLoading.value = false
+      resetForm()
+      showToast({
+        severity: 'success',
+        title: 'Enviado!',
+        message: 'Tu comentario se ha enviado exitosamente',
+      })
+    }
+  })
 }
 </script>
 <template>
