@@ -12,9 +12,13 @@ import regionalOptions from "@/assets/data/regional.json";
 import { useEmailJs } from "@/composables";
 import { useFormularioStore } from "../stores/formulario";
 import { useRouter } from "vue-router";
+import { required, email, helpers } from "@vuelidate/validators";
+import { useVuelidate } from "@vuelidate/core";
+import { format, validate } from "@fiquu/cl-rut";
+import { useToast } from "primevue/usetoast";
 
 const router = useRouter();
-
+const toast = useToast();
 const { template, sendEmail } = useEmailJs();
 
 const store = useFormularioStore();
@@ -54,6 +58,7 @@ const form = reactive(initialData());
 
 const isLoading = ref(false);
 const isModalOpen = ref(false);
+const submitted = ref(false);
 
 const inscripcion = computed(() => {
   if (form.incluyePaseo && !form.vieneAcompanante) {
@@ -91,6 +96,51 @@ const cuotasOptions = ref([
   { descripcion: "3 Cuotas", value: 3 },
 ]);
 
+const validations = {
+  required: helpers.withMessage("El campo es requerido", required),
+  email: helpers.withMessage("El email no es válido", email),
+  rutValid: helpers.withMessage("El RUT no es válido", (v) => validate(v)),
+};
+
+const rules = computed(() => {
+  return {
+    nombreCompleto: { required: validations.required },
+    rut: { required: validations.required, rutValid: validations.rutValid },
+    telefono: { required: validations.required },
+    correo: { required: validations.required, email: validations.email },
+    regional: { required: validations.required },
+    acompanante: form.vieneAcompanante
+      ? {
+          nombre: { required: validations.required },
+          rut: {
+            required: validations.required,
+            rutValid: validations.rutValid,
+          },
+          telefono: { required: validations.required },
+          correo: { required: validations.required, email: validations.email },
+        }
+      : {},
+    contactoEmergencia: {
+      nombre: { required: validations.required },
+      telefono: { required: validations.required },
+    },
+    comentarioRestriccionAlimentaria: form.restriccionAlimentaria
+      ? { required: validations.required }
+      : {},
+    trasladoPuertoVaras: { required: validations.required },
+  };
+});
+
+const v$ = useVuelidate(rules, form);
+
+function isInvalid(value) {
+  return value.$invalid && submitted.value;
+}
+
+function invalidMessage(value) {
+  return value.$message;
+}
+
 function redirectToML() {
   if (form.incluyePaseo && !form.vieneAcompanante) {
     window.location.href = "https://mpago.la/1znUdti"; // 250
@@ -107,7 +157,18 @@ function redirectToML() {
   window.location.href = "https://mpago.la/2TiWEuX"; // 170
 }
 
-async function pagarPorML() {
+async function pagarPorML(isFormValid) {
+  submitted.value = true;
+
+  if (!isFormValid) {
+    showToast({
+      severity: "error",
+      title: "Espera!",
+      message: "Aun faltan campos por completar",
+    });
+    return;
+  }
+
   isLoading.value = true;
   form.formaPago = "Mercado Libre";
   form.valorFinal = inscripcion.value;
@@ -135,7 +196,18 @@ async function pagarPorPlanilla() {
   }
 }
 
-function openModalCuotas() {
+function openModalCuotas(isFormValid) {
+  submitted.value = true;
+
+  if (!isFormValid) {
+    showToast({
+      severity: "error",
+      title: "Espera!",
+      message: "Aun faltan campos por completar",
+    });
+    return;
+  }
+
   form.cuotas = 1;
   isModalOpen.value = true;
 }
@@ -143,6 +215,32 @@ function openModalCuotas() {
 function closeModalCuotas() {
   form.cuotas = null;
   isModalOpen.value = false;
+}
+
+function formatRut(value) {
+  let localValue = value;
+
+  if (value.length > 3) {
+    localValue = format(value.replace("-", ""));
+  }
+  return localValue;
+}
+
+function rutPrincipal({ target: { value } }) {
+  form.rut = formatRut(value);
+}
+
+function rutAcompanante({ target: { value } }) {
+  form.acompanante.rut = formatRut(value);
+}
+
+function showToast({ severity, title, message }) {
+  toast.add({
+    severity: severity,
+    summary: title,
+    detail: message,
+    life: 3000,
+  });
 }
 </script>
 <template>
@@ -154,61 +252,115 @@ function closeModalCuotas() {
   >
     <Fieldset legend="Datos Personales" class="mb-3">
       <div class="grid">
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <InputText
               id="nombre"
-              placeholder="Nombre"
               type="text"
               v-model="form.nombreCompleto"
+              class="w-full"
+              :class="{ 'p-invalid': isInvalid(v$.nombreCompleto) }"
             />
+            <label
+              for="nombre"
+              :class="{ 'p-error': isInvalid(v$.nombreCompleto) }"
+            >
+              Nombre
+            </label>
           </div>
+          <small v-if="isInvalid(v$.nombreCompleto)" class="p-error">
+            {{ invalidMessage(v$.nombreCompleto.required) }}
+          </small>
         </div>
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <InputText
               id="rut"
-              placeholder="RUT"
               type="text"
               v-model="form.rut"
+              class="w-full"
+              :class="{ 'p-invalid': isInvalid(v$.rut) }"
+              @input="rutPrincipal"
             />
+            <label for="rut" :class="{ 'p-error': isInvalid(v$.rut) }">
+              RUT
+            </label>
           </div>
+          <small v-if="isInvalid(v$.rut) && !form.rut" class="p-error">
+            {{ invalidMessage(v$.rut.required) }}
+          </small>
+          <small v-if="isInvalid(v$.rut) && form.rut" class="p-error">
+            {{ invalidMessage(v$.rut.rutValid) }}
+          </small>
         </div>
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <InputText
               id="telefono"
-              placeholder="Teléfono"
               type="tel"
               v-model="form.telefono"
+              class="w-full"
+              :class="{ 'p-invalid': isInvalid(v$.telefono) }"
             />
+            <label
+              for="telefono"
+              :class="{ 'p-error': isInvalid(v$.telefono) }"
+            >
+              Teléfono
+            </label>
           </div>
+          <small v-if="isInvalid(v$.telefono)" class="p-error">
+            {{ invalidMessage(v$.telefono.required) }}
+          </small>
         </div>
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <InputText
               id="correo"
-              placeholder="Correo Electrónico"
+              class="w-full"
               type="email"
               v-model="form.correo"
+              :class="{ 'p-invalid': isInvalid(v$.correo) }"
             />
+            <label for="correo" :class="{ 'p-error': isInvalid(v$.correo) }">
+              Correo Electrónico
+            </label>
           </div>
+          <small v-if="isInvalid(v$.correo) && !form.correo" class="p-error">
+            {{ invalidMessage(v$.correo.required) }}
+          </small>
+          <small v-if="isInvalid(v$.correo) && form.correo" class="p-error">
+            {{ invalidMessage(v$.correo.email) }}
+          </small>
         </div>
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <Dropdown
+              id="regional"
               v-model="form.regional"
               :options="regionalOptions"
               optionLabel="nombre"
               optionValue="nombre"
               :filter="true"
-              placeholder="Seleccione una Región"
+              class="w-full"
               emptyMessage="No hay regiones"
+              :class="{ 'p-invalid': isInvalid(v$.regional) }"
             />
+            <label
+              for="regional"
+              :class="{ 'p-error': isInvalid(v$.regional) }"
+            >
+              Regional
+            </label>
           </div>
+          <small v-if="isInvalid(v$.regional)" class="p-error">
+            {{ invalidMessage(v$.regional.required) }}
+          </small>
         </div>
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup flex justify-content-center">
+        <div class="col-12 md:col-6 mt-1">
+          <div
+            class="p-inputgroup flex justify-content-center align-items-center"
+          >
             <p class="mr-3">Va con acompañante?</p>
             <ToggleButton
               id="tiene-acompanante"
@@ -228,71 +380,155 @@ function closeModalCuotas() {
       class="mb-3"
     >
       <div class="grid">
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <InputText
               id="nombre-acompanante"
-              placeholder="Nombre Acompañante"
+              class="w-full"
               type="text"
               v-model="form.acompanante.nombre"
+              :class="{ 'p-invalid': isInvalid(v$.acompanante.nombre) }"
             />
+            <label
+              for="nombre-acompanante"
+              :class="{ 'p-error': isInvalid(v$.acompanante.nombre) }"
+            >
+              Nombre Acompañante
+            </label>
           </div>
+          <small v-if="isInvalid(v$.acompanante.nombre)" class="p-error">
+            {{ invalidMessage(v$.acompanante.nombre.required) }}
+          </small>
         </div>
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <InputText
               id="rut-acompanante"
-              placeholder="RUT Acompañante"
+              class="w-full"
               type="text"
               v-model="form.acompanante.rut"
+              :class="{ 'p-invalid': isInvalid(v$.acompanante.rut) }"
+              @input="rutAcompanante"
             />
+            <label
+              for="rut-acompanante"
+              :class="{ 'p-error': isInvalid(v$.acompanante.rut) }"
+            >
+              RUT Acompañante
+            </label>
           </div>
+          <small
+            v-if="isInvalid(v$.acompanante.rut) && !form.acompanante.rut"
+            class="p-error"
+          >
+            {{ invalidMessage(v$.acompanante.rut.required) }}
+          </small>
+          <small
+            v-if="isInvalid(v$.acompanante.rut) && form.acompanante.rut"
+            class="p-error"
+          >
+            {{ invalidMessage(v$.acompanante.rut.rutValid) }}
+          </small>
         </div>
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <InputText
               id="telefono-acompanante"
-              placeholder="Teléfono Acompañante"
+              class="w-full"
               type="tel"
               v-model="form.acompanante.telefono"
+              :class="{ 'p-invalid': isInvalid(v$.acompanante.telefono) }"
             />
+            <label
+              for="telefono-acompanante"
+              :class="{ 'p-error': isInvalid(v$.acompanante.telefono) }"
+            >
+              Teléfono Acompañante
+            </label>
           </div>
+          <small v-if="isInvalid(v$.acompanante.telefono)" class="p-error">
+            {{ invalidMessage(v$.acompanante.telefono.required) }}
+          </small>
         </div>
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <InputText
               id="correo-acompanante"
-              placeholder="Correo Acompañante"
+              class="w-full"
               type="email"
               v-model="form.acompanante.correo"
+              :class="{ 'p-invalid': isInvalid(v$.acompanante.correo) }"
             />
+            <label
+              for="correo-acompanante"
+              :class="{ 'p-error': isInvalid(v$.acompanante.correo) }"
+            >
+              Correo Acompañante
+            </label>
           </div>
+          <small
+            v-if="isInvalid(v$.acompanante.correo) && !form.acompanante.correo"
+            class="p-error"
+          >
+            {{ invalidMessage(v$.acompanante.correo.required) }}
+          </small>
+          <small
+            v-if="isInvalid(v$.acompanante.correo) && form.acompanante.correo"
+            class="p-error"
+          >
+            {{ invalidMessage(v$.acompanante.correo.email) }}
+          </small>
         </div>
       </div>
     </Fieldset>
     <Fieldset legend="Contacto Emergencia" class="mb-3">
       <div class="grid">
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <InputText
               id="nombre-emergencia"
-              placeholder="Nombre Contacto"
               type="text"
               v-model="form.contactoEmergencia.nombre"
+              class="w-full"
+              :class="{ 'p-invalid': isInvalid(v$.contactoEmergencia.nombre) }"
             />
+            <label
+              for="nombre-emergencia"
+              :class="{ 'p-error': isInvalid(v$.contactoEmergencia.nombre) }"
+            >
+              Nombre Contacto
+            </label>
           </div>
+          <small v-if="isInvalid(v$.contactoEmergencia.nombre)" class="p-error">
+            {{ invalidMessage(v$.contactoEmergencia.nombre.required) }}
+          </small>
         </div>
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <InputText
               id="telefono-emergencia"
-              placeholder="Teléfono Contacto"
+              class="w-full"
               type="tel"
               v-model="form.contactoEmergencia.telefono"
+              :class="{
+                'p-invalid': isInvalid(v$.contactoEmergencia.telefono),
+              }"
             />
+            <label
+              for="telefono-emergencia"
+              :class="{ 'p-error': isInvalid(v$.contactoEmergencia.telefono) }"
+            >
+              Teléfono Contacto
+            </label>
           </div>
+          <small
+            v-if="isInvalid(v$.contactoEmergencia.telefono)"
+            class="p-error"
+          >
+            {{ invalidMessage(v$.contactoEmergencia.telefono.required) }}
+          </small>
         </div>
-        <div class="col-12 md:col-6">
+        <div class="col-12 md:col-6 mt-1">
           <div class="p-inputgroup flex justify-content-center">
             <ToggleButton
               id="tiene-restriccion-alimentaria"
@@ -304,34 +540,61 @@ function closeModalCuotas() {
             />
           </div>
         </div>
-        <div class="col-12 md:col-6" v-if="form.restriccionAlimentaria">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1" v-if="form.restriccionAlimentaria">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <InputText
               id="comentario-restriccion-alimentaria"
-              placeholder="Especifíque su Restriccion"
               type="tel"
+              class="w-full"
               v-model="form.comentarioRestriccionAlimentaria"
+              :class="{
+                'p-invalid': isInvalid(v$.comentarioRestriccionAlimentaria),
+              }"
             />
+            <label
+              for="comentario-restriccion-alimentaria"
+              :class="{
+                'p-error': isInvalid(v$.comentarioRestriccionAlimentaria),
+              }"
+            >
+              Especifíque su Restriccion
+            </label>
           </div>
+          <small
+            v-if="isInvalid(v$.comentarioRestriccionAlimentaria)"
+            class="p-error"
+          >
+            {{ invalidMessage(v$.comentarioRestriccionAlimentaria.required) }}
+          </small>
         </div>
       </div>
     </Fieldset>
     <Fieldset legend="Traslado" class="mb-3">
       <div class="grid">
-        <div class="col-12 md:col-6">
-          <div class="p-inputgroup">
+        <div class="col-12 md:col-6 mt-1">
+          <div class="p-inputgroup p-float-label flex flex-column">
             <Dropdown
               id="traslado-puerto-varas"
               v-model="form.trasladoPuertoVaras"
               :options="trasladoPVOptions"
               optionLabel="nombre"
               optionValue="value"
-              placeholder="Traslado hacia Puerto Varas"
+              class="w-full"
+              :class="{ 'p-invalid': isInvalid(v$.trasladoPuertoVaras) }"
             />
+            <label
+              for="traslado-puerto-varas"
+              :class="{ 'p-error': isInvalid(v$.trasladoPuertoVaras) }"
+            >
+              Traslado hacia Puerto Varas
+            </label>
           </div>
+          <small v-if="isInvalid(v$.trasladoPuertoVaras)" class="p-error">
+            {{ invalidMessage(v$.trasladoPuertoVaras.required) }}
+          </small>
         </div>
         <div
-          class="col-12 md:col-6"
+          class="col-12 md:col-6 mt-1"
           v-if="form.trasladoPuertoVaras === 'aereo'"
         >
           <div class="p-inputgroup flex justify-content-center">
@@ -345,7 +608,7 @@ function closeModalCuotas() {
             />
           </div>
         </div>
-        <div class="col-12 md:col-6">
+        <div class="col-12 md:col-6 mt-1">
           <div class="p-inputgroup flex justify-content-center">
             <ToggleButton
               id="requiere-transporte-hotel"
@@ -413,7 +676,7 @@ function closeModalCuotas() {
           <Button
             label="Pagar con Mercado Pago"
             class="px-3"
-            @click="pagarPorML"
+            @click="pagarPorML(!v$.$invalid)"
             :loading="isLoading"
           />
         </div>
@@ -423,7 +686,7 @@ function closeModalCuotas() {
           <Button
             label="Descuento por Planilla"
             class="px-3"
-            @click="openModalCuotas"
+            @click="openModalCuotas(!v$.$invalid)"
             :loading="isLoading"
           />
         </div>

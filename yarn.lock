@@ -28,6 +28,11 @@
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.18.6.tgz"
   integrity sha512-uQVSa9jJUe/G/304lXspfWVpKpK4euFLgGiMQFOCpM/bgcAdeoHwi/OQz23O9GK2osz26ZiXRRV9aV+Yl1O8tw==
 
+"@fiquu/cl-rut@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@fiquu/cl-rut/-/cl-rut-4.0.0.tgz#28073b08b46a142e576dc6772b75e1f17fd3d49e"
+  integrity sha512-v48g0zAmhF8iUy3yj+p96UTL7xrbHXL8W02st+09/TKUTxG4eMEeICH7dX8gXKZkJqePyCIJlVsGQPGjcMaVGw==
+
 "@firebase/analytics-compat@0.1.13":
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/@firebase/analytics-compat/-/analytics-compat-0.1.13.tgz#61e1d6f9e4d033c3ed9943d91530eb3e0f382f92"
@@ -628,6 +633,20 @@
   version "3.2.37"
   resolved "https://registry.npmjs.org/@vue/shared/-/shared-3.2.37.tgz"
   integrity sha512-4rSJemR2NQIo9Klm1vabqWjD8rs/ZaJSzMxkMNeJS6lHiUjjUeYFbooN19NgFjztubEKh3WlZUeOLVdbbUWHsw==
+
+"@vuelidate/core@^2.0.0-alpha.43":
+  version "2.0.0-alpha.43"
+  resolved "https://registry.yarnpkg.com/@vuelidate/core/-/core-2.0.0-alpha.43.tgz#f7eac52504c8948d6b2038f1b5b16ea976d96cc7"
+  integrity sha512-0/IoC8+A/wgNqmTIQc2eFYYnBlwIkvfM+riVDG1HAG3amdH7iNrFxNRkiHH/XJ810ZpOYPfYVslqYLbgq6E5HQ==
+  dependencies:
+    vue-demi "^0.13.4"
+
+"@vuelidate/validators@^2.0.0-alpha.31":
+  version "2.0.0-alpha.31"
+  resolved "https://registry.yarnpkg.com/@vuelidate/validators/-/validators-2.0.0-alpha.31.tgz#04d63307bc0a12db9f7ad94243350b83aacee998"
+  integrity sha512-+MFA9nZ7Y9zCpq383/voPDk/hiAmu6KqiJJhLOYB/FmrUPVoyKnuKnI9Bwiq8ok9GZlVkI8BnIrKPKGj9QpwiQ==
+  dependencies:
+    vue-demi "^0.13.4"
 
 abbrev@1:
   version "1.1.1"
@@ -2734,6 +2753,11 @@ vue-demi@*:
   version "0.13.1"
   resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.13.1.tgz"
   integrity sha512-xmkJ56koG3ptpLnpgmIzk9/4nFf4CqduSJbUM0OdPoU87NwRuZ6x49OLhjSa/fC15fV+5CbEnrxU4oyE022svg==
+
+vue-demi@^0.13.4:
+  version "0.13.6"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.13.6.tgz#f9433cbd75e68a970dec066647f4ba6c08ced48f"
+  integrity sha512-02NYpxgyGE2kKGegRPYlNQSL1UWfA/+JqvzhGCOYjhfbLWXU5QQX0+9pAm/R2sCOPKr5NBxVIab7fvFU0B1RxQ==
 
 vue-router@^4.0.16:
   version "4.0.16"
