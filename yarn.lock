@@ -28,6 +28,11 @@
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.18.6.tgz"
   integrity sha512-uQVSa9jJUe/G/304lXspfWVpKpK4euFLgGiMQFOCpM/bgcAdeoHwi/OQz23O9GK2osz26ZiXRRV9aV+Yl1O8tw==
 
+"@fiquu/cl-rut@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@fiquu/cl-rut/-/cl-rut-4.0.0.tgz#28073b08b46a142e576dc6772b75e1f17fd3d49e"
+  integrity sha512-v48g0zAmhF8iUy3yj+p96UTL7xrbHXL8W02st+09/TKUTxG4eMEeICH7dX8gXKZkJqePyCIJlVsGQPGjcMaVGw==
+
 "@firebase/analytics-compat@0.1.13":
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/@firebase/analytics-compat/-/analytics-compat-0.1.13.tgz#61e1d6f9e4d033c3ed9943d91530eb3e0f382f92"
