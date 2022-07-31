@@ -104,7 +104,13 @@ const download = () => {
 
 <template>
   <div>
-    <section id="hero-section"></section>
+    <section id="hero-section">
+      <div class="text-center pt-3 md:hidden">
+        <div class="">
+          <img src="@/assets/img/logo-navbar.png" alt="" width="150" />
+        </div>
+      </div>
+    </section>
     <div class="grid px-5 py-5 md:w-9 w-full mx-auto margen shadow-1">
       <div
         class="col-12 flex justify-content-start align-items-center font-bold text-6xl text-white -mb-3"
@@ -129,7 +135,7 @@ const download = () => {
           </p>
           <p>Bienvenidas y Bienvenidos a la Magia del Sur, los esperamos !!</p>
         </div>
-        <div class="col-12 md:col-5 mt-7 md:ml-5 ml-0">
+        <div class="col-12 md:col-5 md:mt-7 mt-3 md:ml-5 ml-0">
           <video
             width="100%"
             controls
@@ -166,7 +172,7 @@ const download = () => {
           <TabPanel header="Miércoles 30">
             <div class="grid">
               <div class="col-12 md:col-6">
-                <div class="px-5 fila text-justify mb-3">
+                <div class="px-5 fila text-justify md:mb-3 mb-0">
                   <p>
                     Damos comienzo a nuestra 50ᵃ Convención Nacional con la
                     Inauguración Oficial, que tendrá lugar en el Teatro del Lago
