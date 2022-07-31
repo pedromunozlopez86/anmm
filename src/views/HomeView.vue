@@ -104,20 +104,14 @@ const download = () => {
 
 <template>
   <div>
-    <section id="hero-section">
-      <div class="text-center pt-3 md:hidden">
-        <div class="">
-          <img src="@/assets/img/logo-navbar.png" alt="" width="150" />
-        </div>
-      </div>
-    </section>
-    <div class="grid px-5 py-5 md:w-9 w-full mx-auto margen shadow-1">
+    <section id="hero-section"></section>
+    <div class="grid px-2 md:px-5 py-5 md:w-9 w-full mx-auto margen shadow-1">
       <div
         class="col-12 flex justify-content-start align-items-center font-bold text-6xl text-white -mb-3"
       >
         Bienvenidos
       </div>
-      <div class="col-12 px-3 bg-white mt-0 grid">
+      <div class="col-12 pt-2 mx-0 md:px-3 bg-white mt-0 grid">
         <div
           class="col-12 md:col-6 md:mt-6 mt-2 text-justify px-3"
           id="text-header-left"
@@ -383,6 +377,11 @@ const download = () => {
   </div>
 </template>
 <style lang="scss" scoped>
+@media (max-width: 960px) {
+  .margen {
+    margin-top: -23rem !important;
+  }
+}
 .margen {
   margin-top: -10rem;
 }
@@ -429,6 +428,11 @@ const download = () => {
 }
 </style>
 <style scooped>
+@media (min-width: 960) {
+  .margen {
+    margin-top: -30rem !important;
+  }
+}
 #programa
   > div:nth-child(2)
   > div

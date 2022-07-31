@@ -109,83 +109,84 @@ const formatCurrency = (value) => {
 };
 </script>
 <template>
-  <section id="hero-section"></section>
-  <TitleContent title="Admin BD" title-icon="pi-server" class="-mt-8 mb-4">
-    <div>
-      <DataTable
-        :value="bd"
-        :paginator="true"
-        class="p-datatable-customers"
-        :rows="10"
-        dataKey="id"
-        :rowHover="true"
-        v-model:selection="selectedCustomers"
-        v-model:filters="filters"
-        filterDisplay="menu"
-        :loading="loading"
-        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-        :rowsPerPageOptions="[10, 25, 50]"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        :globalFilterFields="[
-          'name',
-          'country.name',
-          'representative.name',
-          'status',
-        ]"
-        responsiveLayout="scroll"
-      >
-        <template #header>
-          <div class="flex justify-content-center align-items-center">
-            <h5 class="m-0">Customers</h5>
-            <span class="p-input-icon-left">
-              <i class="pi pi-search" />
-              <InputText
-                v-model="filters['global'].value"
-                placeholder="Keyword Search"
-              />
-            </span>
-          </div>
-        </template>
-        <template #empty> No customers found. </template>
-        <template #loading> Loading customers data. Please wait. </template>
-
-        <Column
-          field="nombreCompleto"
-          header="Nombre"
-          sortable
-          style="min-width: 14rem"
+  <div>
+    <section id="hero-section"></section>
+    <TitleContent title="Admin BD" title-icon="pi-server" class="-mt-8 mb-4">
+      <div>
+        <DataTable
+          :value="bd"
+          :paginator="true"
+          class="p-datatable-customers"
+          :rows="10"
+          dataKey="id"
+          :rowHover="true"
+          v-model:selection="selectedCustomers"
+          v-model:filters="filters"
+          filterDisplay="menu"
+          :loading="loading"
+          paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+          :rowsPerPageOptions="[10, 25, 50]"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          :globalFilterFields="[
+            'name',
+            'country.name',
+            'representative.name',
+            'status',
+          ]"
+          responsiveLayout="scroll"
         >
-          <template #body="{ data }">
-            {{ data.nombreCompleto }}
+          <template #header>
+            <div class="flex justify-content-center align-items-center">
+              <h5 class="m-0">Customers</h5>
+              <span class="p-input-icon-left">
+                <i class="pi pi-search" />
+                <InputText
+                  v-model="filters['global'].value"
+                  placeholder="Keyword Search"
+                />
+              </span>
+            </div>
           </template>
-        </Column>
-        <Column field="rut" header="RUT" sortable="">
-          <template #body="{ data }">
-            {{ data.rut }}
-          </template>
-        </Column>
-        <Column field="telefono" header="Teléfono" sortable="">
-          <template #body="{ data }">
-            {{ data.telefono }}
-          </template>
-        </Column>
-        <Column field="correo" header="E-mail" sortable="">
-          <template #body="{ data }">
-            {{ data.correo }}
-          </template>
-        </Column>
-        <Column field="vieneAcompanante" header="Acompañante?" sortable="">
-          <template #body="{ data }">
-            <p v-if="data.vieneAcompanante">SI</p>
-            <p v-else>NO</p>
-          </template>
-        </Column>
-        <Column field="correo" header="E-mail" sortable="">
-          <template #body="{ data }">
-            {{ data.correo }}
-          </template>
-        </Column>
-        <!-- 
+          <template #empty> No customers found. </template>
+          <template #loading> Loading customers data. Please wait. </template>
+
+          <Column
+            field="nombreCompleto"
+            header="Nombre"
+            sortable
+            style="min-width: 14rem"
+          >
+            <template #body="{ data }">
+              {{ data.nombreCompleto }}
+            </template>
+          </Column>
+          <Column field="rut" header="RUT" sortable="">
+            <template #body="{ data }">
+              {{ data.rut }}
+            </template>
+          </Column>
+          <Column field="telefono" header="Teléfono" sortable="">
+            <template #body="{ data }">
+              {{ data.telefono }}
+            </template>
+          </Column>
+          <Column field="correo" header="E-mail" sortable="">
+            <template #body="{ data }">
+              {{ data.correo }}
+            </template>
+          </Column>
+          <Column field="vieneAcompanante" header="Acompañante?" sortable="">
+            <template #body="{ data }">
+              <p v-if="data.vieneAcompanante">SI</p>
+              <p v-else>NO</p>
+            </template>
+          </Column>
+          <Column field="correo" header="E-mail" sortable="">
+            <template #body="{ data }">
+              {{ data.correo }}
+            </template>
+          </Column>
+          <!-- 
        <
         <Column
           header="Agent"
@@ -322,9 +323,10 @@ const formatCurrency = (value) => {
             <Button type="button" icon="pi pi-cog"></Button>
           </template>
         </Column> -->
-      </DataTable>
-    </div>
-  </TitleContent>
+        </DataTable>
+      </div>
+    </TitleContent>
+  </div>
 </template>
 
 <style lang="scss" scoped>

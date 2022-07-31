@@ -65,6 +65,18 @@ const items = ref([
 </script>
 <template>
   <div class="grid">
+    <div
+      class="col-12 -mb-8 md:hidden flex align-items-center justify-content-center"
+    >
+      <div class="justify-content-center">
+        <img
+          src="@/assets/img/logo-navbar.png"
+          alt=""
+          height="50"
+          class="mt-2"
+        />
+      </div>
+    </div>
     <Menubar class="w-full" :model="items">
       <template #start>
         <div class="ml-6 w-full">
@@ -102,9 +114,6 @@ const items = ref([
             label="Contacto"
             @click="$router.push({ name: 'Contacto' })"
           />
-          <div class="bg-primary">
-            <img src="@/assets/img/logo-navbar.png" alt="" class="logo-img" />
-          </div>
         </div>
       </template>
     </Menubar>

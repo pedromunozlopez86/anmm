@@ -66,13 +66,16 @@ const parkInn = [
       </div>
     </TitleContent>
     <main>
-      <TitleContent class="mb-4">
-        <Accordion :multiple="true" :activeIndex="[0]">
-          <AccordionTab header="Ubicación" class="p-accordion-header-primary">
+      <TitleContent class="mb-4 px-0">
+        <Accordion :multiple="true" :activeIndex="[0]" class="px-0 mx-0">
+          <AccordionTab
+            header="Ubicación"
+            class="p-accordion-header-primary px-0"
+          >
             <div class="grid border-2 mb-3 surface-border">
-              <div class="col-6 mt-5 pl-3">
-                <h4>Inauguración – Teatro del Lago, Frutillar</h4>
-                <p class="text-justify">
+              <div class="col-12 md:col-6 mt-1 pl-1 md:pl-3">
+                <h4 class="mb-2">Inauguración – Teatro del Lago, Frutillar</h4>
+                <p class="md:text-justify text-left">
                   <span class="pl-3">La inauguración</span>
                   de la 50ᵃ Convención Nacional de Magistradas y Magistrados se
                   llevará a cabo en el Anfiteatro del Teatro del Lago,
@@ -80,7 +83,7 @@ const parkInn = [
                   Noviembre.
                 </p>
               </div>
-              <div class="col-6">
+              <div class="col-12 md:col-6">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.774836172697!2d-73.0276091837228!3d-41.139441079287664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96178d911f4ddd51%3A0x1eec1f8dc4878eec!2sAv.%20Philippi%201000%2C%20Frutillar%2C%20Los%20Lagos!5e0!3m2!1ses-419!2scl!4v1657667588018!5m2!1ses-419!2scl"
                   width="100%"
@@ -89,25 +92,25 @@ const parkInn = [
                   allowfullscreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
-                  class="px-4"
+                  class="px-0 md:px-4"
                 ></iframe>
               </div>
             </div>
 
             <div class="grid border-2 mb-3 surface-border">
-              <div class="col-6 pl-3">
-                <h4>
+              <div class="col-12 md:col-6 pl-1 md:pl-3">
+                <h4 class="mb-2">
                   Jornadas de Trabajo Convención – Hotel Bellavista, Puerto
                   Varas
                 </h4>
-                <p class="text-justify">
+                <p class="md:text-justify text-left">
                   <span class="pl-3">El desarrollo</span>
                   de las jornadas de trabajo de nuestra Convención se llevarán a
                   cabo en los salones de eventos del Hotel Bellavista, ubicado a
                   orillas del Lago Llanquihue.
                 </p>
               </div>
-              <div class="col-6">
+              <div class="col-12 md:col-6">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.537245246115!2d-72.98277488371956!3d-41.31892957927055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961826d9e51662c9%3A0xdb2c8ca0b72f3a14!2sHotel%20Bellavista!5e0!3m2!1ses-419!2scl!4v1657668346240!5m2!1ses-419!2scl"
                   width="100%"
@@ -116,21 +119,23 @@ const parkInn = [
                   allowfullscreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
-                  class="px-4"
+                  class="md:px-4 px-0"
                 ></iframe>
               </div>
             </div>
             <div class="grid border-2 mb-3 surface-border">
-              <div class="col-6 pl-3">
-                <h4>Fiesta de Gala – Hotel Cabaña del Lago, Puerto Varas</h4>
-                <p class="text-justify">
+              <div class="col-12 md:col-6 pl-0 pl-1 md:pl-3">
+                <h4 class="mb-2">
+                  Fiesta de Gala – Hotel Cabaña del Lago, Puerto Varas
+                </h4>
+                <p class="md:text-justify text-left">
                   <span class="pl-3">La</span> “Fiesta de las Máscaras” de la
                   Convención tendrá lugar en el salón Club House del Hotel
                   Cabaña del Lago el día Viernes 02 de Diciembre a partir de las
                   20:00 hrs.
                 </p>
               </div>
-              <div class="col-6">
+              <div class="col-12 md:col-6">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.793046060879!2d-72.98323818371969!3d-41.31336557927104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9618272843b74dad%3A0xeec2fc6e149b1e3e!2sHotel%20Caba%C3%B1a%20del%20Lago!5e0!3m2!1ses-419!2scl!4v1657668119349!5m2!1ses-419!2scl"
                   width="100%"
@@ -139,7 +144,7 @@ const parkInn = [
                   allowfullscreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
-                  class="px-4"
+                  class="md:px-4 px-0"
                 ></iframe>
               </div>
             </div>
@@ -159,7 +164,7 @@ const parkInn = [
               almuerzo de camaradería. Contenido paseo final en desarrollo.
             </p>
           </AccordionTab>
-          <AccordionTab header="Hoteleria">
+          <AccordionTab header="Hoteleria" class="mx-0">
             <div>
               <p>
                 <span class="pl-3">En esta</span> sección podrán encontrar
@@ -170,8 +175,8 @@ const parkInn = [
             </div>
             <div class="mt-5">
               <h3>Hotel Bellavista</h3>
-              <div class="ml-3">
-                <p>
+              <div class="ml-0 md:ml-3 mt-2">
+                <p class="py-1">
                   <strong> <i class="pi pi-map-marker"></i> Dirección: </strong>
                   <a
                     href="https://goo.gl/maps/YEpu4F8KiN2nEr6W7"
@@ -180,7 +185,7 @@ const parkInn = [
                     >Vicente Pérez Rosales 060, Puerto Varas</a
                   >
                 </p>
-                <p>
+                <p class="py-1">
                   <strong> <i class="pi pi-phone"></i> Teléfono: </strong>
                   <a
                     href="tel:+56652232021"
@@ -188,7 +193,7 @@ const parkInn = [
                     >65 223 2011</a
                   >
                 </p>
-                <p>
+                <p class="py-1">
                   <strong> <i class="pi pi-envelope"></i> E-Mail: </strong>
                   <a
                     href="mailto:reservas@hotelbellavista.cl"
@@ -198,11 +203,15 @@ const parkInn = [
                 </p>
               </div>
 
-              <div class="px-5 mt-5">
-                <DataTable :value="bellavista">
-                  <Column field="habitacion" header="Tipo de Habitación">
+              <div class="px-0 md:px-5 mt-5">
+                <DataTable :value="bellavista" class="col-12">
+                  <Column
+                    field="habitacion"
+                    header="Tipo de Habitación"
+                    class="px-0 mx-0"
+                  >
                   </Column>
-                  <Column field="tarifa" header="Tarifa"> </Column>
+                  <Column field="tarifa" header="Tarifa" class="px-0"> </Column>
                 </DataTable>
               </div>
             </div>
@@ -211,7 +220,7 @@ const parkInn = [
             <div class="mt-5">
               <h3>Hotel Cabaña del Lago</h3>
               <div class="ml-3">
-                <p>
+                <p class="py-1 pl-0">
                   <strong> <i class="pi pi-map-marker"></i> Dirección: </strong>
                   <a
                     href="https://g.page/hotel_cdl?share"
@@ -220,11 +229,11 @@ const parkInn = [
                     >Klenner 195, Puerto Varas</a
                   >
                 </p>
-                <p>
+                <p class="py-1">
                   <strong> <i class="pi pi-user"></i> Contacto: </strong>
                   Niscerelle Barrientos
                 </p>
-                <p>
+                <p class="py-1">
                   <strong> <i class="pi pi-phone"></i> Teléfono: </strong>
                   <a
                     href="tel:+56652200100"
@@ -232,7 +241,7 @@ const parkInn = [
                     >65 220 0100</a
                   >
                 </p>
-                <p>
+                <p class="py-1">
                   <strong> <i class="pi pi-envelope"></i> E-Mail: </strong>
                   <a
                     href="mailto:reservasgrupos@hcdl.cl"
@@ -242,9 +251,13 @@ const parkInn = [
                 </p>
               </div>
 
-              <div class="px-5 mt-5">
+              <div class="px-0 md:px-5 mt-5">
                 <DataTable :value="cabanaDelLago">
-                  <Column field="habitacion" header="Tipo de Habitación">
+                  <Column
+                    field="habitacion"
+                    header="Tipo de Habitación"
+                    class="px-0 mx-0"
+                  >
                   </Column>
                   <Column field="domJue" header="Tarifa Domingo a Jueves">
                   </Column>

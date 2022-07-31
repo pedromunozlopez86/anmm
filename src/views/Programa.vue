@@ -105,240 +105,247 @@ const download = () => {
 };
 </script>
 <template>
-  <section id="hero-section"></section>
+  <div>
+    <section id="hero-section"></section>
 
-  <TitleContent title="Programa" title-icon="pi-calendar" class="-mt-8 mb-4">
-    <div>
-      <p>
-        A continuación podrán encontrar el detalle de todas las actividades
-        programadas para nuestra Convención, con los horarios definidos para
-        cada jornada de principio a fin.
-      </p>
-    </div>
-  </TitleContent>
-
-  <main id="programa" class="px-8 py-5">
-    <div class="col-12 text-center">
-      <div class="flex align-items-center justify-content-center">
-        <i class="pi pi-calendar text-white mr-3"></i>
-        <h2 class="text-white">Programa</h2>
-      </div>
-      <div class="text-center my-5">
-        <p class="text-white px-8 mx-2 md:mx-8">
+    <TitleContent title="Programa" title-icon="pi-calendar" class="-mt-8 mb-4">
+      <div>
+        <p class="text-justify">
           A continuación podrán encontrar el detalle de todas las actividades
           programadas para nuestra Convención, con los horarios definidos para
           cada jornada de principio a fin.
         </p>
       </div>
-    </div>
-    <div class="col-12 md:col-10 md:col-offset-1 col-offset-0">
-      <TabView ref="tabview1" id="pestana-1">
-        <TabPanel header="Miércoles 30">
-          <div class="grid">
-            <div class="col-12 md:col-6">
-              <div class="px-5 fila text-justify mb-3">
-                <p>
-                  Damos comienzo a nuestra 50ᵃ Convención Nacional con la
-                  Inauguración Oficial, que tendrá lugar en el Teatro del Lago
-                  de Frutillar
-                </p>
-              </div>
-              <div class="text-center">
-                <Image
-                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Mie30.png?alt=media&token=6a76672b-e326-4252-a9b5-dd7a2b0d9fd6"
-                  alt="Mie-30"
-                  preview
-                  width="330"
-                />
-              </div>
-              <div class="text-center mt-3">
-                <Button
-                  class="p-button-sm p-button-outlined text-white"
-                  @click="download"
-                  >Descargar programa completo
-                  <i class="pi pi-file ml-2"></i>
-                </Button>
-              </div>
-            </div>
-            <div class="col-12 md:col-6">
-              <DataTable
-                responsiveLayout="scroll"
-                :value="miercoles"
-                :row-class="rowClass"
-              >
-                <Column field="hora">
-                  <template #body="slotProps">
-                    <div class="fila">
-                      <i class="pi pi-clock mr-2"></i>{{ slotProps.data.hora }}
-                    </div>
-                  </template>
-                </Column>
-                <Column field="detalle">
-                  <template #body="slotProps">
-                    <div class="fila">
-                      {{ slotProps.data.detalle }}
-                    </div>
-                  </template>
-                </Column>
-              </DataTable>
-            </div>
-          </div>
-        </TabPanel>
-        <TabPanel header="Jueves 01">
-          <div class="grid">
-            <div class="col-12 md:col-6 pt-5-">
-              <p class="px-5 fila text-justify mb-3">
-                El primer día de convención contempla la acreditación, primaria
-                de apertura y posterior trabajo de comisiones. Finalizamos la
-                jornada con una entretenida fiesta de los 80´s!
-              </p>
-              <br />
-              <div class="text-center">
-                <Image
-                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Jueves01.png?alt=media&token=d4ef8682-4487-44bb-b0d0-72b62c3b395b"
-                  alt="Mie-30"
-                  preview
-                  width="330"
-                />
-              </div>
-              <div class="text-center mt-3">
-                <Button
-                  class="p-button-sm p-button-outlined text-white"
-                  @click="download"
-                  >Descargar programa completo
-                  <i class="pi pi-file ml-2"></i>
-                </Button>
-              </div>
-            </div>
+    </TitleContent>
 
-            <div class="col-12 md:col-6">
-              <DataTable
-                responsiveLayout="scroll"
-                :value="jueves"
-                :row-class="rowClass"
-              >
-                <Column field="hora">
-                  <template #body="slotProps">
-                    <div class="fila">
-                      <i class="pi pi-clock mr-2"></i>{{ slotProps.data.hora }}
-                    </div>
-                  </template>
-                </Column>
-                <Column field="detalle">
-                  <template #body="slotProps">
-                    <div class="fila">
-                      {{ slotProps.data.detalle }}
-                    </div>
-                  </template>
-                </Column>
-              </DataTable>
-            </div>
-          </div>
-        </TabPanel>
-        <TabPanel header="Viernes 02">
-          <div class="grid">
-            <div class="col-12 md:col-6">
-              <p class="px-4 fila text-justify mb-3">
-                En el segundo y último día de trabajo se llevará a cabo una
-                plenaria de clausura dividida en módulos con diversos temas a
-                definir y votar, además de recibir los informes de comisiones y
-                demás órganos gremiales. Finalizamos la tarde con un almuerzo de
-                camaradería. Posteriormente, en la noche, cerramos nuestra
-                Convención con una Fiesta de Gala “Fiesta de las Máscaras”.
-              </p>
-              <div class="text-center">
-                <Image
-                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Viernes02.png?alt=media&token=412cb5b5-9ecf-4683-9d3c-36df8a52aafb"
-                  alt="Viernes02"
-                  preview
-                  width="330"
-                />
+    <main id="programa" class="md:px-8 px-0 pt-5 md:py-5">
+      <div class="col-12 text-center">
+        <div class="flex align-items-center justify-content-center">
+          <i class="pi pi-calendar text-white mr-3"></i>
+          <h2 class="text-white">Programa</h2>
+        </div>
+        <div class="text-center my-5">
+          <p class="text-white md:px-8 px-4 md:mx-8 text-justify">
+            A continuación podrán encontrar el detalle de todas las actividades
+            programadas para nuestra Convención, con los horarios definidos para
+            cada jornada de principio a fin.
+          </p>
+        </div>
+      </div>
+      <div class="col-12 md:col-10 md:col-offset-1 col-offset-0">
+        <TabView ref="tabview1" id="pestana-1">
+          <TabPanel header="Miércoles 30">
+            <div class="grid">
+              <div class="col-12 md:col-6">
+                <div class="px-5 fila text-justify md:mb-3 mb-0">
+                  <p>
+                    Damos comienzo a nuestra 50ᵃ Convención Nacional con la
+                    Inauguración Oficial, que tendrá lugar en el Teatro del Lago
+                    de Frutillar
+                  </p>
+                </div>
+                <div class="text-center">
+                  <Image
+                    src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Mie30.png?alt=media&token=6a76672b-e326-4252-a9b5-dd7a2b0d9fd6"
+                    alt="Mie-30"
+                    preview
+                    width="330"
+                  />
+                </div>
+                <div class="text-center mt-3">
+                  <Button
+                    class="p-button-sm p-button-outlined text-white"
+                    @click="download"
+                    >Descargar programa completo
+                    <i class="pi pi-file ml-2"></i>
+                  </Button>
+                </div>
               </div>
-              <div class="text-center mt-3">
-                <Button
-                  class="p-button-sm p-button-outlined text-white"
-                  @click="download"
-                  >Descargar programa completo
-                  <i class="pi pi-file ml-2"></i>
-                </Button>
-              </div>
-            </div>
-            <div class="col-12 md:col-6">
-              <DataTable
-                responsiveLayout="scroll"
-                :value="viernes"
-                :row-class="rowClass"
-              >
-                <Column field="hora">
-                  <template #body="slotProps">
-                    <div class="fila">
-                      <i class="pi pi-clock mr-2"></i>{{ slotProps.data.hora }}
-                    </div>
-                  </template>
-                </Column>
-                <Column field="detalle">
-                  <template #body="slotProps">
-                    <div class="fila">
-                      {{ slotProps.data.detalle }}
-                    </div>
-                  </template>
-                </Column>
-              </DataTable>
-            </div>
-          </div>
-        </TabPanel>
-        <TabPanel header="Sábado 03">
-          <div class="grid">
-            <div class="col-12 md:col-6">
-              <p class="px-5 fila text-justify">
-                El último día de la Convención será para realizar una actividad
-                de esparcimiento y camaradería, recorriendo hermosos destinos de
-                la zona.
-              </p>
-              <div class="text-center mt-5">
-                <Image
-                  src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Sabado03.png?alt=media&token=4845a488-0132-4f19-91b1-575912a2a6a8"
-                  alt="Viernes02"
-                  preview
-                  width="330"
-                />
-              </div>
-              <div class="text-center mt-3">
-                <Button
-                  class="p-button-sm p-button-outlined text-white"
-                  @click="download"
-                  >Descargar programa completo
-                  <i class="pi pi-file ml-2"></i>
-                </Button>
+              <div class="col-12 md:col-6">
+                <DataTable
+                  responsiveLayout="scroll"
+                  :value="miercoles"
+                  :row-class="rowClass"
+                >
+                  <Column field="hora">
+                    <template #body="slotProps">
+                      <div class="fila">
+                        <i class="pi pi-clock mr-2"></i
+                        >{{ slotProps.data.hora }}
+                      </div>
+                    </template>
+                  </Column>
+                  <Column field="detalle">
+                    <template #body="slotProps">
+                      <div class="fila">
+                        {{ slotProps.data.detalle }}
+                      </div>
+                    </template>
+                  </Column>
+                </DataTable>
               </div>
             </div>
-            <div class="col-12 md:col-6">
-              <DataTable
-                responsiveLayout="scroll"
-                :value="sabado"
-                :row-class="rowClass"
-              >
-                <Column field="hora">
-                  <template #body="slotProps">
-                    <div class="fila">
-                      <i class="pi pi-clock mr-2"></i>{{ slotProps.data.hora }}
-                    </div>
-                  </template>
-                </Column>
-                <Column field="detalle">
-                  <template #body="slotProps">
-                    <div class="fila">
-                      {{ slotProps.data.detalle }}
-                    </div>
-                  </template>
-                </Column>
-              </DataTable>
+          </TabPanel>
+          <TabPanel header="Jueves 01">
+            <div class="grid">
+              <div class="col-12 md:col-6 pt-5-">
+                <p class="px-5 fila text-justify mb-3">
+                  El primer día de convención contempla la acreditación,
+                  primaria de apertura y posterior trabajo de comisiones.
+                  Finalizamos la jornada con una entretenida fiesta de los 80´s!
+                </p>
+                <br />
+                <div class="text-center">
+                  <Image
+                    src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Jueves01.png?alt=media&token=d4ef8682-4487-44bb-b0d0-72b62c3b395b"
+                    alt="Mie-30"
+                    preview
+                    width="330"
+                  />
+                </div>
+                <div class="text-center mt-3">
+                  <Button
+                    class="p-button-sm p-button-outlined text-white"
+                    @click="download"
+                    >Descargar programa completo
+                    <i class="pi pi-file ml-2"></i>
+                  </Button>
+                </div>
+              </div>
+
+              <div class="col-12 md:col-6">
+                <DataTable
+                  responsiveLayout="scroll"
+                  :value="jueves"
+                  :row-class="rowClass"
+                >
+                  <Column field="hora">
+                    <template #body="slotProps">
+                      <div class="fila">
+                        <i class="pi pi-clock mr-2"></i
+                        >{{ slotProps.data.hora }}
+                      </div>
+                    </template>
+                  </Column>
+                  <Column field="detalle">
+                    <template #body="slotProps">
+                      <div class="fila">
+                        {{ slotProps.data.detalle }}
+                      </div>
+                    </template>
+                  </Column>
+                </DataTable>
+              </div>
             </div>
-          </div>
-        </TabPanel>
-      </TabView>
-    </div>
-  </main>
+          </TabPanel>
+          <TabPanel header="Viernes 02">
+            <div class="grid">
+              <div class="col-12 md:col-6">
+                <p class="px-4 fila text-justify mb-3">
+                  En el segundo y último día de trabajo se llevará a cabo una
+                  plenaria de clausura dividida en módulos con diversos temas a
+                  definir y votar, además de recibir los informes de comisiones
+                  y demás órganos gremiales. Finalizamos la tarde con un
+                  almuerzo de camaradería. Posteriormente, en la noche, cerramos
+                  nuestra Convención con una Fiesta de Gala “Fiesta de las
+                  Máscaras”.
+                </p>
+                <div class="text-center">
+                  <Image
+                    src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Viernes02.png?alt=media&token=412cb5b5-9ecf-4683-9d3c-36df8a52aafb"
+                    alt="Viernes02"
+                    preview
+                    width="330"
+                  />
+                </div>
+                <div class="text-center mt-3">
+                  <Button
+                    class="p-button-sm p-button-outlined text-white"
+                    @click="download"
+                    >Descargar programa completo
+                    <i class="pi pi-file ml-2"></i>
+                  </Button>
+                </div>
+              </div>
+              <div class="col-12 md:col-6">
+                <DataTable
+                  responsiveLayout="scroll"
+                  :value="viernes"
+                  :row-class="rowClass"
+                >
+                  <Column field="hora">
+                    <template #body="slotProps">
+                      <div class="fila">
+                        <i class="pi pi-clock mr-2"></i
+                        >{{ slotProps.data.hora }}
+                      </div>
+                    </template>
+                  </Column>
+                  <Column field="detalle">
+                    <template #body="slotProps">
+                      <div class="fila">
+                        {{ slotProps.data.detalle }}
+                      </div>
+                    </template>
+                  </Column>
+                </DataTable>
+              </div>
+            </div>
+          </TabPanel>
+          <TabPanel header="Sábado 03">
+            <div class="grid">
+              <div class="col-12 md:col-6">
+                <p class="px-5 fila text-justify">
+                  El último día de la Convención será para realizar una
+                  actividad de esparcimiento y camaradería, recorriendo hermosos
+                  destinos de la zona.
+                </p>
+                <div class="text-center mt-5">
+                  <Image
+                    src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Sabado03.png?alt=media&token=4845a488-0132-4f19-91b1-575912a2a6a8"
+                    alt="Viernes02"
+                    preview
+                    width="330"
+                  />
+                </div>
+                <div class="text-center mt-3">
+                  <Button
+                    class="p-button-sm p-button-outlined text-white"
+                    @click="download"
+                    >Descargar programa completo
+                    <i class="pi pi-file ml-2"></i>
+                  </Button>
+                </div>
+              </div>
+              <div class="col-12 md:col-6">
+                <DataTable
+                  responsiveLayout="scroll"
+                  :value="sabado"
+                  :row-class="rowClass"
+                >
+                  <Column field="hora">
+                    <template #body="slotProps">
+                      <div class="fila">
+                        <i class="pi pi-clock mr-2"></i
+                        >{{ slotProps.data.hora }}
+                      </div>
+                    </template>
+                  </Column>
+                  <Column field="detalle">
+                    <template #body="slotProps">
+                      <div class="fila">
+                        {{ slotProps.data.detalle }}
+                      </div>
+                    </template>
+                  </Column>
+                </DataTable>
+              </div>
+            </div>
+          </TabPanel>
+        </TabView>
+      </div>
+    </main>
+  </div>
 </template>
 
 <style lang="scss" scoped>
