@@ -1,9 +1,9 @@
 <script setup>
-import { RouterView } from 'vue-router'
-import TheFooter from './components/TheFooter.vue'
-import TheNavbar from './components/TheNavbar.vue'
+import { RouterView } from "vue-router";
+import TheFooter from "./components/TheFooter.vue";
+import TheNavbar from "./components/TheNavbar.vue";
 
-console.log('Versión 1.0 - PM')
+console.log("Versión 1.1 - PM");
 </script>
 
 <template>
