@@ -68,13 +68,15 @@ const items = ref([
     <div
       class="col-12 -mb-8 md:hidden flex align-items-center justify-content-center"
     >
-      <div class="justify-content-center">
-        <img
-          src="@/assets/img/logo-navbar.png"
-          alt=""
-          height="50"
-          class="mt-2"
-        />
+      <div class="justify-content-center z-5">
+        <router-link to="/" class="logo-nav">
+          <img
+            src="@/assets/img/logo-navbar.png"
+            alt=""
+            height="50"
+            class="mt-2"
+          />
+        </router-link>
       </div>
     </div>
     <Menubar class="w-full" :model="items">
@@ -120,6 +122,9 @@ const items = ref([
   </div>
 </template>
 <style scoped lang="scss">
+.logo-nav {
+  text-decoration: none;
+}
 .p-menubar {
   height: 5rem;
   background: linear-gradient(
@@ -214,5 +219,14 @@ a:hover {
   color: var(--azul-marino);
   font-weight: 400;
   font-size: large;
+}
+.router-link-exact-active[data-v-30300f61] {
+  text-decoration: none;
+  border: 0;
+}
+
+a[data-v-30300f61]:hover {
+  text-decoration: none;
+  border: 0;
 }
 </style>

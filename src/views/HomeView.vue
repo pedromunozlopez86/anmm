@@ -167,7 +167,7 @@ const download = () => {
             <div class="grid">
               <div class="col-12 md:col-6">
                 <div class="px-5 fila text-justify md:mb-3 mb-0">
-                  <p>
+                  <p class="pb-3">
                     Damos comienzo a nuestra 50ᵃ Convención Nacional con la
                     Inauguración Oficial, que tendrá lugar en el Teatro del Lago
                     de Frutillar

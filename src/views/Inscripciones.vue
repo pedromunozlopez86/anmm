@@ -38,7 +38,7 @@ function enviarAInscripcion() {
     <TitleContent
       title="Inscripciones"
       title-icon="pi-user-edit"
-      class="-mt-8 mb-4"
+      class="-mt-8 mb-4 w-full"
     >
       <p class="text-justify">
         <span class="pl-3">A continuación </span>
@@ -131,15 +131,19 @@ function enviarAInscripcion() {
       </div>
 
       <h3 class="mt-5 mb-4">Valores Generales:</h3>
-      <DataTable
-        :value="precioInscripciones"
-        stripedRows
-        responsiveLayout="scroll"
-        breakpoint="960px"
-      >
-        <Column field="item" header="Tipo Inscripción"></Column>
-        <Column field="valor" header="Valor"></Column>
-      </DataTable>
+      <div class="w-full">
+        <DataTable
+          :value="precioInscripciones"
+          stripedRows
+          responsiveLayout="scroll"
+          breakpoint="960px"
+          columnResizeMode="fit"
+        >
+          <Column field="item" header="Tipo Inscripción"></Column>
+          <Column field="valor" header="Valor"></Column>
+        </DataTable>
+      </div>
+
       <div class="mt-6 flex justify-content-center align-items-center">
         <Button
           label="Inscribete Aquí"

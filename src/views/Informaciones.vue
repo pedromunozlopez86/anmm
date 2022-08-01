@@ -198,13 +198,20 @@ const parkInn = [
                   <a
                     href="mailto:reservas@hotelbellavista.cl"
                     class="text-color hover:text-primary"
-                    >reservas@hotelbellavista.cl
+                  >
+                    <div class="text-overflow-ellipsis">
+                      reservas@hotelbellavista.cl
+                    </div>
                   </a>
                 </p>
               </div>
 
               <div class="px-0 md:px-5 mt-5">
-                <DataTable :value="bellavista" class="col-12">
+                <DataTable
+                  :value="bellavista"
+                  columnResizeMode="fit"
+                  responsiveLayout="scroll"
+                >
                   <Column
                     field="habitacion"
                     header="Tipo de Habitación"
@@ -219,7 +226,7 @@ const parkInn = [
 
             <div class="mt-5">
               <h3>Hotel Cabaña del Lago</h3>
-              <div class="ml-3">
+              <div class="ml-0 md:ml-3 mt-2">
                 <p class="py-1 pl-0">
                   <strong> <i class="pi pi-map-marker"></i> Dirección: </strong>
                   <a
@@ -252,7 +259,11 @@ const parkInn = [
               </div>
 
               <div class="px-0 md:px-5 mt-5">
-                <DataTable :value="cabanaDelLago">
+                <DataTable
+                  :value="cabanaDelLago"
+                  columnResizeMode="fit"
+                  responsiveLayout="scroll"
+                >
                   <Column
                     field="habitacion"
                     header="Tipo de Habitación"
@@ -270,8 +281,8 @@ const parkInn = [
 
             <div class="mt-5">
               <h3>Hotel Radisson</h3>
-              <div class="ml-3">
-                <p>
+              <div class="ml-0 md:ml-3 mt-2">
+                <p class="py-1 pl-0">
                   <strong> <i class="pi pi-map-marker"></i> Dirección: </strong>
                   <a
                     href="https://goo.gl/maps/a7yy85CY29tu3npW7"
@@ -280,11 +291,11 @@ const parkInn = [
                     >Del Salvador 024, Puerto Varas</a
                   >
                 </p>
-                <p>
+                <p class="py-1">
                   <strong> <i class="pi pi-user"></i> Contacto: </strong>
                   Pamela Binder
                 </p>
-                <p>
+                <p class="py-1">
                   <strong> <i class="pi pi-phone"></i> Teléfono: </strong>
                   <a
                     href="tel:+56652239620"
@@ -292,7 +303,7 @@ const parkInn = [
                     >65 223 9620</a
                   >
                 </p>
-                <p>
+                <p class="py-1">
                   <strong> <i class="pi pi-envelope"></i> E-Mail: </strong>
                   <a
                     href="mailto:reservas1@bookingradisson.cl"
@@ -300,7 +311,7 @@ const parkInn = [
                     >reservas1@bookingradisson.cl
                   </a>
                 </p>
-                <p>
+                <p class="py-1">
                   <strong>
                     <i class="pi pi-info-circle"></i> Código de Convenio:
                   </strong>
@@ -308,11 +319,19 @@ const parkInn = [
                   >(Deben proporcionar este código junto a su reserva)
                 </p>
               </div>
-              <div class="px-5 mt-5">
-                <DataTable :value="radisson">
-                  <Column field="habitacion" header="Tipo de Habitación">
+              <div class="px-0 md:px-5 mt-5">
+                <DataTable
+                  :value="radisson"
+                  columnResizeMode="fit"
+                  responsiveLayout="scroll"
+                >
+                  <Column
+                    field="habitacion"
+                    header="Tipo de Habitación"
+                    class="px-0 mx-0"
+                  >
                   </Column>
-                  <Column field="single" header="Single"> </Column>
+                  <Column field="single" header="Single" class="px-2"> </Column>
                   <Column field="doble" header="Doble"> </Column>
                 </DataTable>
               </div>
@@ -320,8 +339,8 @@ const parkInn = [
             <hr class="mt-4" />
             <div class="mt-5">
               <h3>Hotel Park Inn</h3>
-              <div class="ml-3">
-                <p>
+              <div class="ml-0 md:ml-3 mt-2">
+                <p class="py-1 pl-0">
                   <strong> <i class="pi pi-map-marker"></i> Dirección: </strong>
                   <a
                     href="https://goo.gl/maps/vHJc2JupmHMRddiN6"
@@ -330,11 +349,11 @@ const parkInn = [
                     >La Paz 471, Puerto Varas</a
                   >
                 </p>
-                <p>
+                <p class="py-1">
                   <strong> <i class="pi pi-user"></i> Contacto: </strong>
                   Pamela Binder
                 </p>
-                <p>
+                <p class="py-1">
                   <strong> <i class="pi pi-phone"></i> Teléfono: </strong>
                   <a
                     href="tel:+56652239620"
@@ -342,7 +361,7 @@ const parkInn = [
                     >65 223 9620</a
                   >
                 </p>
-                <p>
+                <p class="py-1">
                   <strong> <i class="pi pi-envelope"></i> E-Mail: </strong>
                   <a
                     href="mailto:reservas1@bookingradisson.cl"
@@ -350,7 +369,7 @@ const parkInn = [
                     >reservas1@bookingradisson.cl
                   </a>
                 </p>
-                <p>
+                <p class="py-1">
                   <strong>
                     <i class="pi pi-info-circle"></i> Código de Convenio:
                   </strong>
@@ -358,9 +377,17 @@ const parkInn = [
                   >(Deben proporcionar este código junto a su reserva)
                 </p>
               </div>
-              <div class="px-5 mt-5">
-                <DataTable :value="parkInn">
-                  <Column field="habitacion" header="Tipo de Habitación">
+              <div class="px-0 md:px-5 mt-5">
+                <DataTable
+                  :value="parkInn"
+                  columnResizeMode="fit"
+                  responsiveLayout="scroll"
+                >
+                  <Column
+                    field="habitacion"
+                    header="Tipo de Habitación"
+                    class="px-0 mx-0"
+                  >
                   </Column>
                   <Column field="single" header="Single"> </Column>
                   <Column field="doble" header="Doble"> </Column>
