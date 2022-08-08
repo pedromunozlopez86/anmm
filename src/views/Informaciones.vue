@@ -12,8 +12,8 @@ const bellavista = [
   { habitacion: "Suite", tarifa: "$  127.500 + IVA" },
 ];
 const cabanaDelLago = [
-  { habitacion: "Standard", domJue: "$59.000 + IVA", vieSab: "$75.000 + IVA" },
-  { habitacion: "Superior", domJue: "$79.000 + IVA", vieSab: "$95.000 + IVA" },
+  { habitacion: "Standard", singleDoble: "$75.000 + IVA" },
+  { habitacion: "Superior", singleDoble: "$95.000 + IVA" },
 ];
 
 const radisson = [
@@ -44,6 +44,11 @@ const parkInn = [
     doble: "$89.500 + IVA",
     triple: "$96.300 + IVA",
   },
+];
+
+const cumbres = [
+  { habitacion: "Single", valor: "$120.000 + IVA" },
+  { habitacion: "Doble", valor: "$130.000 + IVA" },
 ];
 </script>
 <template>
@@ -270,10 +275,7 @@ const parkInn = [
                     class="px-0 mx-0"
                   >
                   </Column>
-                  <Column field="domJue" header="Tarifa Domingo a Jueves">
-                  </Column>
-                  <Column field="vieSab" header="Tarifa Viernes y Sábado">
-                  </Column>
+                  <Column field="singleDoble" header="Single o Doble"> </Column>
                 </DataTable>
               </div>
             </div>
@@ -392,6 +394,56 @@ const parkInn = [
                   <Column field="single" header="Single"> </Column>
                   <Column field="doble" header="Doble"> </Column>
                   <Column field="triple" header="Triple"> </Column>
+                </DataTable>
+              </div>
+            </div>
+            <hr class="mt-4" />
+            <div class="mt-5">
+              <h3>Hotel Cumbres</h3>
+              <div class="ml-0 md:ml-3 mt-2">
+                <p class="py-1 pl-0">
+                  <strong> <i class="pi pi-map-marker"></i> Dirección: </strong>
+                  <a
+                    href="https://goo.gl/maps/yytabU4zd6K67ZSq9"
+                    class="text-color hover:text-primary"
+                    target="_blank"
+                    >Av. Imperial 0561, Puerto Varas</a
+                  >
+                </p>
+                <p class="py-1">
+                  <strong> <i class="pi pi-user"></i> Contacto: </strong>
+                  N/A
+                </p>
+                <p class="py-1">
+                  <strong> <i class="pi pi-phone"></i> Teléfono: </strong>
+                  <a
+                    href="tel:+56652222000"
+                    class="text-color hover:text-primary"
+                    >65 222 2000</a
+                  >
+                </p>
+                <p class="py-1">
+                  <strong> <i class="pi pi-envelope"></i> E-Mail: </strong>
+                  <a
+                    href="mailto:reservas@hotelcumbres.cl"
+                    class="text-color hover:text-primary"
+                    >reservas@hotelcumbres.cl
+                  </a>
+                </p>
+              </div>
+              <div class="px-0 md:px-5 mt-5">
+                <DataTable
+                  :value="cumbres"
+                  columnResizeMode="fit"
+                  responsiveLayout="scroll"
+                >
+                  <Column
+                    field="habitacion"
+                    header="Tipo de Habitación"
+                    class="px-0 mx-0"
+                  >
+                  </Column>
+                  <Column field="valor" header="Valor"> </Column>
                 </DataTable>
               </div>
             </div>
