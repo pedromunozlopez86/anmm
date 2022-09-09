@@ -93,7 +93,6 @@ const trasladoPVOptions = ref([
 const cuotasOptions = ref([
   { descripcion: "1 Cuota", value: 1 },
   { descripcion: "2 Cuotas", value: 2 },
-  { descripcion: "3 Cuotas", value: 3 },
 ]);
 
 const validations = {
