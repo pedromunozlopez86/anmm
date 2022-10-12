@@ -5,6 +5,7 @@ import Accordion from "primevue/accordion";
 import AccordionTab from "primevue/accordiontab";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
+import Galleria from "primevue/galleria";
 
 const bellavista = [
   { habitacion: "Single o Doble Standard", tarifa: "$  68.500 + IVA" },
@@ -49,6 +50,49 @@ const parkInn = [
 const cumbres = [
   { habitacion: "Single", valor: "$120.000 + IVA" },
   { habitacion: "Doble", valor: "$130.000 + IVA" },
+];
+
+const images = [
+  {
+    itemImageSrc:
+      "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/paseo1.jpg?alt=media&token=9ee62d87-fd1b-4afb-a3e6-66f3a430db51",
+    alt: "Paseo 1",
+  },
+  {
+    itemImageSrc:
+      "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/paseo2.jpg?alt=media&token=66ecf929-9d37-41a9-9245-0d4febba8a72",
+    alt: "Paseo 2",
+  },
+  {
+    itemImageSrc:
+      "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/paseo3.jpg?alt=media&token=695d8095-fb82-43b0-90a1-9459dd93ef80",
+    alt: "Paseo 3",
+  },
+  {
+    itemImageSrc:
+      "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/paseo4.jpg?alt=media&token=17259544-2e45-4f02-989e-1f8a2f8d1509",
+    alt: "Paseo 4",
+  },
+  {
+    itemImageSrc:
+      "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/paseo5.jpg?alt=media&token=e629d415-93ac-4207-adcf-34d1f87eec52",
+    alt: "Paseo 5",
+  },
+];
+
+const responsiveOptions = [
+  {
+    breakpoint: "1024px",
+    numVisible: 5,
+  },
+  {
+    breakpoint: "768px",
+    numVisible: 3,
+  },
+  {
+    breakpoint: "560px",
+    numVisible: 1,
+  },
 ];
 </script>
 <template>
@@ -162,12 +206,68 @@ const cumbres = [
             </p>
           </AccordionTab>
           <AccordionTab header="Paseo Final">
-            <p>
-              Para el día sábado 3 de Diciembre se contempla una excursión
-              durante todo el día por los hermosos destinos del entorno de
-              Puerto Varas, incluyendo transporte ida y vuelta y un gran
-              almuerzo de camaradería. Contenido paseo final en desarrollo.
-            </p>
+            <h4 class="mb-2">Paseo a Peulla convención Puerto Varas 2022</h4>
+            <br />
+            <p class="md:pl-3 pl-1">Programa:</p>
+            <div class="grid border-2 mt-5 surface-border md:mx-8 mx-1 py-3">
+              <div class="col-2 md:pl-5 pl-1">07:30</div>
+              <div class="col-10">
+                Hora de presentación en Oficina Turistour Puerto Varas
+              </div>
+              <div class="col-2 md:pl-5 pl-1">08:00</div>
+              <div class="col-10">Salida desde Puerto Varas</div>
+              <div class="col-2 md:pl-5 pl-1">09:00</div>
+              <div class="col-10">Entrada a Los Saltos de Petrohué</div>
+              <div class="col-2 md:pl-5 pl-1">10:30</div>
+              <div class="col-10">Zarpe de Petrohue a Peulla</div>
+              <div class="col-2 md:pl-5 pl-1">12:15</div>
+              <div class="col-10">Llegada a Peulla</div>
+              <div class="col-2 md:pl-5 pl-1">12:30</div>
+              <div class="col-10">Llegada a Hotel para Almuerzo</div>
+              <div class="col-2 md:pl-5 pl-1">14:00</div>
+              <div class="col-10">
+                Salida 2do turno Excursión Encanto o Mellizas
+              </div>
+              <div class="col-2 md:pl-5 pl-1">16:30</div>
+              <div class="col-10">Zarpe Peulla-Petrohue</div>
+              <div class="col-2 md:pl-5 pl-1">18:15</div>
+              <div class="col-10">Llegada a Petrohué</div>
+              <div class="col-2 md:pl-5 pl-1">19:15</div>
+              <div class="col-10">Llegada a Puerto Varas</div>
+            </div>
+            <br />
+            <p class="md:pl-3 pl-1">Video:</p>
+            <div class="flex justify-content-center my-4 pa-8">
+              <video
+                class="w-full"
+                controls
+                src="https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Apertura%20Villa%20Peulla%20-%20op2-a.mp4?alt=media&token=080bdf3b-565b-49f9-8a55-d2286f8ef691"
+              ></video>
+            </div>
+            <br />
+            <p class="md:pl-3 pl-1">Galería de fotos:</p>
+            <div class="flex justify-content-center my-4">
+              <Galleria
+                :value="images"
+                :responsiveOptions="responsiveOptions"
+                containerStyle="max-width: 640px;text-align: center"
+              >
+                <template #item="slotProps">
+                  <img
+                    :src="slotProps.item.itemImageSrc"
+                    :alt="slotProps.item.alt"
+                    style="width: 100%"
+                  />
+                </template>
+                <template #thumbnail="slotProps">
+                  <img
+                    :src="slotProps.item.itemImageSrc"
+                    :alt="slotProps.item.alt"
+                    style="width: 30%"
+                  />
+                </template>
+              </Galleria>
+            </div>
           </AccordionTab>
           <AccordionTab header="Hoteleria" class="mx-0">
             <div>

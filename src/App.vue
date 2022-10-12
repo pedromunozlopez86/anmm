@@ -3,7 +3,7 @@ import { RouterView } from "vue-router";
 import TheFooter from "./components/TheFooter.vue";
 import TheNavbar from "./components/TheNavbar.vue";
 
-console.log("Versión 1.2 - PM");
+console.log("Versión 1.3 - PM");
 </script>
 
 <template>
