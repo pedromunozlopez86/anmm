@@ -675,7 +675,7 @@ function showToast({ severity, title, message }) {
           </div>
         </div>
       </Fieldset>
-      <Fieldset legend="Pago">
+      <!-- <Fieldset legend="Pago">
         <div class="grid">
           <div class="p-2 col-12">
             <div
@@ -707,7 +707,7 @@ function showToast({ severity, title, message }) {
             />
           </div>
         </div>
-      </Fieldset>
+      </Fieldset> -->
     </TitleContent>
     <Dialog v-model:visible="isModalOpen" :modal="true">
       <template #header>

@@ -3,23 +3,23 @@ import TitleContent from "@/components/TitleContent.vue";
 import DocumentCard from "@/components/DocumentCard.vue";
 const documentos = [
   {
-    antetitulo: "Corte Suprema y gobierno judicial:",
-    titulo: "Un programa de reformas",
+    antetitulo: "",
+    titulo: "Orgánica del Consejo Superior",
     urlDocumento: "#",
   },
   {
-    antetitulo: "Cuenta anual:",
-    titulo: "Comisión de Gobierno Judicial 2020",
+    antetitulo: "",
+    titulo: "Responsabilidad y Evaluación de Desempeño",
     urlDocumento: "#",
   },
   {
-    antetitulo: "PJUD:",
-    titulo: "Propuesta de Reforma Constitucional",
+    antetitulo: "",
+    titulo: "Nombramiento de Juezas y Jueces. Nuevo Diseño de Carrera Judicial",
     urlDocumento: "#",
   },
   {
-    antetitulo: "Informe Relator Especial:",
-    titulo: "Independencia Judicial sobre Consejos Magistratura",
+    antetitulo: "",
+    titulo: "Administración CAPJ y Academia Judicial",
     urlDocumento: "#",
   },
 ];
@@ -36,7 +36,7 @@ function descargarDoc(value) {
       en Agosto próximo, por lo que serán informadas posterior a esta fecha.
     </p>
   </TitleContent>
-  <!-- <main class="grid py-5 w-9 m-auto">
+  <main class="grid py-5 w-9 m-auto">
     <div
       class="col-12 md:col-4 mb-4"
       v-for="doc in documentos"
@@ -44,7 +44,7 @@ function descargarDoc(value) {
     >
       <DocumentCard :documento="doc" @descargar-documento="descargarDoc" />
     </div>
-  </main> -->
+  </main>
 </template>
 <style lang="scss" scoped>
 #hero-section {

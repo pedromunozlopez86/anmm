@@ -144,13 +144,19 @@ function enviarAInscripcion() {
         </DataTable>
       </div>
 
-      <div class="mt-6 flex justify-content-center align-items-center">
+      <!-- <div class="mt-6 flex justify-content-center align-items-center">
         <Button
           label="Inscribete Aquí"
           icon="pi pi-user-edit"
           class="px-3"
           @click="enviarAInscripcion"
         />
+      </div> -->
+      <div class="mt-6 flex justify-content-center align-items-center">
+        <h3 class="text-red-500 text-bold">
+          Inscripciones Cerradas
+          <i class="pi pi-times-circle text-red-500"></i>
+        </h3>
       </div>
     </TitleContent>
   </div>
