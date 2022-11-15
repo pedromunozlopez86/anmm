@@ -9,38 +9,38 @@ import Image from "primevue/image";
 
 const miercoles = [
   {
-    hora: "19:00 - 21:00 hrs.",
+    hora: "19:00 hrs.",
     detalle: "Inauguración - Teatro del Lago Frutillar ",
   },
 ];
 
 const jueves = [
   {
-    hora: "08:30 - 09:30 hrs.",
+    hora: "08:30 hrs.",
     detalle: "Inicio Convención sala plenaria",
   },
   {
-    hora: "09:30 - 11:30 hrs.",
+    hora: "09:30 hrs.",
     detalle: "Derivación de Asociados a Mesas de Trabajo.",
   },
   {
-    hora: "11:30 - 11:45 hrs.",
+    hora: "11:30 hrs.",
     detalle: "Coffee Break",
   },
   {
-    hora: "11:45 - 13:30 hrs.",
+    hora: "11:45 hrs.",
     detalle: "Mesa de Trabajo.",
   },
   {
-    hora: "13:30 - 15:00 hrs.",
+    hora: "13:30 hrs.",
     detalle: "Almuerzo",
   },
   {
-    hora: "15:00 - 17:00 hrs.",
+    hora: "15:00 hrs.",
     detalle: "Mesa de Trabajo",
   },
   {
-    hora: "17:00 - 18:30 hrs.",
+    hora: "17:00 hrs.",
     detalle: "Coffee Break",
   },
   {
@@ -55,19 +55,19 @@ const jueves = [
 
 const viernes = [
   {
-    hora: "08:30 - 11:00 hrs.",
+    hora: "08:30 hrs",
     detalle: "Conclusión Trabajo de Cada Mesa",
   },
   {
-    hora: "11:00 - 11:30 hrs.",
+    hora: "11:00 hrs.",
     detalle: "Coffee Break",
   },
   {
-    hora: "11:30 - 14:00 hrs.",
+    hora: "11:30 hrs.",
     detalle: "Plenaria de Votación y Clausura de Trabajo Gremial",
   },
   {
-    hora: "14:00 - 15:00 hrs.",
+    hora: "14:00 hrs.",
     detalle: "Almuerzo y termino Jornada de Trabajo.",
   },
   {
@@ -97,7 +97,7 @@ const dataClass = () => {
 };
 const download = () => {
   window.open(
-    "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAG%20ISTRADOS%20PUERTO%20VARAS%20AN%CC%83O%202022.pdf?alt=media&token=a8f488ed-fb82-450f-85c2-4d4c907f4e89"
+    "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Programa.pdf?alt=media&token=2f84b3c7-870c-4a22-9873-711197096bd5"
   );
 };
 </script>
