@@ -100,8 +100,9 @@ const dataClass = () => {
 };
 
 const download = () => {
-  document.location.href =
-    "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/PROGRAMA%20COVENCION%20NACIONAL%20DE%20MAGISTRADOS%20PUERTO%20VARAS%20AO%202022.doc?alt=media&token=19057e1f-e6f5-44d2-be36-fd4a22859821";
+  window.open(
+    "https://firebasestorage.googleapis.com/v0/b/anmm-637de.appspot.com/o/Programa.pdf?alt=media&token=2f84b3c7-870c-4a22-9873-711197096bd5"
+  );
 };
 </script>
 <template>
