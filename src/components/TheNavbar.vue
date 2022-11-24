@@ -70,12 +70,7 @@ const items = ref([
     >
       <div class="justify-content-center z-5">
         <router-link to="/" class="logo-nav">
-          <img
-            src="@/assets/img/logo-navbar.png"
-            alt=""
-            height="50"
-            class="mt-2"
-          />
+          <img src="@/assets/img/logo-1.png" alt="" height="50" class="mt-2" />
         </router-link>
       </div>
     </div>
