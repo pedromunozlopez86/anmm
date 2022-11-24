@@ -187,7 +187,7 @@ a:hover {
 .logo-img {
   margin-top: 4.5rem;
   height: 6.25rem;
-  filter: invert(100%);
+  // filter: invert(100%);
 }
 
 @media screen and (max-width: 960px) {
